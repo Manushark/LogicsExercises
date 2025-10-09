@@ -114,6 +114,8 @@
         /// Estructuras C#
         // Array
         double[] array = { 5, 3, 8, 1, 99, 88, 0 };
+        //foreach (var items in array) { Console.WriteLine($"Elemento del array: {items}"); }
+        Array.Sort(array);//ordenar de mayor a menor
         //for (int i = 0; i < array.Length; i++){Console.WriteLine($"Elemento del array en posición {i}: {array[i]}");}
         foreach (var items in array) { Console.WriteLine($"Elemento del array: {items}");}
         Console.WriteLine($"El promedio del array es: {array.Average()} ");
@@ -125,7 +127,67 @@
 
         // List
         List<string> list1 = new List<string> { "Manzana", "Banana", "Cereza" };
+        list1.Remove("Banana");
+        foreach (var l in list1)
+        {
+            Console.WriteLine($"Elemento de la lista: {l}");
+        }
+        list1.Add("Chesse");
+        list1.Sort();
+        Console.WriteLine("Lista ordenada:");
+        list1.ForEach(item => Console.WriteLine($"Elemento de la lista ordenada: {item}"));
+        list1.Insert(3, "Naranja");
+        list1.ForEach(item => Console.WriteLine($"Elemento de la lista con inserción: {item}"));
+        list1.Clear();
+       
+        //Dictionary
+        Dictionary<int, string> dictionary = new Dictionary<int, string>
+        {
+            {1, "Uno"},
+            {2, "Dos"},
+            {3, "Tres"}
+        };
+        dictionary.Add(4, "Cuatro");
+        dictionary.Remove(2);
+        dictionary.TryAdd(0, "Cero");
+        foreach (var kvp in dictionary)
+        {
+            Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
+        }
 
+        //HashSet
+        HashSet<char> hashSet = new HashSet<char> { 'A', 'B', 'C' };
+        hashSet.Add('D');
+        hashSet.Remove('B');
+        foreach (var item in hashSet)
+        {
+            Console.WriteLine($"Elemento del HashSet: {item}");
+        }
+
+        //Queue
+        Queue<string> queue = new Queue<string>();
+        queue.Enqueue("Primero");
+        queue.Enqueue("Segundo");
+        queue.Enqueue("Tercero");
+        queue.Count.ToString();
+        Console.WriteLine($"Elemento al frente de la cola: {queue.Peek()}");
+        while (queue.Count > 0)
+        {
+            Console.WriteLine($"Desencolando: {queue.Dequeue()}");
+        }
+        //Stack
+        Stack<int> stack = new Stack<int>();
+        stack.Push(1);
+        stack.Push(2);
+        stack.Push(3);
+        stack.Count.ToString();
+        Console.WriteLine($"Elemento en la cima de la pila: {stack.Peek()}");
+        while (stack.Count > 0)
+        {
+            Console.WriteLine($"Desapilando: {stack.Pop()}");
+        }
+
+        //DIFICULTAD EXTRA(opcional):
 
 
 
