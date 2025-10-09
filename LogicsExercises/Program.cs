@@ -155,35 +155,43 @@
             Console.WriteLine($"Clave: {kvp.Key}, Valor: {kvp.Value}");
         }
 
+        Console.WriteLine("=======================================");
         //HashSet
-        HashSet<char> hashSet = new HashSet<char> { 'A', 'B', 'C' };
+        // HashSet es una colección de elementos únicos, no permite duplicados y no garantiza el orden.
+        HashSet<int> hashSet = new HashSet<int> { 'D', 'B', 'C' };
         hashSet.Add('D');
         hashSet.Remove('B');
         foreach (var item in hashSet)
         {
             Console.WriteLine($"Elemento del HashSet: {item}");
         }
+        Console.WriteLine("=======================================");
 
         //Queue
+        // Queue es una cola (FIFO: First In, First Out)
         Queue<string> queue = new Queue<string>();
-        queue.Enqueue("Primero");
+        queue.Enqueue("Primero");// Enqueue(x) → agrega un elemento al final
         queue.Enqueue("Segundo");
         queue.Enqueue("Tercero");
         queue.Count.ToString();
         Console.WriteLine($"Elemento al frente de la cola: {queue.Peek()}");
         while (queue.Count > 0)
         {
+            // Dequeue() elimina y devuelve el elemento al frente o sea que te da el orden y lo borra
             Console.WriteLine($"Desencolando: {queue.Dequeue()}");
         }
+
         //Stack
+        // Stack es una pila (LIFO: Last In, First Out)
         Stack<int> stack = new Stack<int>();
         stack.Push(1);
         stack.Push(2);
         stack.Push(3);
         stack.Count.ToString();
-        Console.WriteLine($"Elemento en la cima de la pila: {stack.Peek()}");
+        Console.WriteLine($"Elemento en la cima de la pila: {stack.Peek()}");//te dice cual es el ultimo elemento que se ha metido
         while (stack.Count > 0)
         {
+            // Pop() elimina y devuelve el elemento de la cima
             Console.WriteLine($"Desapilando: {stack.Pop()}");
         }
 
