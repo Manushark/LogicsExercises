@@ -1,4 +1,7 @@
-﻿public class Program
+﻿using System.Linq.Expressions;
+using LogicsExercises;
+
+public class Program
 {
     public static void Main()
     {
@@ -117,7 +120,7 @@
         //foreach (var items in array) { Console.WriteLine($"Elemento del array: {items}"); }
         Array.Sort(array);//ordenar de mayor a menor
         //for (int i = 0; i < array.Length; i++){Console.WriteLine($"Elemento del array en posición {i}: {array[i]}");}
-        foreach (var items in array) { Console.WriteLine($"Elemento del array: {items}");}
+        foreach (var items in array) { Console.WriteLine($"Elemento del array: {items}"); }
         Console.WriteLine($"El promedio del array es: {array.Average()} ");
         Console.WriteLine($"El valor máximo del array es: {array.Max()} ");
         Console.WriteLine($"El valor mínimo del array es: {array.Min()} ");
@@ -139,7 +142,7 @@
         list1.Insert(3, "Naranja");
         list1.ForEach(item => Console.WriteLine($"Elemento de la lista con inserción: {item}"));
         list1.Clear();
-       
+
         //Dictionary
         Dictionary<int, string> dictionary = new Dictionary<int, string>
         {
@@ -196,6 +199,51 @@
         }
 
         //DIFICULTAD EXTRA(opcional):
+        int option;
+        bool exit = true;
+        List<Support> numberlist = new List<Support>();
+       
+        while (exit)
+        {
+            Console.WriteLine($"Bienvenido a la agenda de contactos");
+            Console.WriteLine($"Seleccione una opción:");
+            Console.WriteLine($"1. Añadir contacto");
+            Console.WriteLine($"2. Buscar contacto");
+            Console.WriteLine($"3. Actualizar contacto");
+            Console.WriteLine($"4. Eliminar contacto");
+            Console.WriteLine($"5. Salir");
+
+            if (int.TryParse(Console.ReadLine(), out option) && option >= 1 && option <= 5) { }
+            else
+            {
+                Console.WriteLine($"Por favor, introduce un número válido entre 1 y 5.");
+                return;
+            }
+
+
+
+            switch (option)
+            {
+
+                case 1:
+                    Console.WriteLine($"Introduce el nombre del contacto:");
+                    Support numberlist = new Support();
+                    string name = Console.ReadLine();
+
+
+                    break;
+           
+            
+            }
+            
+
+
+
+
+        }
+    
+    } 
+}
 
 
 
@@ -220,9 +268,4 @@
 
 
 
-
-
-    }
-
-}
 

@@ -6,14 +6,24 @@ using System.Threading.Tasks;
 
 namespace LogicsExercises
 {
-    public  class Support
+    public class Support
     {
-        private static int idCouter = 0;
-        private int Id { get; set; }
-        private string Name { get; set; }
-        private int PhoneNumber { get; set; }
+        private static int idCounter = 0;
+        public int Id { get; } // solo lectura
+        public string Name { get; set; }
+        public int PhoneNumber { get; set; }
+
+        public Support(string name, int phoneNumber)
+        {
+            idCounter++;
+            Id = idCounter;
+            Name = name;
+            PhoneNumber = phoneNumber;
+        }
     }
 
-
 }
+
+
+
 
