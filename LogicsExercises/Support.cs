@@ -11,15 +11,17 @@ namespace LogicsExercises
         private static int idCounter = 0;
         public int Id { get; } // solo lectura
         public string Name { get; set; }
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }///Siempre que un “número” no se vaya a usar para cálculos matemáticos, es mejor guardarlo como string.
+                                               ///Ejemplos: teléfono, código postal, Cedula, tarjeta de crédito.
 
-        public Support(string name, int phoneNumber)
+        public Support(string name, string phoneNumber)
         {
             idCounter++;
             Id = idCounter;
             Name = name;
             PhoneNumber = phoneNumber;
         }
+       
     }
 
 }
