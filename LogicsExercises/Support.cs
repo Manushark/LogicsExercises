@@ -22,6 +22,14 @@ namespace LogicsExercises
             PhoneNumber = phoneNumber;
         }
        
+        public void mostarContactos()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"\n--- Tarea #{Id} ---");
+            Console.ResetColor();
+            Console.WriteLine($"-Nombre: {Name}");
+            Console.WriteLine($"-Telefono: {PhoneNumber}");
+        }
     }
 
 }

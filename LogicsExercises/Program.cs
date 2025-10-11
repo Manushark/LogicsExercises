@@ -257,9 +257,48 @@ public class Program
                         Console.WriteLine("=======================================");
                     }
                     break;
-           
-            
+
+                case 2:
+                    Console.Write("Introduce el ID del contacto a buscar: ");
+                    if (!int.TryParse(Console.ReadLine(), out int OneCont)) 
+                        { Console.WriteLine("Esa contacto no se encuentra"); continue;}
+                   
+                        var query = from i in numberlist
+                                    where i.Id == OneCont
+                                    select i;
+                    
+                    if (query.Any())
+                    {                         
+                        foreach (var i in query)
+                        {
+                            i.mostarContactos();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No se encontro el contacto");
+                    }
+                        Console.ReadKey();
+                        Console.Clear();
+                    break;
+
+                case 3:
+                    //actualizar contacto
+                    break;
+
+                case 4:
+                    //eliminar contacto
+                    break;
+
+                case 5:
+                    exit = true;
+                    Console.ForegroundColor= ConsoleColor.Magenta;
+                    Console.WriteLine("Saliendo del programa. ¡Hasta luego!");
+                    Console.ResetColor();
+                    break;
+
             }
+
             
 
 
