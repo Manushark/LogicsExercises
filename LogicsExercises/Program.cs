@@ -1,4 +1,5 @@
 ﻿using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 using LogicsExercises;
 
 public class Program
@@ -283,11 +284,61 @@ public class Program
                     break;
 
                 case 3:
-                    //actualizar contacto
+                    Console.WriteLine("Introduzca el Id del contacto de desea aditar: ");
+                    if (int.TryParse(Console.ReadLine(), out int omg))
+                    {
+                        var edit = numberlist.Where ( i => i.Id == omg);
+
+                        if (edit.Any())
+                        {
+                            foreach (var contact in edit)// se utiliza la variable contact para modificar directamente el objeto en la lista
+                            {
+                                Console.WriteLine($"Editando contacto: {contact.Name}, Telefono {contact.PhoneNumber}");
+                                Console.Write("Nuevo nombre: ");
+                                contact.Name = Console.ReadLine();
+                                Console.Write("Nuevo telefono: ");
+                                contact.PhoneNumber = Console.ReadLine();
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No se encontro el contacto");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No se encontro el contacto");
+                    }
+                    Console.Clear();
                     break;
 
                 case 4:
-                    //eliminar contacto
+
+                    Console.WriteLine("Introduzca el Id del contacto de desea eliminar: ");
+                    if (int.TryParse(Console.ReadLine(), out int kl))
+                    {
+                        var delete = numberlist.Where(i => i.Id == kl).ToList();//ToList() para poder eliminar despues de hacer la consulta porque no se puede modificar la lista mientras se itera sobre ella.
+
+                        if (delete.Any())
+                        {
+                            foreach (var contact in delete)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine($"El contacto {contact.Name} ha sido eliminado");
+                                Console.ResetColor();
+                                numberlist.Remove(contact);
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("No se encontro el contacto");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No se encontro el contacto");
+                    }
+                    
                     break;
 
                 case 5:
@@ -297,29 +348,14 @@ public class Program
                     Console.ResetColor();
                     break;
 
+                    default:
+                    Console.WriteLine("Opcion Invalida");
+                    break;
             }
-
-            
-
-
-
-
         }
     
     } 
 }
-
-
-
-
-
-
-
-
-
-
-
-
         #endregion
 
 
