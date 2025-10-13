@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LogicsExercises
+namespace LogicsExercises.Reto_02
 {
     public class Support
     {
