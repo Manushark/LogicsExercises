@@ -10,7 +10,7 @@ public class Program
 {
     public static void Main()
     {
-        Reto_02.Run();
+        Reto_03.Run();
     }
 }
 
