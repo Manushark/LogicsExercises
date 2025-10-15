@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -142,6 +143,76 @@ namespace LogicsExercises.Reto_03
             string vacia = "";
             Console.WriteLine($"¿Está vacía? {string.IsNullOrEmpty(vacia)}");
             // evitar errores antes de procesar cadenas vacías o nulas.
+
+            // Ejercicio extra: Comprobaciones de palíndromos, anagramas e isogramas
+             
+
+            
+
         }
+        public static bool Palindromo()
+        {
+            Console.WriteLine("Ingrese una palabra para saber si es palíndroma:");
+            string palabra = Console.ReadLine().ToLower();
+
+            string invertida = new string(palabra.Reverse().ToArray()); // Invertimos la palabra usando Reverse() y convertimos a string
+
+            // Comparamos original con invertida
+            if (palabra == invertida)
+            {
+                Console.WriteLine("Es palíndroma");
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("No es palíndroma");
+                return false;
+            }
+        }
+
+        public static void anagrama()
+        {
+            Console.WriteLine("Ingrese la primera palabra:");
+            string str1 = Console.ReadLine();
+
+            Console.WriteLine("Ingrese la segunda palabra:");
+            string str2 = Console.ReadLine();
+
+            str1 = str1.ToLower();
+            str2 = str2.ToLower();
+
+            // Ordenamos los caracteres de ambas palabras
+            string ordenada1 = new string(str1.OrderBy(c => c).ToArray());
+            string ordenada2 = new string(str2.OrderBy(c => c).ToArray());
+
+            // Comparamos las palabras ordenadas
+            if (ordenada1 == ordenada2)
+                Console.WriteLine("Son anagramas.");
+            else
+                Console.WriteLine("No son anagramas.");
+            Console.ReadKey();
+        }
+
+        public static void Isograma()
+        {
+            Console.WriteLine("Ingrese una palabra:");
+            string palabra = Console.ReadLine().ToLower(); // Convertimos a minúsculas
+
+            HashSet<char> letras = new HashSet<char>(); // Almacena letras únicas
+
+            // Recorremos cada letra
+            foreach (char c in palabra)
+            {
+                if (letras.Contains(c))
+                {
+                    Console.WriteLine("No es un isograma."); // Hay letra repetida
+                    return; // Terminamos el método
+                }
+                letras.Add(c); // Agregamos la letra al conjunto
+            }
+
+            Console.WriteLine("Es un isograma."); // Ninguna letra se repitió
+        }
+
     }
 }

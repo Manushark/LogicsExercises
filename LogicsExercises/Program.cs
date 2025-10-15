@@ -10,7 +10,8 @@ public class Program
 {
     public static void Main()
     {
-        Reto_03.Run();
+        Reto_03.Isograma();
+
     }
 }
 
