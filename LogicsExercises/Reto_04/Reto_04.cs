@@ -100,4 +100,7 @@ namespace LogicsExercises.Reto_04
             return varibleGlobal;
         }
     }
+
+    //DIFICULTAD EXTRA(opcional):
+
 }

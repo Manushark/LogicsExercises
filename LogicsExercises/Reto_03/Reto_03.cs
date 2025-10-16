@@ -143,13 +143,9 @@ namespace LogicsExercises.Reto_03
             string vacia = "";
             Console.WriteLine($"¿Está vacía? {string.IsNullOrEmpty(vacia)}");
             // evitar errores antes de procesar cadenas vacías o nulas.
-
-            // Ejercicio extra: Comprobaciones de palíndromos, anagramas e isogramas
-             
-
-            
-
         }
+
+        // Ejercicio extra: Comprobaciones de palíndromos, anagramas e isogramas
         public static bool Palindromo()
         {
             Console.WriteLine("Ingrese una palabra para saber si es palíndroma:");
