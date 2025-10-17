@@ -26,6 +26,9 @@ public class Program
         Console.WriteLine(sum);
         string varG = Reto_04.global();
         Console.WriteLine(varG);
+
+        Console.WriteLine("==========");
+        Reto_04.algo("Te", "Extrano");
     }
 }
 

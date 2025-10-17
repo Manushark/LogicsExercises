@@ -99,8 +99,35 @@ namespace LogicsExercises.Reto_04
         {
             return varibleGlobal;
         }
-    }
 
-    //DIFICULTAD EXTRA(opcional):
 
+        //DIFICULTAD EXTRA(opcional):
+
+        public static int algo(string PrimerMensaje, string SecondMessege)
+        {
+            int nums = 0; // es necesario un contador para que los numeros normales se impriman
+            for (int i = 1; i <= 100; i++)
+            {
+                if (i % 3 == 0 && i % 5 == 0)// La condición de múltiplo de 3 y 5 va primero para que se ejecute antes que las individuales.
+
+                {
+                    Console.WriteLine(PrimerMensaje + " " + SecondMessege);
+                }
+                else if (i % 3 == 0)
+                {
+                    Console.WriteLine(PrimerMensaje);
+                }
+                else if (i %  5== 0)
+                {
+                    Console.WriteLine(SecondMessege);
+                }
+                else
+                {
+                     Console.WriteLine(i);
+                     nums++;//aqui aumentamos el contador para que vayan apareciendo los numeros con el return 
+                }
+            }
+            return nums;
+        }
+    }               
 }
