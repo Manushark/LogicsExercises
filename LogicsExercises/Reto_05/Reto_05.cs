@@ -37,13 +37,13 @@ namespace LogicsExercises.Reto_05
 
 
         //Ejemplos de funciones con variables que se les pasan "por valor"
-        void valor(int x)
+        public static void valor(int x)
         {
             x = 99;
         }
 
         //Ejemplos de funciones con variables que se les pasan "por referencia"
-        void valorRef(ref int x) 
+        public static void valorRef(ref int x) 
         {
             x = 99;
         }
