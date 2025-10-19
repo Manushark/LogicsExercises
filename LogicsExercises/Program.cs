@@ -68,6 +68,22 @@ public class Program
         //Por valor: la función recibe una copia del dato → cambiarlo dentro de la funcion *no afecta* al original.
         //Por referencia: la función recibe el dato original → cambiarlo dentro de la funcion *sí afecta* al original.
 
+
+        Console.WriteLine("Antes de llamar a las funciones:");
+        Console.WriteLine($"numero1 = {numero1}");
+        Console.WriteLine($"numero2 = {numero2}\n");
+
+        //(no cambia las originales)
+        (int nuevo1, int nuevo2) = Reto_05.IntercambioPorValor(numero1, numero2);
+        Console.WriteLine("Después de llamar a la función por valor:");
+        Console.WriteLine($"numero1 = {numero1} (por valor, no cambió)");
+        Console.WriteLine($"numero2 = {numero2} (por valor, no cambió)");
+        Console.WriteLine($"nuevo1 = {nuevo1} (valor intercambiado)");
+        Console.WriteLine($"nuevo2 = {nuevo2} (valor intercambiado)\n");
+
+       
+
+
     }
 }
 

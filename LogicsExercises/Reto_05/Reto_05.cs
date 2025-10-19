@@ -26,7 +26,7 @@ namespace LogicsExercises.Reto_05
      */
     public class Reto_05
     {
-        public string nombre {  get; set; }
+        public string nombre { get; set; }
 
         //Ejemplos de asignación de variables "por valor"
         static int a = 10;
@@ -43,7 +43,7 @@ namespace LogicsExercises.Reto_05
         }
 
         //Ejemplos de funciones con variables que se les pasan "por referencia"
-        public static void valorRef(ref int x) 
+        public static void valorRef(ref int x)
         {
             x = 99;
         }
@@ -52,5 +52,21 @@ namespace LogicsExercises.Reto_05
         // En cambio, en "valorRef(ref int x)" se pasa una referencia al mismo espacio en memoria, 
         // por lo que el cambio modifica el valor original fuera de la función.
 
+
+
+        //Dificultad Extra
+
+
+        // método que intercambia dos valores y los retorna
+        public static (int, int) IntercambioPorValor(int a, int b)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+            return (a, b);
+        }
+
+        
     }
+
 }
