@@ -66,7 +66,13 @@ namespace LogicsExercises.Reto_05
             return (a, b);
         }
 
-        
+        //método que intercambia dos valores por referencia y cambia los valores originales
+        public static void IntercambioPorReferencia(ref int a, ref int b)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
     }
 
 }

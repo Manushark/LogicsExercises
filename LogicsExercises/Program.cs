@@ -81,7 +81,12 @@ public class Program
         Console.WriteLine($"nuevo1 = {nuevo1} (valor intercambiado)");
         Console.WriteLine($"nuevo2 = {nuevo2} (valor intercambiado)\n");
 
-       
+        //referencia (si cambia las originales)
+        Reto_05.IntercambioPorReferencia(ref numero1, ref numero2);
+
+        Console.WriteLine("Después de llamar a la función por referencia:");
+        Console.WriteLine($"numero1 = {numero1} (por referencia, sí cambió)");
+        Console.WriteLine($"numero2 = {numero2} (por referencia, sí cambió)");
 
 
     }
