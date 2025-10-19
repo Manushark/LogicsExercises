@@ -8,6 +8,7 @@ using LogicsExercises.Reto_02;
 using LogicsExercises.Reto_03;
 using LogicsExercises.Reto_04;
 using LogicsExercises.Reto_05;
+using LogicsExercises.Reto_06;
 using Microsoft.Win32;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -87,6 +88,16 @@ public class Program
         Console.WriteLine("Después de llamar a la función por referencia:");
         Console.WriteLine($"numero1 = {numero1} (por referencia, sí cambió)");
         Console.WriteLine($"numero2 = {numero2} (por referencia, sí cambió)");
+
+        //Factorial normal de manera recursiva (Reto_06)
+        int hola = Reto_06.factorial(5);
+        Console.WriteLine(hola);
+
+        //Fibonacci de manera recursiva (Reto_06)
+        for (int i = 0; i < 12; i++)
+        {
+            Console.WriteLine(Reto_06.fibonacci(i));
+        }
 
 
     }
