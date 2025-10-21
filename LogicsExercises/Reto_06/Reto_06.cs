@@ -17,9 +17,12 @@ namespace LogicsExercises.Reto_06
      * - Calcular el valor de un elemento concreto (según su posición) en la 
      *   sucesión de Fibonacci (la función recibe la posición).
      */
+
     public class Reto_06
     {
-        public static void oneToOne (int x)
+
+        //función recursiva que imprimanúmeros del 100 al 0. 
+        public static void oneToOne (int x)// tal vez haya una manera mas facil de hacerla, pero esta fue la forma que se me ocurrio (Sinceramente esto de la recursividad es nuevo para mi)
         {
             if (x == 0) 
             { return; }
@@ -30,7 +33,9 @@ namespace LogicsExercises.Reto_06
             }
         }
 
-
+        
+        ///DIFICULTAD EXTRA
+        
         //Factorial normal para tomarlo como referencia para resolver el ejercicio
         public static int factorial(int n)
         {
@@ -57,5 +62,17 @@ namespace LogicsExercises.Reto_06
             }
         }
 
+        //Fibonacci con valor por defecto en la posición 12
+        public static int fibonacci2(int n = 12)
+        {
+            if (n <= 1)
+            {
+                return n;
+            }
+            else
+            {
+                return (fibonacci2(n - 1) + fibonacci2(n - 2));
+            }
+        }
     }
 }
