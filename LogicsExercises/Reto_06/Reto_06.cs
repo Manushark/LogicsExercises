@@ -19,6 +19,18 @@ namespace LogicsExercises.Reto_06
      */
     public class Reto_06
     {
+        public static void oneToOne (int x)
+        {
+            if (x == 0) 
+            { return; }
+            else
+            {
+               Console.WriteLine(x);
+               oneToOne(x - 1);
+            }
+        }
+
+
         //Factorial normal para tomarlo como referencia para resolver el ejercicio
         public static int factorial(int n)
         {
