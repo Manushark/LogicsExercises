@@ -74,5 +74,28 @@ namespace LogicsExercises.Reto_06
                 return (fibonacci2(n - 1) + fibonacci2(n - 2));
             }
         }
+
+        ///Codigo de compilacion del Reto_06
+        ////////////////////////////////////Reto_06
+        //Números del 100 al 0 de manera recursiva (Reto_06)
+        //Reto_06.oneToOne(100);
+
+
+        //Dificultad Extra
+
+        //Factorial normal de manera recursiva 
+        //int hola = Reto_06.factorial(5);
+        //Console.WriteLine(hola);
+
+        //Fibonacci de manera recursiva (Reto_06)
+        //for (int i = 0; i< 12; i++)
+        //{
+        //    Console.WriteLine(Reto_06.fibonacci(i));
+        //}
+
+        //se imprime el valor del elemento en la posición 12 de la sucesión de Fibonacci
+        //Console.WriteLine(Reto_06.fibonacci2());
+
+        //Aprendí mucho haciendo este reto porque la recursividad es un concepto nuevo para mi y al principio me costó entenderlo, pero con la practica logre comprender c0mo funcionan las funciones recursivas y como pueden ser utilizadas para resolver problemas de manera eficiente
     }
 }
