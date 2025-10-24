@@ -66,7 +66,16 @@ namespace LogicsExercises.Reto_07
                 Console.WriteLine(item);
             }
 
-            Queque.Peek();// muestra el primer elemento sin eliminarlo
+            Console.WriteLine($"Primer que debe salir: {Queque.Peek()}");// muestra el primer elemento sin eliminarlo
+
+            //Gracias a C# y su libreria System.Collections.Generic podemos usar Queue directamente sin tener que implementarla desde 0 👏🏼
+
+            Console.WriteLine($"Desencolo o elimino este primero de la cola: {Queque.Dequeue()}");// elimina el primer elemento agregado
+
+            foreach (var item in Queque)// muestra todos los elementos en la cola
+            {
+                Console.WriteLine(item);
+            }
 
             while (Queque.Count > 0)
             {
@@ -74,15 +83,16 @@ namespace LogicsExercises.Reto_07
                 Console.WriteLine($"Desencolando: {Queque.Dequeue()}");
             }
 
-            // Limpia la cola
-            Queque.EnsureCapacity(1);
+            // Asegura que la capacidad de la cola sea al menos el valor especificado
+            Queque.EnsureCapacity(25);
 
             //elimina todos los elementos de la cola
             Queque.Clear();
 
 
 
-
+            //DIFICULTAD EXTRA (opcional):
+            //https://youtu.be/cBeRWS2X0CA?si=dCikDEWnb60nKwGf&t=877
 
 
 
