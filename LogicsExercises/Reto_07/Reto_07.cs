@@ -29,21 +29,21 @@ namespace LogicsExercises.Reto_07
         public static void Run()
         {
             //Stacks - LIFO
-            Stack<int> stack = new Stack<int>();
-            stack.Push(1);
-            stack.Push(2);
-            stack.Push(3);
-            Console.WriteLine($"Ultimo agregado: {stack.Peek()}");// muestra el ultimo en la lista sin quitarlo
+            //Stack<int> stack = new Stack<int>();
+            //stack.Push(1);
+            //stack.Push(2);
+            //stack.Push(3);
+            //Console.WriteLine($"Ultimo agregado: {stack.Peek()}");// muestra el ultimo en la lista sin quitarlo
 
-            var pila = stack; //convierte la pila en un array
+            //var pila = stack; //convierte la pila en un array
 
-            foreach (var x in pila) Console.WriteLine(x); // itera desde la cima hacia abajo
+            //foreach (var x in pila) Console.WriteLine(x); // itera desde la cima hacia abajo
 
 
-            //elimina el ultimo agregado
-            Console.WriteLine($"Desencolo o elimino este ultimo de la pila: {stack.Pop()}");
+            ////elimina el ultimo agregado
+            //Console.WriteLine($"Desencolo o elimino este ultimo de la pila: {stack.Pop()}");
 
-            foreach (var x in pila) Console.WriteLine(x); // itera desde la cima hacia abajo
+            //foreach (var x in pila) Console.WriteLine(x); // itera desde la cima hacia abajo
 
 
             //while (stack.Count > 0)
@@ -54,30 +54,119 @@ namespace LogicsExercises.Reto_07
 
             //stack.Clear();
 
+
             ////Queue - FIFO
-            //Queue<string> Queque = new Queue<string>(); 
-            //Queque.Enqueue("Primero");// agrega al final de la cola
-            //Queque.Enqueue("Segundo");
-            //Queque.Enqueue("Tercero");
+            Queue<string> Queque = new Queue<string>();
+            Queque.Enqueue("Primero");// agrega al final de la cola
+            Queque.Enqueue("Segundo");
+            Queque.Enqueue("Tercero");
 
-            //foreach (var item in Queque)// muestra todos los elementos en la cola
+            foreach (var item in Queque)// muestra todos los elementos en la cola
+            {
+                Console.WriteLine(item);
+            }
+
+            Queque.Peek();// muestra el primer elemento sin eliminarlo
+
+            while (Queque.Count > 0)
+            {
+                // Dequeue() elimina y devuelve el elemento al frente o sea que te da el orden y lo borra
+                Console.WriteLine($"Desencolando: {Queque.Dequeue()}");
+            }
+
+            // Limpia la cola
+            Queque.EnsureCapacity(1);
+
+            //elimina todos los elementos de la cola
+            Queque.Clear();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            ///En caso de querer usar una clase para manejar las estructuras de datos
+            //public class Estructuras
             //{
-            //    Console.WriteLine(item);
+            //    // Campos de la clase
+            //    private Stack<int> pila;   // Pila de enteros
+            //    private Queue<int> cola;   // Cola de enteros
+
+            //    // Constructor
+            //    public Estructuras()
+            //    {
+            //        pila = new Stack<int>();
+            //        cola = new Queue<int>();
+            //    }
+
+            //    // Métodos para la pila
+            //    public void AgregarAPila(int valor)
+            //    {
+            //        pila.Push(valor);
+            //    }
+
+            //    public void MostrarPila()
+            //    {
+            //        Console.WriteLine("Elementos en la pila:");
+            //        foreach (var item in pila)
+            //            Console.WriteLine(item);
+            //    }
+
+            //    // Métodos para la cola
+            //    public void AgregarACola(int valor)
+            //    {
+            //        cola.Enqueue(valor);
+            //    }
+
+            //    public void MostrarCola()
+            //    {
+            //        Console.WriteLine("Elementos en la cola:");
+            //        foreach (var item in cola)
+            //            Console.WriteLine(item);
+            //    }
             //}
 
-            //Queque.Peek();// muestra el primer elemento sin eliminarlo
-
-            //while (Queque.Count > 0)
-            //{
-            //    // Dequeue() elimina y devuelve el elemento al frente o sea que te da el orden y lo borra
-            //    Console.WriteLine($"Desencolando: {Queque.Dequeue()}");
-            //}
-
-            //// Limpia la cola
-            //Queque.EnsureCapacity(1);
-
-            ////elimina todos los elementos de la cola
-            //Queque.Clear(); 
         }
     }
 }
