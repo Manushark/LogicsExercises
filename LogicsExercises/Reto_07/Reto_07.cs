@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,27 @@ namespace LogicsExercises.Reto_07
      */
     public class Reto_07
     {
+        public static void Run()
+        {
+            //Stacks - LIFO
+            Stack<int> stack = new Stack<int>();
+            stack.Push(1);
+            stack.Push(2);
+            stack.Push(3);
+            Console.WriteLine($"Ultimo agregado: {stack.Peek()}");
 
+            //quita y muestra el ultimo en la lista 
+            stack.Pop();
 
+            while (stack.Count > 0)
+            {
+                // Pop() elimina y devuelve el elemento de la cima
+                Console.WriteLine($"Desapilando: {stack.Pop()}");
+            }
+
+            stack.Clear();
+
+            //ve el video
+        }
     }
 }

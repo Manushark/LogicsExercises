@@ -9,6 +9,7 @@ using LogicsExercises.Reto_03;
 using LogicsExercises.Reto_04;
 using LogicsExercises.Reto_05;
 using LogicsExercises.Reto_06;
+using LogicsExercises.Reto_07;
 using Microsoft.Win32;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -112,7 +113,7 @@ public class Program
 
         //Aprendí mucho haciendo este reto porque la recursividad es un concepto nuevo para mi y al principio me costó entenderlo, pero con la practica logre comprender c0mo funcionan las funciones recursivas y como pueden ser utilizadas para resolver problemas de manera eficiente.
 
-
+        Reto_07.Run();
     }
 }
 
