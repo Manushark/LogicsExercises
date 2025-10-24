@@ -33,9 +33,9 @@ namespace LogicsExercises.Reto_07
             stack.Push(1);
             stack.Push(2);
             stack.Push(3);
-            Console.WriteLine($"Ultimo agregado: {stack.Peek()}");
+            Console.WriteLine($"Ultimo agregado: {stack.Peek()}");// muestra el ultimo en la lista sin quitarlo
 
-            //quita y muestra el ultimo en la lista 
+            //elimina el ultimo agregado
             stack.Pop();
 
             while (stack.Count > 0)
@@ -46,7 +46,30 @@ namespace LogicsExercises.Reto_07
 
             stack.Clear();
 
-            //ve el video
+            //Queue - FIFO
+            Queue<string> Queque = new Queue<string>(); 
+            Queque.Enqueue("Primero");// agrega al final de la cola
+            Queque.Enqueue("Segundo");
+            Queque.Enqueue("Tercero");
+
+            foreach (var item in Queque)// muestra todos los elementos en la cola
+            {
+                Console.WriteLine(item);
+            }
+
+            Queque.Peek();// muestra el primer elemento sin eliminarlo
+
+            while (Queque.Count > 0)
+            {
+                // Dequeue() elimina y devuelve el elemento al frente o sea que te da el orden y lo borra
+                Console.WriteLine($"Desencolando: {Queque.Dequeue()}");
+            }
+
+            // Limpia la cola
+            Queque.EnsureCapacity(1);
+
+            //elimina todos los elementos de la cola
+            Queque.Clear(); 
         }
     }
 }
