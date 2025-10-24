@@ -24,12 +24,10 @@ namespace LogicsExercises.Reto_06
         //función recursiva que imprimanúmeros del 100 al 0. 
         public static void oneToOne (int x)// tal vez haya una manera mas facil de hacerla, pero esta fue la forma que se me ocurrio (Sinceramente esto de la recursividad es nuevo para mi)
         {
-            if (x == 0) 
-            { return; }
-            else
+            if (x >= 0)
             {
-               Console.WriteLine(x);
-               oneToOne(x - 1);
+                Console.WriteLine(x);
+                oneToOne(x - 1);
             }
         }
 
@@ -72,6 +70,28 @@ namespace LogicsExercises.Reto_06
             else
             {
                 return (fibonacci2(n - 1) + fibonacci2(n - 2));
+            }
+        }
+
+        //Fibonacci que recibe la posición como parámetro - Este es el que se pide en el reto es mas completo que el anterior
+        static int Fibonacci(int number)
+        {
+            if (number <= 0)
+            {
+                Console.WriteLine("La posición tiene que ser mayor que cero");
+                return 0;
+            }
+            else if (number == 1)
+            {
+                return 0;
+            }
+            else if (number == 2)
+            {
+                return 1;
+            }
+            else
+            {
+                return Fibonacci(number - 1) + Fibonacci(number - 2);
             }
         }
 
