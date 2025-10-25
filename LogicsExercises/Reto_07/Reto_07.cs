@@ -89,53 +89,6 @@ namespace LogicsExercises.Reto_07
             //elimina todos los elementos de la cola
             Queque.Clear();
 
-
-
-            //DIFICULTAD EXTRA (opcional):
-            //https://youtu.be/cBeRWS2X0CA?si=dCikDEWnb60nKwGf&t=877
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             ///En caso de querer usar una clase para manejar las estructuras de datos
             //public class Estructuras
             //{
@@ -177,6 +130,46 @@ namespace LogicsExercises.Reto_07
             //    }
             //}
 
+        }
+
+        //DIFICULTAD EXTRA (opcional):
+
+        public static void web()
+        {
+
+            Stack<string> stack = new Stack<string>();
+
+            while (true)
+            {
+                Console.Write("Ingrese una URL o Interctue con el programa atras/salir: ");
+                string In = Console.ReadLine();
+
+                if (In == "salir")
+                {
+                    Console.WriteLine("Saliendo del navegador");
+                    break;
+                }
+                else if (In == "atras")
+                {
+                    if (stack.Count > 0)
+                    stack.Pop();
+                }
+                else
+                {
+                    stack.Push(In);
+                }
+
+                if (stack.Count > 0)
+                {
+                    Console.WriteLine($"Has navegado a la página {stack.Peek()}");
+                }
+                else 
+                { 
+                    Console.WriteLine("Estas en la pagina de inicio");
+                }
+            }
+
+           //Conpilar con --> Reto_07.web();
         }
     }
 }

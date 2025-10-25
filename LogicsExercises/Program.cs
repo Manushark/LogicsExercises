@@ -72,9 +72,12 @@ public class Program
         //Console.WriteLine($"numero1 = {numero1} (por referencia, sí cambió)");
         //Console.WriteLine($"numero2 = {numero2} (por referencia, sí cambió)");
 
-        Reto_07.Run();
+        //Reto_07.Run();
+
+        Reto_07.web();
     }
 }
+
 
 
 
