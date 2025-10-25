@@ -89,47 +89,6 @@ namespace LogicsExercises.Reto_07
             //elimina todos los elementos de la cola
             Queque.Clear();
 
-            ///En caso de querer usar una clase para manejar las estructuras de datos
-            //public class Estructuras
-            //{
-            //    // Campos de la clase
-            //    private Stack<int> pila;   // Pila de enteros
-            //    private Queue<int> cola;   // Cola de enteros
-
-            //    // Constructor
-            //    public Estructuras()
-            //    {
-            //        pila = new Stack<int>();
-            //        cola = new Queue<int>();
-            //    }
-
-            //    // Métodos para la pila
-            //    public void AgregarAPila(int valor)
-            //    {
-            //        pila.Push(valor);
-            //    }
-
-            //    public void MostrarPila()
-            //    {
-            //        Console.WriteLine("Elementos en la pila:");
-            //        foreach (var item in pila)
-            //            Console.WriteLine(item);
-            //    }
-
-            //    // Métodos para la cola
-            //    public void AgregarACola(int valor)
-            //    {
-            //        cola.Enqueue(valor);
-            //    }
-
-            //    public void MostrarCola()
-            //    {
-            //        Console.WriteLine("Elementos en la cola:");
-            //        foreach (var item in cola)
-            //            Console.WriteLine(item);
-            //    }
-            //}
-
         }
 
         //DIFICULTAD EXTRA (opcional):
@@ -152,7 +111,7 @@ namespace LogicsExercises.Reto_07
                 else if (In == "atras")
                 {
                     if (stack.Count > 0)
-                    stack.Pop();
+                        stack.Pop();
                 }
                 else
                 {
@@ -163,13 +122,89 @@ namespace LogicsExercises.Reto_07
                 {
                     Console.WriteLine($"Has navegado a la página {stack.Peek()}");
                 }
-                else 
-                { 
+                else
+                {
                     Console.WriteLine("Estas en la pagina de inicio");
                 }
             }
-
-           //Conpilar con --> Reto_07.web();
         }
+
+        //Conpilar con --> Reto_07.web();
+
+        public static void printer()
+        { 
+
+            Queue<string> pila = new Queue<string>();
+
+            while (true)
+            {
+                Console.Write("Ingrese el documento que desea imprimir o utiliza los siguiente comandos apagar/imprimir ");
+                string imp = Console.ReadLine();
+
+                if (imp == "apagar")
+                {
+                    Console.WriteLine("apagando la impresora");
+                    break;
+                }
+                else if (imp == "imprimir")
+                {
+                    if (pila.Count > 0)
+                        pila.Dequeue();
+                }
+                else
+                {
+                    pila.Enqueue(imp);
+                }
+
+                Console.WriteLine("==========Cola de impresion========= ");
+                foreach (string listar in pila) { Console.WriteLine(listar); }
+                
+            }
+            // Compilar con --> Reto_07.printer();
+
+        }
+
+        /// INFORMACION PARA RECORDAR (SINTAXIS)
+        ///En caso de querer usar una clase para manejar las estructuras de datos
+        //public class Estructuras
+        //{
+        //    // Campos de la clase
+        //    private Stack<int> pila;   // Pila de enteros
+        //    private Queue<int> cola;   // Cola de enteros
+
+        //    // Constructor
+        //    public Estructuras()
+        //    {
+        //        pila = new Stack<int>();
+        //        cola = new Queue<int>();
+        //    }
+
+        //    // Métodos para la pila
+        //    public void AgregarAPila(int valor)
+        //    {
+        //        pila.Push(valor);
+        //    }
+
+        //    public void MostrarPila()
+        //    {
+        //        Console.WriteLine("Elementos en la pila:");
+        //        foreach (var item in pila)
+        //            Console.WriteLine(item);
+        //    }
+
+        //    // Métodos para la cola
+        //    public void AgregarACola(int valor)
+        //    {
+        //        cola.Enqueue(valor);
+        //    }
+
+        //    public void MostrarCola()
+        //    {
+        //        Console.WriteLine("Elementos en la cola:");
+        //        foreach (var item in cola)
+        //            Console.WriteLine(item);
+        //    }
+        //}
+
     }
 }

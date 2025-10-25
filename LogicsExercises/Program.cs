@@ -74,7 +74,7 @@ public class Program
 
         //Reto_07.Run();
 
-        Reto_07.web();
+        Reto_07.printer();
     }
 }
 
