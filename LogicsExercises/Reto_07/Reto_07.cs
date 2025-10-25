@@ -95,7 +95,7 @@ namespace LogicsExercises.Reto_07
 
         public static void web()
         {
-
+            //Utilizando la implementación de pila y cadenas de texto, simula el mecanismo adelante/atrás
             Stack<string> stack = new Stack<string>();
 
             while (true)
@@ -117,7 +117,7 @@ namespace LogicsExercises.Reto_07
                 {
                     stack.Push(In);
                 }
-
+                // Mostrar la página actual
                 if (stack.Count > 0)
                 {
                     Console.WriteLine($"Has navegado a la página {stack.Peek()}");
@@ -132,8 +132,8 @@ namespace LogicsExercises.Reto_07
         //Conpilar con --> Reto_07.web();
 
         public static void printer()
-        { 
-
+        {
+            //Utilizando la implementación de cola y cadenas de texto, simula el mecanismo de una impresora compartida que recibe documentos y los imprime cuando así se le indica.
             Queue<string> pila = new Queue<string>();
 
             while (true)
@@ -156,7 +156,7 @@ namespace LogicsExercises.Reto_07
                     pila.Enqueue(imp);
                 }
 
-                Console.WriteLine("==========Cola de impresion========= ");
+                Console.WriteLine("========== Cola de impresion ========= ");
                 foreach (string listar in pila) { Console.WriteLine(listar); }
                 
             }
