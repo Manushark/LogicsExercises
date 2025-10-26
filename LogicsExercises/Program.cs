@@ -85,15 +85,16 @@ public class Program
         //Reto_07.printer();
 
         ///Reto_08
-        Celular Iphone = new Celular("A12" , "Sansung");
+        //Se crea el objeto Iphone con los atributos iniciales
+        Celular phone = new Celular("A12" , "Sansung");
 
-        Iphone.mostrar();
+        phone.mostrar();
 
-        Iphone.NuevoCelular();
+        phone.NuevoCelular();
 
-        Iphone.mostrar();
+        phone.mostrar();
 
-
+        //DIFICULTAD EXTRA (opcional):
 
 
 

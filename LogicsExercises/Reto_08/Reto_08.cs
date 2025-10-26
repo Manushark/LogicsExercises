@@ -32,7 +32,7 @@ namespace LogicsExercises.Reto_08
             public string Marca { get; set; }
 
 
-
+            //Constructor
             public Celular(string modelo, string marca)
             {
                 Counter++;
@@ -41,6 +41,7 @@ namespace LogicsExercises.Reto_08
                 Marca = marca;
             }
 
+            //Metodo para modificar los atributos
             public void NuevoCelular()
             {
                 Console.Write("Ingrese la nueva Modelo de su telefono: ");
@@ -49,6 +50,7 @@ namespace LogicsExercises.Reto_08
                 this.Marca = Console.ReadLine();
             }
 
+            //Metodo para mostrar los atributos
             public void mostrar()
             {
                 Console.WriteLine($"\n--- Serie #{Id} ---");
@@ -58,7 +60,21 @@ namespace LogicsExercises.Reto_08
             }
         }
 
+        //DIFICULTAD EXTRA: Implementacion de Pila
 
+        //Tomorrow...
+
+        //DIFICULTAD EXTRA: Implementacion de Cola
+
+        //Tomorrow...
+
+
+
+
+
+
+
+        ///Ejemplo de uso de la clase Celular para crear varios objetos
         //List<Celular> telefonos = new List<Celular>();
 
         //while (true)
