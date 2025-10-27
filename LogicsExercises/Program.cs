@@ -112,7 +112,7 @@ public class Program
             Console.Write("~Ingrese una opción: ");
             Console.ResetColor();
 
-            if (int.TryParse(Console.ReadLine(), out opcion))
+            if (int.TryParse(Console.ReadLine(), out opcion))//validación de entrada
             {
 
             }

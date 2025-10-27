@@ -70,6 +70,7 @@ namespace LogicsExercises.Reto_08
             public int Id { get; set; }
             public string Dato { get; set; }
 
+            //lista para almacenar los datos de la pila
             List<string> DatoList = new List<string>();
 
 
@@ -79,6 +80,7 @@ namespace LogicsExercises.Reto_08
                 Id = Counter;
             }
 
+            // Agrega un elemento a la pila
             public void Agregar()
             {
                 while (true)
@@ -108,6 +110,7 @@ namespace LogicsExercises.Reto_08
                 }
             }
 
+            // Muestra todo el contenido de la pila
             public void MostrarPila()
             {
                 Console.WriteLine($"\n=== Contenido de la Pila #{Id} ===");
@@ -138,8 +141,8 @@ namespace LogicsExercises.Reto_08
                     return;
                 }
 
-                string sacado = DatoList[DatoList.Count - 1];
-                DatoList.RemoveAt(DatoList.Count - 1);
+                string sacado = DatoList[DatoList.Count - 1];// obtiene el ultimo elemento
+                DatoList.RemoveAt(DatoList.Count - 1);// elimina el ultimo elemento
                 Console.WriteLine($"Se saco: {sacado}  | Pila #{Id}");
             }
         }
@@ -148,7 +151,7 @@ namespace LogicsExercises.Reto_08
 
         public class Cola
         {
-           
+            //Tomorrow
         }
 
 
