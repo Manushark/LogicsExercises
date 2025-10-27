@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -62,12 +64,92 @@ namespace LogicsExercises.Reto_08
 
         //DIFICULTAD EXTRA: Implementacion de Pila
 
-        //Tomorrow...
+        public  class Pila
+        {
+            private static int Counter = 0;
+            public int Id { get; set; }
+            public string Dato { get; set; }
+
+            List<string> DatoList = new List<string>();
+
+
+            public Pila()
+            {
+                Counter++;
+                Id = Counter;
+            }
+
+            public void Agregar()
+            {
+                while (true)
+                {
+                    Console.Write("Ingrese la prenda para la pila: ");
+                    Dato = Console.ReadLine();
+
+                    if (!string.IsNullOrWhiteSpace(Dato))
+                    {
+                        DatoList.Add(Dato);
+                        Console.WriteLine("============================");
+                        Console.WriteLine($"Última prenda agregada: {Dato}  | Pila #{Id}");
+                        Console.WriteLine("============================");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Entrada vacía. No se agregó nada.");
+                    }
+
+                    Console.Write("Desea continuar agregando ropa? (S/N): ");
+                    string Si = Console.ReadLine();
+                    if (Si.ToLower() != "s") 
+                    { 
+                        break;
+                    }
+                  
+                }
+            }
+
+            public void MostrarPila()
+            {
+                Console.WriteLine($"\n=== Contenido de la Pila #{Id} ===");
+
+                if (DatoList.Count == 0)
+                {
+                    Console.WriteLine("La pila está vacía.");
+                    return;
+                }
+
+                // Mostrar estilo pila: del tope al fondo (LIFO)
+                for (int i = DatoList.Count - 1; i >= 0; i--)
+                {
+                    int numero = DatoList.Count - i; // 1 para el tope, 2 siguiente, etc.
+                    Console.WriteLine($"[{numero}] {DatoList[i]}");
+                }
+
+                Console.WriteLine("------------------------");
+            }
+
+
+            // Saca el último elemento (tope) de forma segura
+            public void SacarRopa()
+            {
+                if (DatoList.Count == 0)
+                {
+                    Console.WriteLine("No se puede sacar: la pila está vacia.");
+                    return;
+                }
+
+                string sacado = DatoList[DatoList.Count - 1];
+                DatoList.RemoveAt(DatoList.Count - 1);
+                Console.WriteLine($"Se saco: {sacado}  | Pila #{Id}");
+            }
+        }
 
         //DIFICULTAD EXTRA: Implementacion de Cola
 
-        //Tomorrow...
-
+        public class Cola
+        {
+           
+        }
 
 
 

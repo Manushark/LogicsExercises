@@ -86,16 +86,66 @@ public class Program
 
         ///Reto_08
         //Se crea el objeto Iphone con los atributos iniciales
-        Celular phone = new Celular("A12" , "Sansung");
+        //Celular phone = new Celular("A12" , "Sansung");
 
-        phone.mostrar();
+        //phone.mostrar();
 
-        phone.NuevoCelular();
+        //phone.NuevoCelular();
 
-        phone.mostrar();
+        //phone.mostrar();
 
         //DIFICULTAD EXTRA (opcional):
+        int opcion = 0;
+        bool True = true;
+        Pila pila = new Pila();
 
+        while (True)
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("          Agregar ropa             ");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("1. Agregar ropa");
+            Console.WriteLine("2. Ver lista de ropa");
+            Console.WriteLine("3. Eliminar ropa");
+            Console.WriteLine("4. Salir");
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("~Ingrese una opción: ");
+            Console.ResetColor();
+
+            if (int.TryParse(Console.ReadLine(), out opcion))
+            {
+
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Entrada no válida, intente de nuevo");
+                Console.ResetColor();
+            }
+
+
+            switch (opcion)
+            {
+                case 1:
+                    pila.Agregar();
+                    break;
+                case 2:
+                    pila.MostrarPila();
+
+                    break;
+                case 3:
+                    pila.SacarRopa();
+                    break;
+                case 4:
+                    True = false;
+                    break;
+            }
+
+
+
+
+
+        }
 
 
     }
