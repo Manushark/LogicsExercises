@@ -157,15 +157,7 @@ namespace LogicsExercises.Reto_08
 
         public class Cola
         {
-            private static int Count = 0;
-            private int Id { get; set; }
             public string Fila { get; set; }
-
-            public Cola()
-            {
-                Count++;
-                Id = Count;
-            }
 
             List<string> FilaList = new List<string>();
 
@@ -207,7 +199,7 @@ namespace LogicsExercises.Reto_08
 
                 for (int i = 0; i < FilaList.Count; i++)
                 {
-                    Console.WriteLine($"Orden #{i + 1}: {FilaList[i]}");
+                    Console.WriteLine($"Orden #{i + 1}: {FilaList[i]}");//Está ordenada del 0 al n, mostrando el primero en entrar primero
                 }
             }
 
@@ -218,22 +210,82 @@ namespace LogicsExercises.Reto_08
                     Console.WriteLine("No se puede sacar: la pila está vacia.");
                     return;
                 }
-                var clienteAtendido = FilaList[0];
+                var clienteAtendido = FilaList[0];// obtiene el primer elemento
 
-                FilaList.RemoveAt(0);
+                FilaList.RemoveAt(0);// elimina el primer elemento
                 Console.WriteLine($"Se atendio al cliente {clienteAtendido}.");
 
             }
 
             public int ObtenerCantidad()
             {
-
                 return FilaList.Count;
             }
 
         }
 
+        //Para compilar 
+        ///Reto_08
+        //Se crea el objeto Iphone con los atributos iniciales
+        //Celular phone = new Celular("A12" , "Sansung");
 
+        //phone.mostrar();
+
+        //phone.NuevoCelular();
+
+        //phone.mostrar();
+
+        //DIFICULTAD EXTRA: Para compilar la dificultad extra de Pila y Cola
+
+        //int opcion = 0;
+        //bool True = true;
+        //Cola cola = new Cola();
+
+        //while (True)
+        //{
+        //    Console.ForegroundColor = ConsoleColor.Magenta;
+        //    Console.WriteLine("          Agregar ropa             ");
+        //    Console.ForegroundColor = ConsoleColor.White;
+        //    Console.WriteLine("1. Agregar en la fila");
+        //    Console.WriteLine("2. Ver la fila");
+        //    Console.WriteLine("3. Despachar");
+        //    Console.WriteLine("4. Obtener cantidad");
+        //    Console.WriteLine("5. Salir");
+        //    Console.ForegroundColor = ConsoleColor.Yellow;
+        //    Console.Write("~Ingrese una opción: ");
+        //    Console.ResetColor();
+
+        //    if (int.TryParse(Console.ReadLine(), out opcion))//validación de entrada
+        //    {
+
+        //    }
+        //    else
+        //    {
+        //        Console.ForegroundColor = ConsoleColor.Red;
+        //        Console.WriteLine("Entrada no válida, intente de nuevo");
+        //        Console.ResetColor();
+        //    }
+
+
+        //    switch (opcion)
+        //    {
+        //        case 1:
+        //            cola.EntrarFila();
+        //            break;
+        //        case 2:
+        //            cola.MostrarFila();
+        //            break;
+        //        case 3:
+        //            cola.Despachar();
+        //            break;
+        //        case 4:
+        //            Console.WriteLine(cola.ObtenerCantidad());
+        //            break;
+        //        case 5:
+        //            True = false;
+        //            break;
+        //    }
+        //}
 
 
 
