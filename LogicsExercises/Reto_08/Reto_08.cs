@@ -26,7 +26,7 @@ namespace LogicsExercises.Reto_08
          * - Deben poder inicializarse y disponer de operaciones para añadir, eliminar,
          *   retornar el número de elementos e imprimir todo su contenido.
          */
-        public class Celular 
+        public class Celular
         {
             private static int Counter = 0;
             public int Id { get; set; }
@@ -64,7 +64,7 @@ namespace LogicsExercises.Reto_08
 
         //DIFICULTAD EXTRA: Implementacion de Pila
 
-        public  class Pila
+        public class Pila
         {
             private static int Counter = 0;
             public int Id { get; set; }
@@ -102,11 +102,11 @@ namespace LogicsExercises.Reto_08
 
                     Console.Write("Desea continuar agregando ropa? (S/N): ");
                     string Si = Console.ReadLine();
-                    if (Si.ToLower() != "s") 
-                    { 
+                    if (Si.ToLower() != "s")
+                    {
                         break;
                     }
-                  
+
                 }
             }
 
@@ -125,7 +125,7 @@ namespace LogicsExercises.Reto_08
                 for (int i = DatoList.Count - 1; i >= 0; i--)
                 {
                     int numero = DatoList.Count - i; // 1 para el tope, 2 siguiente, etc.
-                    Console.WriteLine($"[{numero}] {DatoList[i]}");
+                    Console.WriteLine($"[{numero}] {DatoList[i]}");//aunque la lista este ordenada del 0 al n, se muestra del n al 0
                 }
 
                 Console.WriteLine("------------------------");
@@ -145,13 +145,92 @@ namespace LogicsExercises.Reto_08
                 DatoList.RemoveAt(DatoList.Count - 1);// elimina el ultimo elemento
                 Console.WriteLine($"Se saco: {sacado}  | Pila #{Id}");
             }
+
+            public int ObtenerCantidad()
+            {
+
+                return DatoList.Count;
+            }
         }
 
         //DIFICULTAD EXTRA: Implementacion de Cola
 
         public class Cola
         {
-            //Tomorrow
+            private static int Count = 0;
+            private int Id { get; set; }
+            public string Fila { get; set; }
+
+            public Cola()
+            {
+                Count++;
+                Id = Count;
+            }
+
+            List<string> FilaList = new List<string>();
+
+            public void EntrarFila()
+            {
+                while (true)
+                {
+                    Console.Write("Ingrese al siguiente en la fila: ");
+                    this.Fila = Console.ReadLine();
+
+                    if (!string.IsNullOrWhiteSpace(Fila))
+                    {
+                        FilaList.Add(Fila);
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("El cliente agregado no es valido");
+                        Console.ResetColor();
+                    }
+
+                    Console.Write("Desea agregar a otro Cliente? (S/N): ");
+                    string opcion = Console.ReadLine();
+                    if (opcion.ToLower() != "s")
+                    {
+                        break;
+                    }
+
+                }
+            }
+
+            public void MostrarFila()
+            {
+                if (FilaList.Count == 0)
+                {
+                    Console.WriteLine("No hay nadie en la fila.");
+                    return;
+                }
+
+                for (int i = 0; i < FilaList.Count; i++)
+                {
+                    Console.WriteLine($"Orden #{i + 1}: {FilaList[i]}");
+                }
+            }
+
+            public void Despachar() 
+            {
+                if (FilaList.Count == 0)
+                {
+                    Console.WriteLine("No se puede sacar: la pila está vacia.");
+                    return;
+                }
+                var clienteAtendido = FilaList[0];
+
+                FilaList.RemoveAt(0);
+                Console.WriteLine($"Se atendio al cliente {clienteAtendido}.");
+
+            }
+
+            public int ObtenerCantidad()
+            {
+
+                return FilaList.Count;
+            }
+
         }
 
 
