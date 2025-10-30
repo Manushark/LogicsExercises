@@ -84,14 +84,6 @@ public class Program
 
         //Reto_07.printer();
 
-        Reto_09.Perro perro = new Reto_09.Perro();
-        perro.HacerSonido();
-
-
-        Reto_09.Gato gato = new Reto_09.Gato();
-        gato.HacerSonido();
-
-        Reto_09.Run();
     }
 }
 

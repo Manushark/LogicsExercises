@@ -69,7 +69,7 @@ namespace LogicsExercises.Reto_09
                 Console.WriteLine("Miau miau");
             }
         }
-        //Codigo para compilar 
+        ///Codigo para compilar 
         //Reto_09.Perro perro = new Reto_09.Perro();
         //perro.HacerSonido();
 
@@ -85,6 +85,7 @@ namespace LogicsExercises.Reto_09
         //* Dependiendo de su labor, tienen propiedades y funciones exclusivas de su
         //* actividad, y almacenan los empleados a su cargo.
 
+        //Superclase Empleado
         public class Empleado 
         {
             private static int Counter = 0;
@@ -96,7 +97,7 @@ namespace LogicsExercises.Reto_09
             {
                 Counter++;
                 Id = Counter;
-                EmpleadosACargo = new List<Empleado>();
+                EmpleadosACargo = new List<Empleado>();//lista para almacenar empleados a cargo
             }
 
             public void AgregarEmpleados(Empleado e) 
@@ -105,7 +106,7 @@ namespace LogicsExercises.Reto_09
                 Console.WriteLine($"{e.NombreCompleto} ha sido asignado a {this.NombreCompleto}");
             }
 
-            public virtual void MostrarInfo()//
+            public virtual void MostrarInfo()//metodo virtual para ser sobreescrito
             {
                 Console.WriteLine($"Empleado: {NombreCompleto} (ID: {Id})");
             }
@@ -122,7 +123,7 @@ namespace LogicsExercises.Reto_09
             }
         }
 
-
+        //Subclase Gerente
         public class Gerente : Empleado
         { 
 
@@ -142,6 +143,7 @@ namespace LogicsExercises.Reto_09
             }
         }
 
+        //Subclase GerenteProyectos
         public class GerenteProyectos : Empleado
         {
             public List<string> Proyectos { get; set; }
@@ -163,35 +165,59 @@ namespace LogicsExercises.Reto_09
             }
         }
 
+        //Subclase Programadores
         public class Programadores : Empleado
         {
             public string languaje { get; set; }
 
             public void CrearSoftware()
             {
-                Console.WriteLine($"{this.NombreCompleto} esta programando en el lenguaje de {this.languaje}");
+                Console.WriteLine($"{NombreCompleto} esta programando en el lenguaje de {languaje}");
 
             }
+            public override void MostrarInfo()
+            {
+                Console.WriteLine($"Programador: {NombreCompleto} (ID: {Id}) - Lengauje: {languaje}");
+            }
+
 
 
         }
 
+        //Metodo Run para ejecutar la dificultad extra
         public static void Run()
         {
+            //Codigo para compilar la dificultad extra
             Gerente gerente = new Gerente {NombreCompleto = "Manuel Rivas" }; 
             GerenteProyectos pm = new GerenteProyectos {NombreCompleto = "Lusito Trianco" };
             Programadores programadores = new Programadores { NombreCompleto = "Santi Isabel", languaje = "Python" };
             Programadores programadores2 = new Programadores { NombreCompleto = "Pricila abreu" , languaje = "C#" };
 
+            //Mostrar informacion y agregar empleados
             gerente.MostrarInfo();
+            Console.WriteLine("========================");
             gerente.AgregarEmpleados(pm);
+            Console.WriteLine("========================");
             gerente.MostrarEmpleados();
 
+            //Mostrar info del PM y agregar empleados
+            Console.WriteLine("========================");
             pm.MostrarInfo();
+            Console.WriteLine("========================");
             pm.AgregarEmpleados(programadores);
             pm.AgregarEmpleados(programadores2);
+            Console.WriteLine("========================");
             pm.MostrarEmpleados();
+            Console.WriteLine("========================");
 
+            //Mostrar info de los programadores
+            programadores.CrearSoftware();
+            programadores.MostrarInfo();
+            Console.WriteLine("========================");
+            programadores2.CrearSoftware();
+            programadores2.MostrarInfo();
+
+            //Para ejecutar: Reto_09.Run();
 
         }
     }
