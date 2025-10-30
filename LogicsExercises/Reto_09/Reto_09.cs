@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
+using System.Diagnostics.Metrics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LogicsExercises.Reto_09
 {
@@ -66,9 +69,99 @@ namespace LogicsExercises.Reto_09
                 Console.WriteLine("Miau miau");
             }
         }
-       
+        //Codigo para compilar 
+        //Reto_09.Perro perro = new Reto_09.Perro();
+        //perro.HacerSonido();
+
+        //Reto_09.Gato gato = new Reto_09.Gato();
+        //gato.HacerSonido();
 
 
+        //DIFICULTAD EXTRA
+
+        //* Implementa la jerarquía de una empresa de desarrollo formada por Empleados que
+        //* pueden ser Gerentes, Gerentes de Proyectos o Programadores.
+        //* Cada empleado tiene un identificador y un nombre.
+        //* Dependiendo de su labor, tienen propiedades y funciones exclusivas de su
+        //* actividad, y almacenan los empleados a su cargo.
+
+        public class Empleado 
+        {
+            private static int Counter = 0;
+            public int Id { get; set; }
+            public string NombreCompleto { get; set; }    
+            public string Telefono { get; set; }
+            public List<string> Empleados { get; set; }
+
+            public Empleado()
+            {
+                Counter++;
+                Id = Counter;
+                Empleados = new List<string>();
+            }
+
+            public string AgregarEmpleados(string add) 
+            {
+                Empleados.Add(add);
+                Console.WriteLine($"{add} ha sido agregado a su lista de empleados");
+                return add;
+            }
+
+            public virtual void MostrarInfo()//
+            {
+                Console.WriteLine($"Empleado: {NombreCompleto} (ID: {Id})");
+            }
+        }
+
+
+        public class Gerente : Empleado
+        { 
+
+            
+            public void Contratar()
+            {
+                Console.WriteLine($"{this.NombreCompleto} esta contratando nuevos empleados");
+            }
+            public void SupervisarEmpleados()
+            {
+                Console.WriteLine($"{this.NombreCompleto} esta supervisando a los empleados");
+            }
+        }
+
+        public class GerenteProyectos : Empleado
+        {
+            public List<string> Proyectos { get; set; }
+
+            public GerenteProyectos()
+            {
+                Proyectos = new List<string>();
+            }
+
+            public override void MostrarInfo()
+            {
+                Console.WriteLine($"Project Manager: {NombreCompleto} (ID: {Id}) - Proyectos: {Proyectos.Count}");
+            }
+
+            public void Seguimiento()
+            {
+                Console.WriteLine($"{this.NombreCompleto} le esta dando un seguimiento al proyecto principal");
+
+            }
+        }
+
+        public class Programadores : Empleado
+        {
+            public string languaje { get; set; }
+
+            public void CrearSoftware()
+            {
+                Console.WriteLine($"{this.NombreCompleto} esta programando en el lenguaje de {this.languaje}");
+
+            }
+
+
+        }
 
     }
+   
 }
