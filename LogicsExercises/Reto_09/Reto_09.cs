@@ -91,25 +91,35 @@ namespace LogicsExercises.Reto_09
             public int Id { get; set; }
             public string NombreCompleto { get; set; }    
             public string Telefono { get; set; }
-            public List<string> Empleados { get; set; }
+            public List<Empleado> EmpleadosACargo { get; set; }
 
             public Empleado()
             {
                 Counter++;
                 Id = Counter;
-                Empleados = new List<string>();
+                EmpleadosACargo = new List<Empleado>();
             }
 
-            public string AgregarEmpleados(string add) 
+            public void AgregarEmpleados(Empleado e) 
             {
-                Empleados.Add(add);
-                Console.WriteLine($"{add} ha sido agregado a su lista de empleados");
-                return add;
+                EmpleadosACargo.Add(e);
+                Console.WriteLine($"{e.NombreCompleto} ha sido asignado a {this.NombreCompleto}");
             }
 
             public virtual void MostrarInfo()//
             {
                 Console.WriteLine($"Empleado: {NombreCompleto} (ID: {Id})");
+            }
+
+            public virtual void MostrarEmpleados() 
+            {
+                if (EmpleadosACargo.Count > 0)
+                {
+                    foreach (var e in EmpleadosACargo)
+                    {
+                        Console.WriteLine($"Empleados a tu cargo {e}");
+                    }
+                }
             }
         }
 
