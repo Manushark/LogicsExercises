@@ -90,7 +90,6 @@ namespace LogicsExercises.Reto_09
             private static int Counter = 0;
             public int Id { get; set; }
             public string NombreCompleto { get; set; }    
-            public string Telefono { get; set; }
             public List<Empleado> EmpleadosACargo { get; set; }
 
             public Empleado()
@@ -117,7 +116,7 @@ namespace LogicsExercises.Reto_09
                 {
                     foreach (var e in EmpleadosACargo)
                     {
-                        Console.WriteLine($"Empleados a tu cargo {e}");
+                        Console.WriteLine($"Empleados a tu cargo {e.NombreCompleto}");
                     }
                 }
             }
@@ -135,6 +134,11 @@ namespace LogicsExercises.Reto_09
             public void SupervisarEmpleados()
             {
                 Console.WriteLine($"{this.NombreCompleto} esta supervisando a los empleados");
+            }
+
+            public override void MostrarInfo()
+            {
+                Console.WriteLine($"Gerente: {NombreCompleto}");
             }
         }
 
@@ -172,6 +176,24 @@ namespace LogicsExercises.Reto_09
 
         }
 
+        public static void Run()
+        {
+            Gerente gerente = new Gerente {NombreCompleto = "Manuel Rivas" }; 
+            GerenteProyectos pm = new GerenteProyectos {NombreCompleto = "Lusito Trianco" };
+            Programadores programadores = new Programadores { NombreCompleto = "Santi Isabel", languaje = "Python" };
+            Programadores programadores2 = new Programadores { NombreCompleto = "Pricila abreu" , languaje = "C#" };
+
+            gerente.MostrarInfo();
+            gerente.AgregarEmpleados(pm);
+            gerente.MostrarEmpleados();
+
+            pm.MostrarInfo();
+            pm.AgregarEmpleados(programadores);
+            pm.AgregarEmpleados(programadores2);
+            pm.MostrarEmpleados();
+
+
+        }
     }
    
 }
