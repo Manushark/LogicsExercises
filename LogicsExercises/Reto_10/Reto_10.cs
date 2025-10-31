@@ -46,9 +46,70 @@ namespace LogicsExercises.Reto_10
             Console.ReadKey(); // Evita que se cierre la consola
         }
 
-        public static void Run() 
-        { 
-            Ejecutar();
+        //DIFICULTAD EXTRA
+
+        public static void New(List<int> lista)
+        {
+            // Validaciones primero (antes de operar con los índices)
+            if (lista.Count < 3)
+            {
+                throw new IndexOutOfRangeException("La lista no tiene suficientes elementos.");
+            }
+            else if (lista[1] == 0)
+            {
+                throw new DivideByZeroException("No se puede dividir entre 0.");
+            }
+            else if (lista[2] == 0)
+            {
+                throw new error("El tercer elemento no puede ser cero (error personalizado).");
+            }
+
+            //Si todo está correcto, realiza las operaciones
+            Console.WriteLine(lista[0] / lista[1]);
+            Console.WriteLine(lista[2] + 5);
         }
+
+        public class error : Exception
+        {
+            public error(string message) : base(message) { }
+        }
+
+        public static void Run()
+        {
+            // Prueba cambiando los valores de la lista para ver los distintos errores
+            try
+            {
+                // Cambia estos valores para probar los tres tipos de excepción
+                // 1 { 2 } -> IndexOutOfRangeException
+                // 2️{ 2, 0, 7 } -> DivideByZeroException
+                // 3️ { 2, 3, 0 } -> error personalizado
+                // 4 { 2, 3, 7 } -> sin error
+
+                New(new List<int> { 2, 3, 7 });
+                Console.WriteLine("No se ha producido ningún error.");
+            }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            catch (error ex)
+            {
+                Console.WriteLine($"Error personalizado: {ex.Message}");
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error general: {ex.Message}");
+            }
+            finally
+            {
+                Console.WriteLine("Ejecución finalizada.");
+            }
+        }
+
     }
+
 }
