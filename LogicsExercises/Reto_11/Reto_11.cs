@@ -44,6 +44,10 @@ namespace LogicsExercises.Reto_11
                 archivo.WriteLine("Me llamo Manuel Rivas");
                 archivo.WriteLine("Tengo 21 años de edad");
                 archivo.WriteLine("Mi lenguaje de programación favorito es C#");
+
+                Console.WriteLine("Escribe una línea extra para añadir al archivo:");
+                string lineaExtra = Console.ReadLine();
+                archivo.WriteLine(lineaExtra);
             }
 
             // Leer e imprimir el contenido del archivo
@@ -53,7 +57,21 @@ namespace LogicsExercises.Reto_11
             
             // Borrar el archivo
             File.Delete(path);
-            
+            Console.WriteLine("\nArchivo eliminado correctamente.");
+
+            //verificar si el archivo existe
+            //if (File.Exists(path))
+            //{
+            //    Console.WriteLine("El archivo existe.");
+            //}
+
+            //Borrar el contenido del archivo sin eliminarlo
+            //File.WriteAllText("C:\\Users\\Manuel\\Desktop\\Manushark.txt", string.Empty);
+
+
         }
+
+        //DIFICULTAD EXTRA
+
     }
 }
