@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using static System.Net.Mime.MediaTypeNames;
+using Microsoft.VisualBasic.FileIO;
 
 namespace LogicsExercises.Reto_11
 {
@@ -37,7 +38,7 @@ namespace LogicsExercises.Reto_11
         public static void Run()
         {
             string path = "C:\\Users\\manue\\OneDrive - Instituto Tecnológico de Las Américas (ITLA)\\Datos adjuntos\\Manushark.txt";
-            
+
             // Crear y escribir en el archivo
             using (TextWriter archivo = new StreamWriter(path))
             {
@@ -54,7 +55,7 @@ namespace LogicsExercises.Reto_11
             string contenido = File.ReadAllText(path);
             Console.WriteLine("Esto es lo que dice el archivo:\n");
             Console.WriteLine(contenido);
-            
+
             // Borrar el archivo
             File.Delete(path);
             Console.WriteLine("\nArchivo eliminado correctamente.");
@@ -72,6 +73,53 @@ namespace LogicsExercises.Reto_11
         }
 
         //DIFICULTAD EXTRA
+        //Desarrolla un programa de gestión de ventas que almacena sus datos en un
+        //* archivo.txt.
+        // * - Cada producto se guarda en una línea del archivo de la siguiente manera:
+        // *   [nombre_producto], [cantidad_vendida], [precio].
+        // * - Siguiendo ese formato, y mediante terminal, debe permitir añadir, consultar,
 
+        //* actualizar, eliminar productos y salir.
+        // * - También debe poseer opciones para calcular la venta total y por producto.
+        // * - La opción salir borra el.txt.
+
+        public static void Sales() {
+          
+            bool exit = true;
+            while (exit)
+            {
+                Console.WriteLine($"Bienvenido a la agenda de contactos");
+                Console.WriteLine($"1. Añadir contacto");
+                Console.WriteLine($"2. Buscar contacto");
+                Console.WriteLine($"3. Actualizar contacto");
+                Console.WriteLine($"4. Eliminar contacto");
+                Console.WriteLine($"5. Salir");
+                Console.Write($"Seleccione una opción: ");
+               
+                if (int.TryParse(Console.ReadLine(), out int sus) && sus >= 1 && sus <= 5) { }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine($"Por favor, introduce un número válido entre 1 y 5.");
+                    Console.ResetColor();
+                }
+                
+                switch (sus)
+                {
+                    case 1:
+
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+
+                        exit = false;
+                        break;
+                }
+            }
+           
+        }
     }
 }
