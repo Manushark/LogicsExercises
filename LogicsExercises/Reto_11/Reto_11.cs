@@ -88,12 +88,13 @@ namespace LogicsExercises.Reto_11
             bool exit = true;
             while (exit)
             {
-                Console.WriteLine($"Bienvenido a la agenda de contactos");
-                Console.WriteLine($"1. Añadir contacto");
-                Console.WriteLine($"2. Buscar contacto");
-                Console.WriteLine($"3. Actualizar contacto");
-                Console.WriteLine($"4. Eliminar contacto");
-                Console.WriteLine($"5. Salir");
+                Console.WriteLine($"Bienvenido a la agenda de venta");
+                Console.WriteLine($"1. Añadir venta");
+                Console.WriteLine($"2. Buscar venta");
+                Console.WriteLine($"3. Mostrar venta");
+                Console.WriteLine($"4. Actualizar venta");
+                Console.WriteLine($"5. Eliminar archivo de ventas");
+                Console.WriteLine($"6. Salir");
                 Console.Write($"Seleccione una opción: ");
                
                 if (int.TryParse(Console.ReadLine(), out int sus) && sus >= 1 && sus <= 5) { }
@@ -103,17 +104,53 @@ namespace LogicsExercises.Reto_11
                     Console.WriteLine($"Por favor, introduce un número válido entre 1 y 5.");
                     Console.ResetColor();
                 }
-                
+                string path = "C:\\Users\\manue\\OneDrive - Instituto Tecnológico de Las Américas (ITLA)\\Datos adjuntos\\Manushark.txt";
+
                 switch (sus)
                 {
                     case 1:
 
+                        using (TextWriter archivo = new StreamWriter(path, true))
+                        {
+                            Console.Write("Ingrese el nombre del producto: ");
+                            string Name = Console.ReadLine();
+
+                            Console.Write("Ingrese la cantidad del producto: ");
+                            string Mount = Console.ReadLine();
+
+                            Console.Write("Ingrese el precio del producto: ");
+                            string Price = Console.ReadLine();
+
+                            archivo.WriteLine($"{Name} | {Mount} | {Price}\n");
+                        }
                         break;
                     case 2:
+
                         break;
                     case 3:
+
+                        string contenido = File.ReadAllText(path);
+                        Console.WriteLine("Esto es lo que dice el archivo:\n");
+                        Console.WriteLine(contenido);
                         break;
+
                     case 4:
+                        
+
+
+                        break;
+                    case 5:
+                            if (!File.Exists(path))
+                            {
+                               Console.WriteLine("El archivo no existe.");
+                            }
+                            else
+                            {
+                                File.Delete(path);
+                                Console.WriteLine("Archivo eliminado correctamente");
+                            }
+                        break;
+                    case 6:
 
                         exit = false;
                         break;
