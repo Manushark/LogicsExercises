@@ -135,12 +135,13 @@ namespace LogicsExercises.Reto_11
                         {
                             if (string.IsNullOrWhiteSpace(linea)) continue;
 
+                            //Esto divide la linea en partes usando '|' como separador
                             var datos = linea.Split('|');
                             if (datos.Length < 3) continue;
 
-                            if (string.Equals(datos[0].Trim(), Namee.Trim(), StringComparison.OrdinalIgnoreCase))
+                            if (string.Equals(datos[0].Trim(), Namee.Trim(), StringComparison.OrdinalIgnoreCase))// esto compara los nombres ignorando mayusculas y minusculas
                             {
-                                Console.WriteLine($"{datos[0].Trim()} | {datos[1].Trim()} | {datos[2].Trim()}");
+                                Console.WriteLine($"{datos[0].Trim()} | {datos[1].Trim()} | {datos[2].Trim()}");// muestra el producto encontrado
                                 encontrado = true;
                             }
                         }
@@ -149,6 +150,7 @@ namespace LogicsExercises.Reto_11
                             Console.WriteLine("Producto no encontrado.");
                         Console.ReadKey();
                         break;
+
                     case 3:
                         if (!File.Exists(path))
                         {
@@ -163,10 +165,38 @@ namespace LogicsExercises.Reto_11
                         break;
 
                     case 4:
-                        
+                        Console.Write("Ingrese el nombre del producto a editar: ");
+                        string nombreEditar = Console.ReadLine();
 
+                        var lineas = File.ReadAllLines(path);
+                        bool editado = false;
 
+                        for (int i = 0; i < lineas.Length; i++)
+                        {
+                            string[] datos = lineas[i].Split('|');
+
+                            if (datos[0].Trim() == nombreEditar.Trim())// encuentra el producto a editar
+                            {
+                                Console.Write("Nuevo precio: ");
+                                datos[1] = Console.ReadLine();
+
+                                Console.Write("Nueva cantidad: ");
+                                datos[2] = Console.ReadLine();
+
+                                lineas[i] = string.Join("|", datos);
+                                editado = true;
+                                break;
+                            }
+                        }
+
+                        File.WriteAllLines(path, lineas);
+
+                        if (editado)
+                            Console.WriteLine("Producto editado correctamente.");
+                        else
+                            Console.WriteLine("Producto no encontrado.");
                         break;
+
                     case 5:
                             if (!File.Exists(path))
                             {
