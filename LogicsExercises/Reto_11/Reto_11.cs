@@ -97,11 +97,11 @@ namespace LogicsExercises.Reto_11
                 Console.WriteLine($"6. Salir");
                 Console.Write($"Seleccione una opción: ");
                
-                if (int.TryParse(Console.ReadLine(), out int sus) && sus >= 1 && sus <= 5) { }
+                if (int.TryParse(Console.ReadLine(), out int sus) && sus >= 1 && sus <= 6) { }
                 else
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    Console.WriteLine($"Por favor, introduce un número válido entre 1 y 5.");
+                    Console.WriteLine($"Por favor, introduce un número válido entre 1 y 6.");
                     Console.ResetColor();
                 }
                 string path = "C:\\Users\\manue\\OneDrive - Instituto Tecnológico de Las Américas (ITLA)\\Datos adjuntos\\Manushark.txt";
@@ -125,13 +125,41 @@ namespace LogicsExercises.Reto_11
                         }
                         break;
                     case 2:
+                        Console.Clear();
+                        Console.Write("Ingrese el nombre del producto: ");
+                        string Namee = Console.ReadLine();
 
+                        bool encontrado = false;
+
+                        foreach (var linea in File.ReadLines(path))
+                        {
+                            if (string.IsNullOrWhiteSpace(linea)) continue;
+
+                            var datos = linea.Split('|');
+                            if (datos.Length < 3) continue;
+
+                            if (string.Equals(datos[0].Trim(), Namee.Trim(), StringComparison.OrdinalIgnoreCase))
+                            {
+                                Console.WriteLine($"{datos[0].Trim()} | {datos[1].Trim()} | {datos[2].Trim()}");
+                                encontrado = true;
+                            }
+                        }
+
+                        if (!encontrado)
+                            Console.WriteLine("Producto no encontrado.");
+                        Console.ReadKey();
                         break;
                     case 3:
-
-                        string contenido = File.ReadAllText(path);
-                        Console.WriteLine("Esto es lo que dice el archivo:\n");
-                        Console.WriteLine(contenido);
+                        if (!File.Exists(path))
+                        {
+                            Console.WriteLine("El archivo no existe.");
+                        }
+                        else
+                        {
+                            string contenido = File.ReadAllText(path);
+                            Console.WriteLine("Esto es lo que dice el archivo:\n");
+                            Console.WriteLine(contenido);
+                        }
                         break;
 
                     case 4:
@@ -151,7 +179,7 @@ namespace LogicsExercises.Reto_11
                             }
                         break;
                     case 6:
-
+                        Console.WriteLine("Gracias por usar el programa");
                         exit = false;
                         break;
                 }
