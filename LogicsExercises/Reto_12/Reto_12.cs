@@ -33,13 +33,16 @@ namespace LogicsExercises.Reto_12
 
         public static void Run()
         {
-            Precursor precursor = new Precursor("Manuel", 50, 'R'); 
-            string myjson = JsonSerializer.Serialize(precursor);
-            string basepath = Directory.GetCurrentDirectory();
-            string Pathjson = Path.Combine(basepath, "C:\\C#\\LogicsExercises\\LogicsExercises\\Reto_12\\Precursores.json");//Dure 30 minutos aqui porque habia alvidado que necesitaba ponerle el nombre del archivo junto con la ubicacion del archivo
-            File.WriteAllText(Pathjson, myjson);
+            //Precursor precursor = new Precursor("Manuel", 50, 'R'); 
+            //string myjson = JsonSerializer.Serialize(precursor);
+            //string basepath = Directory.GetCurrentDirectory();
+            //string Pathjson = Path.Combine(basepath, "C:\\C#\\LogicsExercises\\LogicsExercises\\Reto_12\\Precursores.json");//Dure 30 minutos aqui porque habia alvidado que necesitaba ponerle el nombre del archivo junto con la ubicacion del archivo
+            //File.WriteAllText(Pathjson, myjson);
 
-
+            string jason = File.ReadAllText("C:\\C#\\LogicsExercises\\LogicsExercises\\Reto_12\\Precursores.json");
+            Precursor precursor1 = JsonSerializer.Deserialize<Precursor>(jason);
+            Console.WriteLine(jason);
+            Console.ReadKey();
 
 
             //string xmlPath = "user_data.xml";

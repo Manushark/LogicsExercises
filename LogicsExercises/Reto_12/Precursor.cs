@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace LogicsExercises.Reto_12
@@ -12,11 +13,12 @@ namespace LogicsExercises.Reto_12
         public double CantidadHoras { get; set; }
         public Char Tipo { get; set; } //R = Regular / A = Auxiliar 
 
-        public Precursor(string v1, double v2, char v3) { 
-        
-            this.Name = v1;
-            this.CantidadHoras = v2;
-            this.Tipo = v3;
+        [JsonConstructor]
+        public Precursor(string name, double cantidadHoras, char tipo)//"Added a parameterless constructor and aligned constructor parameter names to match property names so System.Text.Json can deserialize Precursor properly."
+        {
+            Name = name;
+            CantidadHoras = cantidadHoras;
+            Tipo = tipo;
         }
 
 
