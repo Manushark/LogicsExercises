@@ -11,5 +11,14 @@ namespace LogicsExercises.Reto_12
         public string Name { get; set; }
         public double CantidadHoras { get; set; }
         public Char Tipo { get; set; } //R = Regular / A = Auxiliar 
+
+        public Precursor(string v1, double v2, char v3) { 
+        
+            this.Name = v1;
+            this.CantidadHoras = v2;
+            this.Tipo = v3;
+        }
+
+
     }
 }

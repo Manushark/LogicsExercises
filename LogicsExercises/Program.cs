@@ -15,6 +15,8 @@ using LogicsExercises.Reto_08;
 using LogicsExercises.Reto_09;
 using LogicsExercises.Reto_10;
 using LogicsExercises.Reto_11;
+using LogicsExercises.Reto_12;
+
 //using LogicsExercises.Reto_12;
 
 using Microsoft.Win32;
@@ -84,7 +86,9 @@ public class Program
 
         //Reto_07.printer();
 
-        Reto_11.Sales();
+        //Reto_11.Sales();
+
+        Reto_12.Run();
     }
 }
 
