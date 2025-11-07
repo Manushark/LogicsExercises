@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Usuario>
+  <Nombre>Juan Pérez</Nombre>
+  <Edad>30</Edad>
+  <FechaNacimiento>1993-05-15</FechaNacimiento>
+  <LenguajesProgramacion>
+    <Lenguaje>C#</Lenguaje>
+    <Lenguaje>JavaScript</Lenguaje>
+    <Lenguaje>Python</Lenguaje>
+  </LenguajesProgramacion>
+</Usuario>

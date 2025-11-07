@@ -22,6 +22,7 @@ using LogicsExercises.Reto_12;
 using Microsoft.Win32;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static LogicsExercises.Reto_08.Reto_08;
+using static LogicsExercises.Reto_12.Reto_12;
 
 public class Program
 {
@@ -88,7 +89,17 @@ public class Program
 
         //Reto_11.Sales();
 
-        Reto_12.Run();
+        //Reto_12.Run();
+
+        ArchivoServices archivoServices = new ArchivoServices();
+
+        Precursor precursor = new Precursor("Majagg talgul", 50, 'R');
+        //archivoServices.SaveJson(precursor);
+        //archivoServices.LoadJson(precursor);
+
+        archivoServices.SaveXml(precursor, "Xml.xml");
+        archivoServices.LeerXML("Xml.xml");
+
     }
 }
 

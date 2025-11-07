@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Text.Json.Serialization;
 using System.Text.Json;
+using System.Reflection.Emit;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace LogicsExercises.Reto_12
 {
@@ -45,36 +48,82 @@ namespace LogicsExercises.Reto_12
             Console.ReadKey();
 
 
-            //string xmlPath = "user_data.xml";
-            //string jsonPath = "user_data.json";
-            //// Datos de ejemplo
-            //var userData = new
-            //{
-            //    Nombre = "Juan Pérez",
-            //    Edad = 30,
-            //    FechaNacimiento = new DateTime(1993, 5, 15),
-            //    LenguajesProgramacion = new List<string> { "C#", "JavaScript", "Python" }
-            //};
-            //// Crear XML
-            //XElement xml = new XElement("Usuario",
-            //    new XElement("Nombre", userData.Nombre),
-            //    new XElement("Edad", userData.Edad),
-            //    new XElement("FechaNacimiento", userData.FechaNacimiento.ToString("yyyy-MM-dd")),
-            //    new XElement("LenguajesProgramacion",
-            //        userData.LenguajesProgramacion.Select(lang => new XElement("Lenguaje", lang))
-            //    )
-            //);
-            //xml.Save(xmlPath);
-            //Console.WriteLine("Archivo XML creado:\n" + xml);
-            //// Crear JSON
-            //string json = JsonSerializer.Serialize(userData, new JsonSerializerOptions { WriteIndented = true });
-            //File.WriteAllText(jsonPath, json);
-            //Console.WriteLine("\nArchivo JSON creado:\n" + json);
-            //// Borrar archivos
-            //File.Delete(xmlPath);
-            //File.Delete(jsonPath);
-            //Console.WriteLine("\nArchivos XML y JSON borrados.");
+
+
+            string xmlPath = "C:\\C#\\LogicsExercises\\LogicsExercises\\Reto_12\\user_data.xml";
+            string jsonPath = "C:\\C#\\LogicsExercises\\LogicsExercises\\Reto_12\\user_data.json";
+
+            // Datos de ejemplo
+            var userData = new//esto es un objeto anónimo 
+            {
+                Nombre = "Juan Pérez",
+                Edad = 30,
+                FechaNacimiento = new DateTime(1993, 5, 15),
+                LenguajesProgramacion = new List<string> { "C#", "JavaScript", "Python" }
+            };
+
+            // Crear XML
+            XElement xml = new XElement("Usuario",
+                new XElement("Nombre", userData.Nombre),
+                new XElement("Edad", userData.Edad),
+                new XElement("FechaNacimiento", userData.FechaNacimiento.ToString("yyyy-MM-dd")),
+                new XElement("LenguajesProgramacion",
+                    userData.LenguajesProgramacion.Select(lang => new XElement("Lenguaje", lang))
+                )
+            );
+            xml.Save(xmlPath);
+            Console.WriteLine("Archivo XML creado:\n" + xml);
+
+            // Crear JSON
+            string json = JsonSerializer.Serialize(userData, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(jsonPath, json);
+            Console.WriteLine("\nArchivo JSON creado:\n" + json);
+
+            // Borrar archivos
+            File.Delete(xmlPath);
+            File.Delete(jsonPath);
+            Console.WriteLine("\nArchivos XML y JSON borrados.");
         }
 
+        //Extra Difficulty
+        public class ArchivoServices
+        {
+
+            //Json
+            public void SaveJson(Precursor precursor)
+            {
+                string jsonPath = "C:\\C#\\LogicsExercises\\LogicsExercises\\Reto_12\\Precur_data.json";
+                var opcion = new JsonSerializerOptions { WriteIndented = true };
+                string json = JsonSerializer.Serialize(precursor, opcion);
+                File.WriteAllText(jsonPath, json);
+
+            }
+
+            public void LoadJson(Precursor precursor)
+            {
+                string jason = File.ReadAllText("C:\\C#\\LogicsExercises\\LogicsExercises\\Reto_12\\Precursores.json");
+                Precursor precursor1 = JsonSerializer.Deserialize<Precursor>(jason);
+                Console.WriteLine(jason);
+            }
+
+
+            public void SaveXml(Precursor precursor, string path)
+            {
+                XmlSerializer xmlSerializer = new XmlSerializer(typeof(Precursor));
+                using (TextWriter textWriter = new StreamWriter(path))
+                {
+                    xmlSerializer.Serialize(textWriter, precursor);
+                }
+            }
+
+            public Precursor LeerXML(string ruta)
+            {
+                XmlSerializer serializer = new XmlSerializer(typeof(Precursor));
+                using (TextReader reader = new StreamReader(ruta))
+                {
+                    return (Precursor)serializer.Deserialize(reader);
+                }
+            }
+        }
     }
 }
