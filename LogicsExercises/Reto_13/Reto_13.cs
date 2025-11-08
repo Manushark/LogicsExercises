@@ -26,16 +26,9 @@ namespace LogicsExercises.Reto_13
      */
     public static class Reto_13
     {
-        public static void Run()
-        {
-            
-        
-        }
-
-        public static int Sum(int Number1 = 5 , int Number2= 9)
-        {
-           int Result = Number1 + Number2;  
-           return Result;
+        public static int Sum(int Number1, int Number2)
+        { 
+           return Number1 + Number2;
         }
 
     }

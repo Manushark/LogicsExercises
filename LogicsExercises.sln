@@ -5,6 +5,11 @@ VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicsExercises", "LogicsExercises\LogicsExercises.csproj", "{A64D3B05-956B-4A5B-9944-658B3F362EC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reto_13", "Reto_13\Reto_13.csproj", "{237A957C-DA72-43DF-A14E-DFAAC19AF738}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A64D3B05-956B-4A5B-9944-658B3F362EC1} = {A64D3B05-956B-4A5B-9944-658B3F362EC1}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{A64D3B05-956B-4A5B-9944-658B3F362EC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A64D3B05-956B-4A5B-9944-658B3F362EC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A64D3B05-956B-4A5B-9944-658B3F362EC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{237A957C-DA72-43DF-A14E-DFAAC19AF738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{237A957C-DA72-43DF-A14E-DFAAC19AF738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{237A957C-DA72-43DF-A14E-DFAAC19AF738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{237A957C-DA72-43DF-A14E-DFAAC19AF738}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
