@@ -26,21 +26,20 @@ namespace LogicsExercises.Reto_13
      */
     public class Reto_13
     {
+        //Función que suma dos números y retorna el resultado
         public static int Sum(int Number1, int Number2)
         {
             return Number1 + Number2;
         }
 
         //DIFICULTAD EXTRA
+        //Diccionario con los datos solicitados
         Dictionary<string, object> dictionary = new Dictionary<string, object> {
             {"Name: ", "Manuel Rivas"},
             {"Age: ", "21"},
             {"Birth_Date: ", "10/23/2004"},
             {"programming_languages: ", new List<string>{"C#", "HTML", "SQL" } }
         };
-
-
-
     }
 
 
