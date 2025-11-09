@@ -13,7 +13,7 @@ namespace Reto_1
         [Test]
         public void Sum_Test()
         {
-            int result = Reto_13.Sum(5 , 9);
+            int result = Reto_13.Sum(5, 9);
             Assert.AreEqual(14, result);
         }
 
@@ -22,7 +22,7 @@ namespace Reto_1
         [SetUp]
         public void Dictionary()
         {
-            dictionary = new Dictionary<string , object>() {  
+            dictionary = new Dictionary<string, object>() {
             {"Name: ", "Manuel Rivas"},
             {"Age: ", "21"},
             {"Birth_Date: ", "10/23/2004"},
@@ -37,6 +37,17 @@ namespace Reto_1
             Assert.IsTrue(dictionary.ContainsKey("Birth_Date: "));
             Assert.IsTrue(dictionary.ContainsKey("programming_languages: "));
         }
+
+        [Test]
+        public void Data_Test()
+        {
+            Assert.That(dictionary["Name: "], Is.EqualTo("Manuel Rivas"));
+            Assert.That(dictionary["Age: "], Is.EqualTo("21"));
+            Assert.That(dictionary["Birth_Date: "], Is.EqualTo("10/23/2004"));
+            
+            var list = (List<string>)dictionary["programming_languages: "];
+            Assert.That(list, Is.EquivalentTo(new List<string> { "C#", "HTML", "SQL" }));
+        } 
 
     }
 }
