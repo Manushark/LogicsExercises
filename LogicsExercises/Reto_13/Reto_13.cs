@@ -24,12 +24,24 @@ namespace LogicsExercises.Reto_13
      * - Un primero que determine que existen todos los campos.
      * - Un segundo que determine que los datos introducidos son correctos.
      */
-    public static class Reto_13
+    public class Reto_13
     {
         public static int Sum(int Number1, int Number2)
-        { 
-           return Number1 + Number2;
+        {
+            return Number1 + Number2;
         }
 
+        //DIFICULTAD EXTRA
+        Dictionary<string, object> dictionary = new Dictionary<string, object> {
+            {"Name: ", "Manuel Rivas"},
+            {"Age: ", "21"},
+            {"Birth_Date: ", "10/23/2004"},
+            {"programming_languages: ", new List<string>{"C#", "HTML", "SQL" } }
+            };
+
+
+
     }
-}
+
+
+} 
