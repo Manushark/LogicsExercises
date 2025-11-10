@@ -27,12 +27,21 @@ namespace LogicsExercises.Reto_14
          */
 
         DateTime time = DateTime.Now;
-        DateTime birth = new DateTime(2004, 10, 23, 8, 50, 4);
-
+        DateTime birth = new DateTime(2004, 10, 23, 8, 50, 4);//Establezco mi fecha de nacimiento 
         public void read()
         {
             Console.WriteLine($"Tiempo Actual: {time} ");
             Console.WriteLine($"El dia de mi nacimiento: {birth}");
+
+            var date = time.Year - birth.Year;//Calculo la diferencia de años entre ambas fechas
+
+            //Por si todavia no has cumplido anos (Yo ya si los cumpli)
+            if (birth.Month > time.Month || birth.Month == time.Month && birth.Day > time.Day)//evaluo si el mes de nacimiento todavia no ha llegado o si es el mismo mes pero el dia aun no ha llegado
+            {
+                date--;//en caso de ser asi, resto un año a la diferencia
+            }
+
+            Console.WriteLine($"Años transcurridos: {date} ");
         }
     }
 }
