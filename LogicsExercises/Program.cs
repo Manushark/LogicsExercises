@@ -16,8 +16,8 @@ using LogicsExercises.Reto_09;
 using LogicsExercises.Reto_10;
 using LogicsExercises.Reto_11;
 using LogicsExercises.Reto_12;
-
-//using LogicsExercises.Reto_12;
+using LogicsExercises.Reto_13;
+using LogicsExercises.Reto_14;
 
 using Microsoft.Win32;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -91,15 +91,18 @@ public class Program
 
         //Reto_12.Run();
 
-        ArchivoServices archivoServices = new ArchivoServices();
+        //ArchivoServices archivoServices = new ArchivoServices();
 
-        Precursor precursor = new Precursor("Majagg talgul", 50, 'R');
-        //archivoServices.SaveJson(precursor);
-        //archivoServices.LoadJson(precursor);
+        //Precursor precursor = new Precursor("Majagg talgul", 50, 'R');
+        ////archivoServices.SaveJson(precursor);
+        ////archivoServices.LoadJson(precursor);
 
-        archivoServices.SaveXml(precursor, "Xml.xml");
-        archivoServices.LeerXML("Xml.xml");
+        //archivoServices.SaveXml(precursor, "Xml.xml");
+        //archivoServices.LeerXML("Xml.xml");
 
+
+        Reto_14 reto_14 = new Reto_14();
+        reto_14.read();
     }
 }
 
