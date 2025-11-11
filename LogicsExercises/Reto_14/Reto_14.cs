@@ -43,5 +43,21 @@ namespace LogicsExercises.Reto_14
 
             Console.WriteLine($"Años transcurridos: {date} ");
         }
+
+        //DIFICULTAD EXTRA
+        public void extra()
+        {
+            Console.WriteLine("Formatos diferentes de mi fecha de nacimiento:");
+            Console.WriteLine($"1. Día, mes y año: {birth:dd/MM/yyyy}");
+            Console.WriteLine($"2. Hora, minuto y segundo: {birth:HH:mm:ss}");
+            Console.WriteLine($"3. Día de año: {birth:ddd}");
+            Console.WriteLine($"4. Día de la semana: {birth:dddd}");
+            Console.WriteLine($"5. Nombre del mes: {birth:MMMM}");
+            Console.WriteLine($"6. Formato completo: {birth:F}");
+            Console.WriteLine($"7. Formato corto: {birth:d}");
+            Console.WriteLine($"8. Formato largo: {birth:D}");
+            Console.WriteLine($"9. Formato universal: {birth:u}");
+            Console.WriteLine($"10. Formato RFC1123: {birth:R}");
+        }
     }
 }
