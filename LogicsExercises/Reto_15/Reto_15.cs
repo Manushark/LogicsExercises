@@ -26,31 +26,41 @@ namespace LogicsExercises.Reto_15
      */
     public class Reto_15
     {
+        //First version
+        //public async Task Run(int second)
+        //{
+        //    Task task = Task.Run(async () =>
+        //    {
+        //        Console.Write("Ingrese el nombre de la función: ");
+        //        string name = Console.ReadLine();
 
-        public async Task Run(int second)
+        //        Console.WriteLine($"La funcion se llama: {name}");
+
+        //        Console.WriteLine($"[{name}] Inicio | Duración: {second} segundos | Hora: {DateTime.Now:T}");
+
+        //        await Task.Delay(second * 1000);
+
+        //        Console.WriteLine($"Final de la ejecucion: {DateTime.Now}");
+
+        //    });
+
+        //    await task;
+        //}
+
+        //Second version with name parameter
+        public async Task Run(string name, int seconds)
         {
-            Task task = Task.Run(async () =>
-            {
-                Console.Write("Ingrese el nombre de la función: ");
-                string name = Console.ReadLine();
+            Console.WriteLine($"[{name}] Inicio | Duración: {seconds} segundos | Hora: {DateTime.Now:T}");
 
-                Console.WriteLine($"La funcion se llama: {name}");
+            await Task.Delay(seconds * 1000);
 
-                Console.WriteLine($"[{name}] Inicio | Duración: {second} segundos | Hora: {DateTime.Now:T}");
-
-                await Task.Delay(second * 1000);
-
-                Console.WriteLine($"Final de la ejecucion: {DateTime.Now}");
-
-            });
-
-            await task;
+            Console.WriteLine($"[{name}] Fin | Hora: {DateTime.Now:T}");
         }
 
     }
 
 
-    
+
 }
 
     

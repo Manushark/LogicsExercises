@@ -105,7 +105,7 @@ public class Program
         //reto_14.extra();
 
         Reto_15 reto_15 = new Reto_15();
-        reto_15.Run(5).GetAwaiter().GetResult();
+        reto_15.Run("Chicharon",7).GetAwaiter().GetResult();
     }
 }
 
