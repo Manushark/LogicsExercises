@@ -57,6 +57,41 @@ namespace LogicsExercises.Reto_15
             Console.WriteLine($"[{name}] Fin | Hora: {DateTime.Now:T}");
         }
 
+
+        public async Task ABC()
+        {
+            Task C_task = Task.Run(async () =>
+            {
+                await Task.Delay(3000);
+                Console.WriteLine($"Tarea C completada en 3 segundos");
+            });
+
+            Task B_task = Task.Run(async () =>
+            {
+                await Task.Delay(2000);
+                Console.WriteLine($"Tarea B completada en 2 segundos");
+            }); 
+            
+            Task A_task = Task.Run(async () =>
+            {
+                await Task.Delay(1000);
+                Console.WriteLine($"Tarea A completada en 1 segundos");
+            });
+
+           await Task.WhenAll(C_task, B_task, A_task);
+
+           Task D_task = Task.Run(async () =>
+            {
+                await Task.Delay(1000);
+                Console.WriteLine($"Tarea D completada en 1 segundos");
+            });
+
+            await Task.WhenAll(D_task);
+
+        }
+
+
+
     }
 
 
