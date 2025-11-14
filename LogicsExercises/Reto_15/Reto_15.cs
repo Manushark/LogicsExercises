@@ -57,7 +57,7 @@ namespace LogicsExercises.Reto_15
             Console.WriteLine($"[{name}] Fin | Hora: {DateTime.Now:T}");
         }
 
-
+        //Decidi hacerlo asi para que se vea mas claro el orden de las tareas
         public async Task ABC()
         {
             Task C_task = Task.Run(async () =>
@@ -78,15 +78,19 @@ namespace LogicsExercises.Reto_15
                 Console.WriteLine($"Tarea A completada en 1 segundos");
             });
 
-           await Task.WhenAll(C_task, B_task, A_task);
+           await Task.WhenAll(C_task, B_task, A_task);// Espera a que las tareas A, B y C se completen
+                                                      //Tambien se podria usar Task.WaitAll(C_task, B_task, A_task); pero no es asincrono, ya que esto bloquea el hilo actual hasta que todas las tareas se completen.
 
-           Task D_task = Task.Run(async () =>
+            Task D_task = Task.Run(async () =>
             {
                 await Task.Delay(1000);
                 Console.WriteLine($"Tarea D completada en 1 segundos");
             });
 
-            await Task.WhenAll(D_task);
+            await Task.WhenAll(D_task);// Espera a que la tarea D se complete
+            
+            //Se podria utilizar un AtachedToParent, pero no es necesario en este caso
+            //ya que sirve para crear una jerarquia de tareas, donde una tarea padre puede tener varias tareas hijas
 
         }
 

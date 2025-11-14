@@ -105,7 +105,7 @@ public class Program
         //reto_14.extra();
 
         Reto_15 reto_15 = new Reto_15();
-        reto_15.ABC().GetAwaiter().GetResult();
+        reto_15.ABC().GetAwaiter().GetResult(); //Los metodos async deben ser llamados con GetAwaiter().GetResult() en el Main porque el Main no puede ser async
         //reto_15.Run("Chicharon",7).GetAwaiter().GetResult();
     }
 }
