@@ -19,6 +19,7 @@ using LogicsExercises.Reto_12;
 using LogicsExercises.Reto_13;
 using LogicsExercises.Reto_14;
 using LogicsExercises.Reto_15;
+using LogicsExercises.Reto_16;
 using Microsoft.Win32;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static LogicsExercises.Reto_08.Reto_08;
@@ -104,9 +105,13 @@ public class Program
         //Reto_14 reto_14 = new Reto_14();
         //reto_14.extra();
 
-        Reto_15 reto_15 = new Reto_15();
-        reto_15.ABC().GetAwaiter().GetResult(); //Los metodos async deben ser llamados con GetAwaiter().GetResult() en el Main porque el Main no puede ser async
+        //Reto_15 reto_15 = new Reto_15();
+        //reto_15.ABC().GetAwaiter().GetResult(); //Los metodos async deben ser llamados con GetAwaiter().GetResult() en el Main porque el Main no puede ser async
         //reto_15.Run("Chicharon",7).GetAwaiter().GetResult();
+
+
+        Reto_16 reto_16 = new Reto_16();
+        reto_16.Run();
     }
 }
 
