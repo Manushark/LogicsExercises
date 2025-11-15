@@ -54,7 +54,12 @@ namespace LogicsExercises.Reto_16
             string pass = "Manu1234";
             bool strong = Regex.IsMatch(pass, @"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$");//Estos caracteres significan: ^ inicio de la cadena, (?=.*[A-Z]) al menos una letra mayúscula, (?=.*[a-z]) al menos una letra minúscula,
                                                                                         //(?=.*\d) al menos un dígito, .{8,} al menos 8 caracteres en total, $ fin de la cadena
-            
+
+            //Extraer direcciones IP de un texto
+            var matches = Regex.Matches("Ping a 192.168.1.5 completado", @"\b\d{1,3}(\.\d{1,3}){3}\b");//Estos caracteres significan: \b límite de palabra, \d{1,3} uno a tres dígitos,
+                                                                                                       //(\.\d{1,3}){3} tres grupos de un punto seguido de uno a tres dígitos, \b límite de palabra
+            foreach (Match m in matches)
+                Console.WriteLine(m.Value);
 
 
         }
