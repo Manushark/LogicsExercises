@@ -88,9 +88,13 @@ namespace LogicsExercises.Reto_15
             });
 
             await Task.WhenAll(D_task);// Espera a que la tarea D se complete
-            
+
             //Se podria utilizar un AtachedToParent, pero no es necesario en este caso
             //ya que sirve para crear una jerarquia de tareas, donde una tarea padre puede tener varias tareas hijas
+
+            //Reto_15 reto_15 = new Reto_15();
+            //reto_15.ABC().GetAwaiter().GetResult(); //Los metodos async deben ser llamados con GetAwaiter().GetResult() en el Main porque el Main no puede ser async
+            //reto_15.Run("Chicharon",7).GetAwaiter().GetResult();
 
         }
 

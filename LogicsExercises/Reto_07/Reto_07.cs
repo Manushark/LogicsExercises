@@ -162,6 +162,7 @@ namespace LogicsExercises.Reto_07
             }
             // Compilar con --> Reto_07.printer();
 
+            //Reto_07.Run();
         }
 
         /// INFORMACION PARA RECORDAR (SINTAXIS)

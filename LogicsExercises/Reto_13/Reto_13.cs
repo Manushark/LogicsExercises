@@ -40,6 +40,20 @@ namespace LogicsExercises.Reto_13
             {"Birth_Date: ", "10/23/2004"},
             {"programming_languages: ", new List<string>{"C#", "HTML", "SQL" } }
         };
+
+
+
+        //Codigo para ejecutar y mostrar el diccionario
+
+        //ArchivoServices archivoServices = new ArchivoServices();
+
+        //Precursor precursor = new Precursor("Majagg talgul", 50, 'R');
+        ////archivoServices.SaveJson(precursor);
+        ////archivoServices.LoadJson(precursor);
+
+        //archivoServices.SaveXml(precursor, "Xml.xml");
+        //archivoServices.LeerXML("Xml.xml");
+
     }
 
 

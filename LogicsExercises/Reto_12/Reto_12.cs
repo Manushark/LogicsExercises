@@ -124,6 +124,7 @@ namespace LogicsExercises.Reto_12
                     return (Precursor)serializer.Deserialize(reader);
                 }
             }
+            //Reto_12.Run();
         }
     }
 }

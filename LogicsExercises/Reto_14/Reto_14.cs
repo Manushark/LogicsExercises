@@ -59,5 +59,9 @@ namespace LogicsExercises.Reto_14
             Console.WriteLine($"9. Formato universal: {birth:u}");
             Console.WriteLine($"10. Formato RFC1123: {birth:R}");
         }
+        //Codigo para ejecutar el reto
+        //Reto_14 reto_14 = new Reto_14();
+        //reto_14.extra();
+
     }
 }
