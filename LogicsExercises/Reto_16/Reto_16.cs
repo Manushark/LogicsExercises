@@ -61,7 +61,9 @@ namespace LogicsExercises.Reto_16
             foreach (Match m in matches)
                 Console.WriteLine(m.Value);
 
-
+            //Para compilar 
+            //Reto_16 reto_16 = new Reto_16();
+            //reto_16.Run();
         }
     }
 }
