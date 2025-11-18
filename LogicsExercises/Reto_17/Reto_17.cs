@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,26 +21,45 @@ namespace LogicsExercises.Reto_17
         public void Run()
         {
             //Iteracion utilizando For
-            Console.WriteLine("Iterando for");
+            Console.WriteLine("==Iterando = for==");
             for (int x = 0; x <= 10; x++)
             {
                 Console.WriteLine(x);
             }
+            Console.WriteLine("_______________________________");
 
             //iteracion utilizando While
-            Console.WriteLine("Iterando while");
+            Console.WriteLine("==Iterando = while==");
             int i = 0;
             while (i <= 10)
             {
                 Console.WriteLine(i);
                 i++;
             }
+            Console.WriteLine("_______________________________");
 
             //Iteracion utilizando do while
-            Console.WriteLine("Iterando do while");
+            Console.WriteLine("==Iterando = do while==");
             int d = 0;
             do { Console.WriteLine(d); d++; } while (d <= 10);
 
+            Console.WriteLine("_______________________________");
+            Console.WriteLine("==Recursiva==");
+
         }
+
+        //DIFICULTAD EXTRA  
+
+        //Iteracion utilizando recursividad
+        public void recursive(int i = 1)
+        {
+            if (i <= 10)
+            {
+                Console.WriteLine(i);
+                recursive(i + 1);
+            }
+        }
+
+
     }
 }
