@@ -32,7 +32,6 @@ public class Program
     { 
         Reto_17 reto_17 = new Reto_17();
         reto_17.Run();
-        reto_17.recursive();
     }
 }
 

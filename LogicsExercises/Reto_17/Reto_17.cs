@@ -45,7 +45,22 @@ namespace LogicsExercises.Reto_17
 
             Console.WriteLine("_______________________________");
             Console.WriteLine("==Recursiva==");
+            recursive();
 
+            Console.WriteLine("_______________________________");
+            Console.WriteLine("==ForEachXLinq==");
+
+            foreach (int x in Enumerable.Range(1, 10))
+                { Console.WriteLine(x); }
+
+            Console.WriteLine("_______________________________");
+            Console.WriteLine("==ForEach==");
+            int[] array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+            foreach (int x in array)
+                { Console.WriteLine(x); }
+
+
+          
         }
 
         //DIFICULTAD EXTRA  
@@ -60,6 +75,8 @@ namespace LogicsExercises.Reto_17
             }
         }
 
+
+        
 
     }
 }
