@@ -44,16 +44,19 @@ namespace LogicsExercises.Reto_17
             do { Console.WriteLine(d); d++; } while (d <= 10);
 
             Console.WriteLine("_______________________________");
+            //DIFICULTAD EXTRA
+            //Iteracion utilizando recursividad
             Console.WriteLine("==Recursiva==");
             recursive();
 
             Console.WriteLine("_______________________________");
             Console.WriteLine("==ForEachXLinq==");
-
-            foreach (int x in Enumerable.Range(1, 10))
-                { Console.WriteLine(x); }
+            //Iteracion utilizando ForEach y Linq
+            foreach (int x in Enumerable.Range(1, 10))//en Enumerable.Range sirve para generar una secuencia de numeros
+            { Console.WriteLine(x); }
 
             Console.WriteLine("_______________________________");
+            //Iteracion utilizando ForEach
             Console.WriteLine("==ForEach==");
             int[] array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
             foreach (int x in array)
@@ -61,11 +64,16 @@ namespace LogicsExercises.Reto_17
 
 
             Console.WriteLine("_______________________________");
+            //Iteracion utilizando Linq
             Console.WriteLine("==Linq==");
 
-            Enumerable.Range(1, 10).ToList().ForEach(n => Console.WriteLine(n));
+            Enumerable.Range(1, 10).ToList().ForEach(n => Console.WriteLine(n));//El linq no tiene un metodo de iteracion propio, por lo que se usa ToList para convertirlo en una lista y usar ForEach
 
-           
+            Console.WriteLine("_______________________________");
+            //Iteracion utilizando Parallel.For
+            Console.WriteLine("==ParallelFor==");
+
+            Parallel.For(1, 11, i => { Console.WriteLine(i); });
         }
 
         //DIFICULTAD EXTRA  
