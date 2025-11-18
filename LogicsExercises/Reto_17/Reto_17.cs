@@ -60,7 +60,12 @@ namespace LogicsExercises.Reto_17
                 { Console.WriteLine(x); }
 
 
-          
+            Console.WriteLine("_______________________________");
+            Console.WriteLine("==Linq==");
+
+            Enumerable.Range(1, 10).ToList().ForEach(n => Console.WriteLine(n));
+
+           
         }
 
         //DIFICULTAD EXTRA  
