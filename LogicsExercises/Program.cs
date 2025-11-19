@@ -21,6 +21,7 @@ using LogicsExercises.Reto_14;
 using LogicsExercises.Reto_15;
 using LogicsExercises.Reto_16;
 using LogicsExercises.Reto_17;
+using LogicsExercises.Reto_18;
 using Microsoft.Win32;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static LogicsExercises.Reto_08.Reto_08;
@@ -30,8 +31,8 @@ public class Program
 {
     public static void Main() 
     { 
-        Reto_17 reto_17 = new Reto_17();
-        reto_17.Run();
+        Reto_18 reto_18 = new Reto_18();
+        reto_18.Run();
     }
 }
 
