@@ -81,6 +81,17 @@ namespace LogicsExercises.Reto_18
                 Console.WriteLine(i);
             }
         }
+
+        // DIFICULTAD EXTRA
+        public void Difficulty() { 
+            HashSet<int> SetA = new HashSet<int>() { 1, 2, 3, 4, 5 };
+            HashSet<int> SetB = new HashSet<int>() { 4, 5, 6, 7, 8 };
+            var a = SetA.Union(SetB);
+            
+            foreach (int i in a) {
+                Console.WriteLine($"UNION: {i}");
+            }
+        }
     }
 
 }

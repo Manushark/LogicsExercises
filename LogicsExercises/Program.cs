@@ -32,7 +32,7 @@ public class Program
     public static void Main() 
     { 
         Reto_18 reto_18 = new Reto_18();
-        reto_18.Run();
+        reto_18.Difficulty();
     }
 }
 
