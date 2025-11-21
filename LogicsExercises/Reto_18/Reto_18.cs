@@ -88,35 +88,47 @@ namespace LogicsExercises.Reto_18
             HashSet<int> SetB = new HashSet<int>() { 4, 5, 6, 7, 8 };
 
             //Union
-            var a = SetA.Union(SetB);
-            
+            var a = SetA.Union(SetB);//Union une dos conjuntos sin repetir elementos
+
             foreach (int i in a) {
                 Console.WriteLine($"UNION: {i}");
             }
 
+            Console.WriteLine("-----"); 
+
             //Intersection
-            var b = SetA.Intersect(SetB);
+            var b = SetA.Intersect(SetB); //Intersect devuelve los elementos que están en ambos conjuntos
             foreach (int i in b) {
                 Console.WriteLine("INTERSECTION: " + i);
             }
 
+            Console.WriteLine("-----");
+
             // Except (Diferencia)
-            var c = SetA.Except(SetB); 
+            var c = SetA.Except(SetB); //Except devuelve los elementos que están en el primer conjunto pero no en el segundo
+
+            Console.WriteLine("Diferencia de A−B");
 
             foreach (int i in c)
             {
                 Console.WriteLine("DIFFERENCE: " + i);
             }
 
-            var c2 = SetB.Except(SetA);
+            Console.WriteLine("-----");
+
+
+            var c2 = SetB.Except(SetA); //Except devuelve los elementos que están en el segundo conjunto pero no en el primero
+            Console.WriteLine("Diferencia de B−A");
             foreach (int i in c2)
             {
                 Console.WriteLine("DIFFERENCE: " + i);
             }
 
+            Console.WriteLine("-----");
+
             //SymmetricExceptWith
 
-            SetA.SymmetricExceptWith(SetB);
+            SetA.SymmetricExceptWith(SetB); //SymmetricExceptWith devuelve los elementos que están en ambos conjuntos pero no en ambos a la vez
             foreach (int i in SetA) {
                 Console.WriteLine($"SYMMETRIC DIFFERENCE: {i}");
             }
