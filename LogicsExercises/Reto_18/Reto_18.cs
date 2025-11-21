@@ -100,6 +100,24 @@ namespace LogicsExercises.Reto_18
                 Console.WriteLine("INTERSECTION: " + i);
             }
 
+            // Except (Diferencia)
+            var c = SetA.Except(SetB); 
+
+            foreach (int i in c)
+            {
+                Console.WriteLine("DIFFERENCE: " + i);
+            }
+
+            var c2 = SetA.Except(SetB);
+            foreach (int i in c)
+            {
+                Console.WriteLine("DIFFERENCE: " + i);
+            }
+
+            
+
+
+
         }
     }
 
