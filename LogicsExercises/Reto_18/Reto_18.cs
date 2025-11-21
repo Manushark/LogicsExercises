@@ -108,15 +108,18 @@ namespace LogicsExercises.Reto_18
                 Console.WriteLine("DIFFERENCE: " + i);
             }
 
-            var c2 = SetA.Except(SetB);
-            foreach (int i in c)
+            var c2 = SetB.Except(SetA);
+            foreach (int i in c2)
             {
                 Console.WriteLine("DIFFERENCE: " + i);
             }
 
-            
+            //SymmetricExceptWith
 
-
+            SetA.SymmetricExceptWith(SetB);
+            foreach (int i in SetA) {
+                Console.WriteLine($"SYMMETRIC DIFFERENCE: {i}");
+            }
 
         }
     }
