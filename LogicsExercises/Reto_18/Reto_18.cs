@@ -86,11 +86,20 @@ namespace LogicsExercises.Reto_18
         public void Difficulty() { 
             HashSet<int> SetA = new HashSet<int>() { 1, 2, 3, 4, 5 };
             HashSet<int> SetB = new HashSet<int>() { 4, 5, 6, 7, 8 };
+
+            //Union
             var a = SetA.Union(SetB);
             
             foreach (int i in a) {
                 Console.WriteLine($"UNION: {i}");
             }
+
+            //Intersection
+            var b = SetA.Intersect(SetB);
+            foreach (int i in b) {
+                Console.WriteLine("INTERSECTION: " + i);
+            }
+
         }
     }
 
