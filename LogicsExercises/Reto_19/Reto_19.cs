@@ -30,6 +30,7 @@ namespace LogicsExercises.Reto_19
      */ 
     public class Reto_19
     {
+        //Un enum es un tipo de dato que permite definir un conjunto de constantes con nombre.
         enum DaysOfWeek
         {
            Lunes = 1,
@@ -46,9 +47,12 @@ namespace LogicsExercises.Reto_19
             Console.Write("Ingrese un numero del 1-7 para mostrar un dia de la semana: ");
             int Day = Convert.ToInt32(Console.ReadLine());
 
-            DaysOfWeek daysOfWeek = (DaysOfWeek)Day;
+            DaysOfWeek daysOfWeek = (DaysOfWeek)Day;// La logica de esta linea es convertir el numero ingresado por el usuario en un valor del enum DaysOfWeek
             Console.WriteLine($"El numero #{Day} es el {daysOfWeek}");
 
         }
+
+        //DIFICULTAD EXTRA
+        //Tomorrow
     }
 }
