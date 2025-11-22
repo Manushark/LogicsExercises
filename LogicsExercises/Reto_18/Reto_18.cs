@@ -134,6 +134,10 @@ namespace LogicsExercises.Reto_18
             }
 
         }
+
+        //Codigo para ejecutar el reto 
+        //Reto_18 reto_18 = new Reto_18();
+        //reto_18.Difficulty();
     }
 
 }
