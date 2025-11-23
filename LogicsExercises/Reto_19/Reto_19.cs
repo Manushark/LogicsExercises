@@ -42,6 +42,8 @@ namespace LogicsExercises.Reto_19
            Domingo = 7
         }
 
+      
+
         public void Run()
         {
             Console.Write("Ingrese un numero del 1-7 para mostrar un dia de la semana: ");
@@ -53,6 +55,45 @@ namespace LogicsExercises.Reto_19
         }
 
         //DIFICULTAD EXTRA
-        //Tomorrow
+        public class Extra
+        {
+            public int Id { get; set; }
+            public Estado CurrentEstado { get; private set; }
+
+            public enum Estado
+            {
+                Pendiente = 1,
+                Enviado = 2,
+                Entregado = 3,
+                Cancelado = 4
+            }
+
+            public Extra(int id)
+            {
+                this.Id = id;
+                this.CurrentEstado = Estado.Pendiente; // Initialize the state to "Pendiente"
+            }
+
+            public void ship()
+            {
+
+            }
+
+            public void deliver()
+            {
+
+            }
+
+            public void cancel()
+            {
+
+            }
+
+            public void DisplayStatus()
+            {
+                Console.WriteLine($"El pedido {Id} esta {CurrentEstado}");
+            }
+        }
+      
     }
 }

@@ -27,13 +27,18 @@ using Microsoft.Win32;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static LogicsExercises.Reto_08.Reto_08;
 using static LogicsExercises.Reto_12.Reto_12;
+using static LogicsExercises.Reto_19.Reto_19;
 
 public class Program
 {
     public static void Main() 
     { 
-        Reto_19 reto_19 = new Reto_19();
-        reto_19.Run();
+        //Reto_19 reto_19 = new Reto_19();
+        //reto_19.Run();
+
+        Extra extra = new Extra(1);
+        
+        extra.DisplayStatus();
     }
 }
 
