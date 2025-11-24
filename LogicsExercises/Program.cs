@@ -37,8 +37,9 @@ public class Program
         //reto_19.Run();
 
         Extra extra = new Extra(1);
-        
-        extra.DisplayStatus();
+        extra.ship();
+        extra.deliver();
+        extra.cancel();
     }
 }
 

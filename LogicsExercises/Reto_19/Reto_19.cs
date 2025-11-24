@@ -76,17 +76,30 @@ namespace LogicsExercises.Reto_19
 
             public void ship()
             {
-
+                if (CurrentEstado == Estado.Pendiente) {
+                    CurrentEstado = Estado.Enviado;
+                    DisplayStatus();
+                }else { Console.WriteLine("El ya se ha enviado o cancelado"); }
             }
 
             public void deliver()
             {
-
+                if (CurrentEstado == Estado.Enviado)
+                {
+                    CurrentEstado = Estado.Entregado;
+                    DisplayStatus();
+                }
+                else { Console.WriteLine("El pedido necesita ser enviado antes de entregarse."); }
             }
 
             public void cancel()
             {
-
+                if (CurrentEstado != Estado.Entregado)
+                {
+                    CurrentEstado = Estado.Cancelado;
+                    DisplayStatus();
+                }
+                else { Console.WriteLine("El pedido no se puede cancelar ya que ya se ha entregado."); }
             }
 
             public void DisplayStatus()
