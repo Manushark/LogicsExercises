@@ -23,6 +23,7 @@ using LogicsExercises.Reto_16;
 using LogicsExercises.Reto_17;
 using LogicsExercises.Reto_18;
 using LogicsExercises.Reto_19;
+using LogicsExercises.Reto_20;
 using Microsoft.Win32;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static LogicsExercises.Reto_08.Reto_08;
@@ -33,13 +34,8 @@ public class Program
 {
     public static void Main() 
     { 
-        //Reto_19 reto_19 = new Reto_19();
-        //reto_19.Run();
-
-        Extra extra = new Extra(1);
-        extra.ship();
-        extra.deliver();
-        extra.cancel();
+        Reto_20 reto_20 = new Reto_20();
+        reto_20.Run().GetAwaiter().GetResult();//y no se me olvide del GetAwaiter().GetResult() para llamar a metodos async desde Main
     }
 }
 

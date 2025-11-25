@@ -107,6 +107,15 @@ namespace LogicsExercises.Reto_19
                 Console.WriteLine($"El pedido {Id} esta {CurrentEstado}");
             }
         }
+
+        //Para ejecutar 
+        //Reto_19 reto_19 = new Reto_19();
+        //reto_19.Run();
+
+        //Extra extra = new Extra(1);
+        //extra.ship();
+        //extra.deliver();
+        //extra.cancel();
       
     }
 }
