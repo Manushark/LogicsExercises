@@ -39,5 +39,17 @@ namespace LogicsExercises.Reto_20
                 else { Console.WriteLine("Ha habido un error"); }
             }
         }
+
+        public async Task RunSimple()
+        {
+            var url = "https://jsonplaceholder.typicode.com/posts/1";
+            var client = new HttpClient();
+
+            var response = await client.GetAsync(url);
+            var content = await response.Content.ReadAsStringAsync();
+
+            Console.WriteLine(content);
+        }
+
     }
 }
