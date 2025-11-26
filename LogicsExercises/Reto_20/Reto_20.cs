@@ -51,5 +51,33 @@ namespace LogicsExercises.Reto_20
             Console.WriteLine(content);
         }
 
+        public async Task RunProfessional()
+        {
+            var url = "https://jsonplaceholder.typicode.com/posts/1";
+
+            using var httpClient = new HttpClient();
+
+            try
+            {
+                var response = await httpClient.GetAsync(url);
+
+                response.EnsureSuccessStatusCode();  // Lanza excepción si no es 200
+
+                var content = await response.Content.ReadAsStringAsync();
+
+                Console.WriteLine("✔ Request successful:");
+                Console.WriteLine(content);
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"❌ HTTP Error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Unexpected Error: {ex.Message}");
+            }
+        }
+
+
     }
 }
