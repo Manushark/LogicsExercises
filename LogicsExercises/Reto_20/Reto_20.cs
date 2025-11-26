@@ -40,10 +40,11 @@ namespace LogicsExercises.Reto_20
             }
         }
 
+        // Metodo simple sin manejo de errores
         public async Task RunSimple()
         {
             var url = "https://jsonplaceholder.typicode.com/posts/1";
-            var client = new HttpClient();
+            var client = new HttpClient();// Porque no usamos using? Porque en este caso no es estrictamente necesario, pero en aplicaciones reales si lo es para evitar fugas de memoria
 
             var response = await client.GetAsync(url);
             var content = await response.Content.ReadAsStringAsync();
@@ -51,6 +52,7 @@ namespace LogicsExercises.Reto_20
             Console.WriteLine(content);
         }
 
+        // Metodo mas profesional con manejo de errores
         public async Task RunProfessional()
         {
             var url = "https://jsonplaceholder.typicode.com/posts/1";
@@ -65,16 +67,16 @@ namespace LogicsExercises.Reto_20
 
                 var content = await response.Content.ReadAsStringAsync();
 
-                Console.WriteLine("✔ Request successful:");
+                Console.WriteLine("Request successful:");
                 Console.WriteLine(content);
             }
-            catch (HttpRequestException ex)
+            catch (HttpRequestException ex)//Especifico para errores HTTP
             {
-                Console.WriteLine($"❌ HTTP Error: {ex.Message}");
+                Console.WriteLine($"HTTP Error: {ex.Message}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"❌ Unexpected Error: {ex.Message}");
+                Console.WriteLine($"Unexpected Error: {ex.Message}");
             }
         }
 
