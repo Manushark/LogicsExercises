@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Text.Json;
+using System.Text.Json.Nodes;
+
 
 namespace LogicsExercises.Reto_20
 {
@@ -78,6 +82,36 @@ namespace LogicsExercises.Reto_20
             {
                 Console.WriteLine($"Unexpected Error: {ex.Message}");
             }
+        }
+
+        //DIFICULTAD EXTRA(opcional):
+
+        public async Task RunExtra()
+        {
+            Console.Write("Introduzca el nombre del pokemon que desea buscar: ");
+            var Pokemon = Console.ReadLine().ToLower();
+            var url = $"https://pokeapi.co/api/v2/pokemon/{Pokemon}/";
+            var Pokedex = new HttpClient();
+
+
+            var content = await Pokedex.GetAsync(url);
+            content.EnsureSuccessStatusCode();
+            var xx = await content.Content.ReadAsStringAsync();
+
+            var data = JsonNode.Parse(xx);
+            Console.WriteLine($"ID: {data["id"]}");
+            Console.WriteLine($"Peso: {data["weight"]}");
+            Console.WriteLine($"Altura: {data["height"]}");
+            
+            foreach (var t in data["types"].AsArray())
+            {
+                Console.WriteLine($"Tipo: {t["type"]["name"]}");
+            }
+
+
+
+
+
         }
 
 
