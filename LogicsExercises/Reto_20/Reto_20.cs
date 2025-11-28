@@ -32,7 +32,8 @@ namespace LogicsExercises.Reto_20
             var url = "https://jsonplaceholder.typicode.com/posts/1";
 
             // Aqui realizamos la peticion HTTP con Using para asegurar el cierre del cliente
-            using (var HttpClient = new HttpClient()) {
+            using (var HttpClient = new HttpClient())
+            {
                 var response = await HttpClient.GetAsync(url);
                 if (response.IsSuccessStatusCode)
                 {
@@ -100,20 +101,58 @@ namespace LogicsExercises.Reto_20
 
             var data = JsonNode.Parse(xx);
             Console.WriteLine($"ID: {data["id"]}");
+            Console.WriteLine($"Nombre: {data["name"]}");
             Console.WriteLine($"Peso: {data["weight"]}");
             Console.WriteLine($"Altura: {data["height"]}");
-            
+
             foreach (var t in data["types"].AsArray())
             {
                 Console.WriteLine($"Tipo: {t["type"]["name"]}");
             }
+            
+            
+            Console.Write("Introduzca el nombre del pokemon para ver sus evoluciones: ");
+            var Evo = Console.ReadLine().ToLower();
 
+            var url_species = $"https://pokeapi.co/api/v2/pokemon-species/{Evo}/";
 
+            using var http = new HttpClient();
 
+            // 1. Obtener especie
+            var speciesResponse = await http.GetAsync(url_species);
+            speciesResponse.EnsureSuccessStatusCode();
+
+            var speciesJson = await speciesResponse.Content.ReadAsStringAsync();
+            var speciesData = JsonNode.Parse(speciesJson);
+
+            // 2. Obtener URL de la cadena
+            var evoChainUrl = speciesData["evolution_chain"]["url"].ToString();
+
+            // 3. Llamar la cadena de evolución
+            var evoResponse = await http.GetAsync(evoChainUrl);
+            evoResponse.EnsureSuccessStatusCode();
+
+            var evoJson = await evoResponse.Content.ReadAsStringAsync();
+            var evoData = JsonNode.Parse(evoJson);
+
+            // 4. Imprimir la cadena
+            Console.WriteLine("\nCadena de Evoluciones:");
+
+            var current = evoData["chain"];
+
+            while (current != null)
+            {
+                Console.WriteLine($"- {current["species"]["name"]}");
+
+                var nextForms = current["evolves_to"].AsArray();
+
+                if (nextForms.Count == 0)
+                    break; // No hay más evoluciones
+
+                current = nextForms[0]; // Tomamos la primera evolución
+            }
 
 
         }
-
-
     }
 }
