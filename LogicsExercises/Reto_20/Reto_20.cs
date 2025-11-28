@@ -95,19 +95,21 @@ namespace LogicsExercises.Reto_20
             Console.Write("Introduzca el nombre del pokemon que desea buscar: ");
             var Pokemon = Console.ReadLine().ToLower();
             var url = $"https://pokeapi.co/api/v2/pokemon/{Pokemon}/";
-            var Pokedex = new HttpClient();
+            var Pokedex = new HttpClient(); //Una instancia de HttpClient para hacer las peticiones
 
 
-            var content = await Pokedex.GetAsync(url);
-            content.EnsureSuccessStatusCode();
-            var xx = await content.Content.ReadAsStringAsync();
+            var content = await Pokedex.GetAsync(url);// Hacemos la peticion HTTP y esperamos la respuesta
+            content.EnsureSuccessStatusCode();// Verifica que la respuesta fue exitosa
+            var xx = await content.Content.ReadAsStringAsync();// Leemos el contenido de la respuesta como una cadena
 
+            // Parseamos el JSON obtenido en un JsonNode para facilitar el acceso a los datos
             var data = JsonNode.Parse(xx);
             Console.WriteLine($"ID: {data["id"]}");
             Console.WriteLine($"Nombre: {data["name"]}");
             Console.WriteLine($"Peso: {data["weight"]}");
             Console.WriteLine($"Altura: {data["height"]}");
 
+            //aqui mostramos los tipos del pokemon
             foreach (var t in data["types"].AsArray())
             {
                 Console.WriteLine($"Tipo: {t["type"]["name"]}");
@@ -121,18 +123,18 @@ namespace LogicsExercises.Reto_20
 
             using var http = new HttpClient();
 
-            // 1. Obtener especie
+            // Obtenemos especie
             var speciesResponse = await http.GetAsync(url_species);
             speciesResponse.EnsureSuccessStatusCode();
 
             var speciesJson = await speciesResponse.Content.ReadAsStringAsync();
             var speciesData = JsonNode.Parse(speciesJson);
 
-            // 2. Obtener URL de la cadena
+            // Obtenemos URL de la cadena
             var evoChainUrl = speciesData["evolution_chain"]["url"].ToString();
 
             // 3. Llamar la cadena de evolución
-            var evoResponse = await http.GetAsync(evoChainUrl);
+            var evoResponse = await http.GetAsync(evoChainUrl);//Lo que hacemos es llamar a la URL obtenida anteriormente
             evoResponse.EnsureSuccessStatusCode();
 
             var evoJson = await evoResponse.Content.ReadAsStringAsync();
@@ -143,11 +145,12 @@ namespace LogicsExercises.Reto_20
 
             var current = evoData["chain"];
 
+            //Este es un bucle para recorrer la cadena de evoluciones y mostrar cada una
             while (current != null)
             {
                 Console.WriteLine($"- {current["species"]["name"]}");
 
-                var nextForms = current["evolves_to"].AsArray();
+                var nextForms = current["evolves_to"].AsArray();//aqui obtenemos las siguientes evoluciones
 
                 if (nextForms.Count == 0)
                     break; // No hay más evoluciones
@@ -155,7 +158,7 @@ namespace LogicsExercises.Reto_20
                 current = nextForms[0]; // Tomamos la primera evolución
             }
 
-
+            // Mostrar juegos en los que aparece
             Console.WriteLine("Aparece en los siguientes juegos:");
             foreach (var game in data["game_indices"].AsArray())
             {
