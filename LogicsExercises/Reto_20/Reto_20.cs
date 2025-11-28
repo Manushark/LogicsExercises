@@ -6,6 +6,9 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Text.Json;
 using System.Text.Json.Nodes;
+using static System.Net.WebRequestMethods;
+using System.Reflection;
+using System.Text.RegularExpressions;
 
 
 namespace LogicsExercises.Reto_20
@@ -153,6 +156,11 @@ namespace LogicsExercises.Reto_20
             }
 
 
+            Console.WriteLine("Aparece en los siguientes juegos:");
+            foreach (var game in data["game_indices"].AsArray())
+            {
+                Console.WriteLine($"- {game["version"]["name"]}");
+            }
         }
     }
 }
