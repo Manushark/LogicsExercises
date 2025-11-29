@@ -24,6 +24,7 @@ using LogicsExercises.Reto_17;
 using LogicsExercises.Reto_18;
 using LogicsExercises.Reto_19;
 using LogicsExercises.Reto_20;
+using LogicsExercises.Reto_21;
 using Microsoft.Win32;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static LogicsExercises.Reto_08.Reto_08;
@@ -34,14 +35,16 @@ public class Program
 {
     public static void Main() 
     { 
-        Reto_20 reto_20 = new Reto_20();
-        //reto_20.Run().GetAwaiter().GetResult();//y no se me olvide del GetAwaiter().GetResult() para llamar a metodos async desde Main
-        //reto_20.RunSimple().GetAwaiter().GetResult();
-        //reto_20.RunProfessional().GetAwaiter().GetResult();
+        Reto_21 reto_21 = new Reto_21();
+        reto_21.Procesar(5, MostrarNumero);
 
-        reto_20.RunExtra().GetAwaiter().GetResult();
 
     }
+    public static void MostrarNumero(int n)
+    {
+        Console.WriteLine($"El número es: {n}");
+    }
+
 }
 
 

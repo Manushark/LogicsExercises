@@ -165,5 +165,13 @@ namespace LogicsExercises.Reto_20
                 Console.WriteLine($"- {game["version"]["name"]}");
             }
         }
+
+        //Codigo para compilar
+        //Reto_20 reto_20 = new Reto_20();
+        //reto_20.Run().GetAwaiter().GetResult();//y no se me olvide del GetAwaiter().GetResult() para llamar a metodos async desde Main
+        //reto_20.RunSimple().GetAwaiter().GetResult();
+        //reto_20.RunProfessional().GetAwaiter().GetResult();
+
+        //reto_20.RunExtra().GetAwaiter().GetResult();
     }
 }
