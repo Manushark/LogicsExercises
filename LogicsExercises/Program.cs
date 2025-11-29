@@ -36,16 +36,34 @@ public class Program
     public static void Main() 
     { 
         Reto_21 reto_21 = new Reto_21();
-        reto_21.Procesar(5, MostrarNumero);
+        reto_21.Procesar(5, MostrarNumero);//imprime el numero 5
 
 
+        // Imprimir el nombre en mayúsculas
+        reto_21.MostrarNombre("Manuel", ImprimirMayus);//Aqui podemos usar el metodo ImprimirMayus como callback para mostrar el nombre en mayusculas
+
+        // Imprimir con un saludo
+        reto_21.MostrarNombre("Andrea", Saludar);
     }
+
+    // ====== Callbacks ======
+    public static void ImprimirMayus(string n)
+    {
+        Console.WriteLine(n.ToUpper());
+    }
+
+    public static void Saludar(string n)
+    {
+        Console.WriteLine($"Hola {n}, que tengas un buen día.");
+    }
+
     public static void MostrarNumero(int n)
     {
         Console.WriteLine($"El número es: {n}");
     }
-
 }
+
+
 
 
 

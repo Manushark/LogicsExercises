@@ -24,6 +24,8 @@ namespace LogicsExercises.Reto_21
      */
     public class Reto_21
     {
+        //El callback es una funcion que se pasa como parametro a otra funcion para que esta la llame en un momento determinado, basicamente cuando se cree el objeto
+        //y se pase el dato por parametros uno de esos parametros puede ser una funcion que se ejecutara dentro de la funcion principal.
         public delegate void MiCallback(int numero);
 
         public void Procesar(int numero, MiCallback callback)
@@ -35,6 +37,14 @@ namespace LogicsExercises.Reto_21
         {
             Console.WriteLine($"El número es: {n}");
         }
+
+        public delegate void NombreCallback(string nombre);
+
+        public void MostrarNombre(string nombre, NombreCallback callback)
+        {
+            callback(nombre);
+        }
+
 
     }
 }
