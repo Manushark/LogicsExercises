@@ -25,6 +25,7 @@ using LogicsExercises.Reto_18;
 using LogicsExercises.Reto_19;
 using LogicsExercises.Reto_20;
 using LogicsExercises.Reto_21;
+using LogicsExercises.Reto_22;
 using Microsoft.Win32;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using static LogicsExercises.Reto_08.Reto_08;
@@ -35,35 +36,11 @@ public class Program
 {
     public static void Main() 
     { 
-        Reto_21 reto_21 = new Reto_21();
-        reto_21.Procesar(5, MostrarNumero);//imprime el numero 5
+        Reto_22 reto_22 = new Reto_22();
+        reto_22.DividirNumeros(80);
 
-
-        // Imprimir el nombre en mayúsculas
-        reto_21.MostrarNombre("Manuel", ImprimirMayus);//Aqui podemos usar el metodo ImprimirMayus como callback para mostrar el nombre en mayusculas
-
-        // Imprimir con un saludo
-        reto_21.MostrarNombre("Andrea", Saludar);
-
-        // Extra Difficulty
-        reto_21.Order_Process("Pizza de Jamon con peperoni y queso parmesano", reto_21.Confirm_Order, reto_21.Order_ready, reto_21.Order_delivered);
     }
 
-    // ====== Callbacks ======
-    public static void ImprimirMayus(string n)
-    {
-        Console.WriteLine(n.ToUpper());
-    }
-
-    public static void Saludar(string n)
-    {
-        Console.WriteLine($"Hola {n}, que tengas un buen día.");
-    }
-
-    public static void MostrarNumero(int n)
-    {
-        Console.WriteLine($"El número es: {n}");
-    }
 }
 
 
