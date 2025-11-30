@@ -53,8 +53,13 @@ namespace LogicsExercises.Reto_21
         //Esta es la funcion que se encarga de procesar el pedido
         public void Order_Process(string Pedido, Callback_Pedido Confirm_Order, Callback_Pedido Order_ready, Callback_Pedido Order_delivered)
         {
+            Random rand = new Random();
+            int tiempo_espera = rand.Next(1, 11); // Genera un número aleatorio entre 1 y 10
+            Thread.Sleep(tiempo_espera * 1000); // Simula el tiempo de espera
             Confirm_Order(Pedido);
+            Thread.Sleep(tiempo_espera * 1000); // Simula el tiempo de espera
             Order_ready(Pedido);
+            Thread.Sleep(tiempo_espera * 1000); // Simula el tiempo de espera
             Order_delivered(Pedido);
         }
         public void Confirm_Order(string Pedido) 
