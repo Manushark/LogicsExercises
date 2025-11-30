@@ -45,6 +45,31 @@ namespace LogicsExercises.Reto_21
             callback(nombre);
         }
 
+        //Extra Difficulty
 
+        public delegate void Callback_Pedido(string callback);
+
+        //La funcion Order_Process recibe el nombre del plato y tres callbacks para confirmar, listo y entregado
+        //Esta es la funcion que se encarga de procesar el pedido
+        public void Order_Process(string Pedido, Callback_Pedido Confirm_Order, Callback_Pedido Order_ready, Callback_Pedido Order_delivered)
+        {
+            Confirm_Order(Pedido);
+            Order_ready(Pedido);
+            Order_delivered(Pedido);
+        }
+        public void Confirm_Order(string Pedido) 
+        {
+            Console.WriteLine($"Tu {Pedido} ha sido confirmado");
+        } 
+        public void Order_ready(string Pedido)
+        {
+            Console.WriteLine($"Tu {Pedido} esta listo para entregar");
+
+        }
+        public void Order_delivered(string Pedido)
+        {
+            Console.WriteLine($"Tu {Pedido} ha sido entregado");
+
+        }
     }
 }
