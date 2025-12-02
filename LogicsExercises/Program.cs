@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
@@ -38,8 +39,11 @@ public class Program
     { 
         Reto_22 reto_22 = new Reto_22();
         reto_22.DividirNumeros(80);
+        reto_22.lista();
 
     }
+        
+
 
 }
 
