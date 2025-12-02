@@ -38,14 +38,30 @@ public class Program
     public static void Main() 
     { 
         Reto_22 reto_22 = new Reto_22();
+        Console.WriteLine("-----Funcion de orden superior que divide un numero entre 2-----");
         reto_22.DividirNumeros(80);
+        
+        Console.WriteLine("-----Lista de numeros ordenada y filtrada para obtener solo los numeros pares-----");
         reto_22.lista();
+
+        Console.WriteLine("-----Operaciones con funciones de orden superior-----");
+        //Creamos funciones lambda para las operaciones
+        Func<int, int, int> suma = (a, b) => a + b;
+        Func<int, int, int> resta = (a, b) => a - b;
+        Func<int, int, int> multiplicacion = (a, b) => a * b;
+        
+        Console.WriteLine("Suma: " + reto_22.Operar(56, 33, suma));
+        Console.WriteLine("Resta: " + reto_22.Operar(99, 7, resta));
+        Console.WriteLine("Multiplicacion: " + reto_22.Operar(19, 5, multiplicacion));
+
+
 
     }
         
 
 
 }
+
 
 
 

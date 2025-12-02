@@ -38,6 +38,12 @@ namespace LogicsExercises.Reto_22
             return Mitad();
         }
 
+        //Funcion de orden superior que recibe dos numeros y una operacion a realizar 
+        //Y si usamos func no necesitamos usar delegados
+        public int Operar(int x, int f, Func<int, int, int> operacion)
+        {
+            return operacion(x, f);
+        }
 
         //Lista de numeros ordenada y filtrada para obtener solo los numeros pares
         public List<int> lista()
