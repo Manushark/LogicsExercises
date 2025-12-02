@@ -64,6 +64,20 @@ public class Program
         foreach (var p in pares)
             Console.WriteLine(p);
 
+        // Uso de LINQ para transformar números (elevar al cuadrado)
+        var cuadrados = numeros.Select(n => n * n);
+
+        foreach (var c in cuadrados)
+            Console.WriteLine(c);
+
+        // Combinación de Where y Select
+        Console.WriteLine("Números mayores que 3, multiplicados por 10:");
+        var resultado = numeros
+                     .Where(n => n > 3) // función como parámetro
+                     .Select(n => n * 10);
+
+        foreach (var r in resultado)
+            Console.WriteLine(r);
 
 
     }
