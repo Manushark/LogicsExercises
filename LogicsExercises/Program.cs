@@ -54,10 +54,20 @@ public class Program
         Console.WriteLine("Resta: " + reto_22.Operar(99, 7, resta));
         Console.WriteLine("Multiplicacion: " + reto_22.Operar(19, 5, multiplicacion));
 
+        //Ejemplo de uso de LINQ
+        var numeros = new List<int> { 1, 2, 3, 4, 5 };
+
+        // Uso de LINQ para filtrar números pares
+        var pares = numeros.Where(n => n % 2 == 0);
+
+        // Imprimir los números pares
+        foreach (var p in pares)
+            Console.WriteLine(p);
+
 
 
     }
-        
+
 
 
 }

@@ -62,7 +62,11 @@ namespace LogicsExercises.Reto_22
                 else { continue; }
             }
             return Couples;
+
         }
+
+
+
 
     }
 }
