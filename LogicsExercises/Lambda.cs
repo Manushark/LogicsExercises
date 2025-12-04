@@ -19,6 +19,12 @@ namespace LogicsExercises
                 return $"Nombre: {Nombre}, Edad: {Edad}";
             }
         }
+
+        public class Producto
+        {
+            public string Name { get; set; }
+            public int Price { get; set; }
+        }
        
 
 
@@ -69,6 +75,19 @@ namespace LogicsExercises
 
             var personas2 = personas.OrderBy(p => p.Edad);
             foreach (var p in personas2) { Console.WriteLine(p); }
+
+
+            //Expresion para obtener solo la lista de precios 
+            var productos = new List<Producto> {
+            new Producto { Name="Mouse", Price=500 },
+            new Producto { Name="Teclado", Price=800 },
+            new Producto { Name="Monitor", Price=4500 }
+            };
+
+
+            Console.Write("Lista de precios de los productos: ");
+            var producs = productos.Select(s => s.Price).ToList(); 
+            foreach(var p in producs) { Console.WriteLine(p); }
 
 
 
