@@ -62,7 +62,7 @@ namespace LogicsExercises
                 Console.WriteLine(n);
             }
 
-
+            Console.WriteLine("===========================");
             var personas = new List<Persona>
             {
                 new Persona { Nombre = "Ana", Edad = 28 },
@@ -84,10 +84,22 @@ namespace LogicsExercises
             new Producto { Name="Monitor", Price=4500 }
             };
 
-
+            Console.WriteLine("===========================");
             Console.Write("Lista de precios de los productos: ");
             var producs = productos.Select(s => s.Price).ToList(); 
             foreach(var p in producs) { Console.WriteLine(p); }
+
+            //Buscar un elemento en especifico
+            List<int> numeros = new List<int> { 3, 5, 7, 9, 11 };
+            var sooe = numeros.FirstOrDefault(x => x >= 6);
+            var s = numeros.FirstOrDefault(x => x.Equals(5));
+
+            Console.WriteLine("===========================");
+            Console.WriteLine(sooe); 
+            Console.WriteLine(s);
+
+
+
 
 
 
