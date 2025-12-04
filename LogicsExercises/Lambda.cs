@@ -3,11 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LogicsExercises
 {
     public static class Lambda
     {
+        public class Persona
+        {
+            public string Nombre { get; set; }
+            public int Edad { get; set; }
+
+            public override string ToString()
+            {
+                return $"Nombre: {Nombre}, Edad: {Edad}";
+            }
+        }
+       
+
+
+
         public static void lambda() {
             
             List<int> lista = new List<int> { 1, 3, 5, 4, 8, 9, 3, 4 };
@@ -40,6 +55,22 @@ namespace LogicsExercises
             {
                 Console.WriteLine(n);
             }
+
+
+            var personas = new List<Persona>
+            {
+                new Persona { Nombre = "Ana", Edad = 28 },
+                new Persona { Nombre = "Luis", Edad = 35 },
+                new Persona { Nombre = "Paola", Edad = 22 },
+                new Persona { Nombre = "Pedro", Edad = 40 }
+            };
+
+            //Expresion lambda para ordenar personas por edad 
+
+            var personas2 = personas.OrderBy(p => p.Edad);
+            foreach (var p in personas2) { Console.WriteLine(p); }
+
+
 
         }
     }
