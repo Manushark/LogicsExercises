@@ -14,6 +14,8 @@ namespace LogicsExercises
             public string Nombre { get; set; }
             public int Edad { get; set; }
 
+            // Sobrescribimos ToString() para que al imprimir un objeto Persona
+            // muestre sus valores (Nombre y Edad) en lugar del nombre de la clase.
             public override string ToString()
             {
                 return $"Nombre: {Nombre}, Edad: {Edad}";
@@ -24,6 +26,7 @@ namespace LogicsExercises
         {
             public string Name { get; set; }
             public int Price { get; set; }
+            public string Category { get; set; }
         }
        
 
@@ -99,6 +102,47 @@ namespace LogicsExercises
             Console.WriteLine(s);
 
 
+            Console.WriteLine("===========================");
+            //Si existe un elemento en la lista 
+            List<string> ciudades = new List<string> { "Santo Domingo", "Santiago", "La Vega" };
+            var exist = ciudades.Any(v => v == "La Vega");
+            Console.WriteLine(exist);
+            Console.WriteLine("===========================");
+
+
+            //Filtar los mayores de edad
+            List<int> edades = new List<int> { 10, 15, 18, 20, 30, 40 };
+            var olders = edades.Count(e => e >= 18);//el metodo Count devuelve la "cantidad" de elementos que cumplen la condicion 
+            Console.WriteLine(olders);
+            Console.WriteLine("===========================");
+
+            //Obtener los 3 numeros mas altos y mostrarlos
+            List<int> nums = new List<int> { 1, 50, 20, 40, 10, 5 };
+            var tall = nums.OrderByDescending(n => n).Take(3);//Obtener los 3 numeros mas altos
+            foreach (var n in tall)
+            {
+                Console.WriteLine(n);
+            }
+            Console.WriteLine("===========================");
+
+            //Agrupar productos por categoria
+            var producto = new List<Producto> {
+            new Producto { Name="Manzana", Category="Fruta" },
+            new Producto { Name="Pera", Category="Fruta" },
+            new Producto { Name="Lechuga", Category="Vegetal" }
+            };
+
+            var groupedProducts = producto.GroupBy(p => p.Category);
+
+            foreach (var group in groupedProducts)
+            {
+                Console.WriteLine($"Categoria: {group.Key}");//group.Key es la categoria
+                foreach (var item in group)
+                {
+                    Console.WriteLine($" - {item.Name}");
+                }
+            }
+            Console.WriteLine("===========================");
 
 
 
