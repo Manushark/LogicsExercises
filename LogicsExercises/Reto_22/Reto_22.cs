@@ -45,28 +45,6 @@ namespace LogicsExercises.Reto_22
             return operacion(x, f);
         }
 
-        //Lista de numeros ordenada y filtrada para obtener solo los numeros pares
-        public List<int> lista()
-        {
-            List<int> t = new List<int> { 1, 8, 22, 30, 45, 7, 2, 9 };
-            t.Sort();
-
-            List<int> Couples = new List<int>();
-            foreach (var item in t)
-            {
-                if (item % 2 == 0)
-                {
-                    Couples.Add(item);
-                    Console.WriteLine(item);
-                }
-                else { continue; }
-            }
-            return Couples;
-
-        }
-
-
-
 
     }
 }

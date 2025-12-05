@@ -144,9 +144,57 @@ namespace LogicsExercises
             }
             Console.WriteLine("===========================");
 
+            var numeros2 = new List<int> { 1, 2, 3, 4, 5 };
 
+            // Uso de LINQ para filtrar números pares
+            var pares = numeros2.Where(n => n % 2 == 0);
+
+            // Imprimir los números pares
+            foreach (var p in pares)
+                Console.WriteLine(p);
+
+            // Uso de LINQ para transformar números (elevar al cuadrado)
+            var cuadrados = numeros2.Select(n => n * n);
+
+            foreach (var c in cuadrados)
+                Console.WriteLine(c);
+
+            // Combinación de Where y Select
+            Console.WriteLine("Números mayores que 3, multiplicados por 10:");
+            var resultado = numeros2
+                         .Where(n => n > 3) // función como parámetro
+                         .Select(n => n * 10);
+
+            foreach (var r in resultado)
+                Console.WriteLine(r);
 
 
         }
+
+        //Lista de numeros ordenada y filtrada para obtener solo los numeros pares
+        public static List<int> lista()
+        {
+            List<int> t = new List<int> { 1, 8, 22, 30, 45, 7, 2, 9 };
+            t.Sort();
+
+            List<int> Couples = new List<int>();
+            foreach (var item in t)
+            {
+                if (item % 2 == 0)
+                {
+                    Couples.Add(item);
+                    Console.WriteLine(item);
+                }
+                else { continue; }
+            }
+            return Couples;
+
+        }
+        //Para copilar 
+        //Console.WriteLine("-----Lista de numeros ordenada y filtrada para obtener solo los numeros pares-----");
+        //reto_22.lista();
+
+        //Lambda.lambda();
+
     }
 }

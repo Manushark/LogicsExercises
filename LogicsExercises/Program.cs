@@ -37,50 +37,20 @@ using static LogicsExercises.Reto_19.Reto_19;
 public class Program
 {
     public static void Main() 
-    { 
-        //Reto_22 reto_22 = new Reto_22();
-        //Console.WriteLine("-----Funcion de orden superior que divide un numero entre 2-----");
-        //reto_22.DividirNumeros(80);
-        
-        //Console.WriteLine("-----Lista de numeros ordenada y filtrada para obtener solo los numeros pares-----");
-        //reto_22.lista();
+    {
+        Reto_22 reto_22 = new Reto_22();
+        Console.WriteLine("-----Funcion de orden superior que divide un numero entre 2-----");
+        reto_22.DividirNumeros(80);
 
-        //Console.WriteLine("-----Operaciones con funciones de orden superior-----");
-        ////Creamos funciones lambda para las operaciones
-        //Func<int, int, int> suma = (a, b) => a + b;
-        //Func<int, int, int> resta = (a, b) => a - b;
-        //Func<int, int, int> multiplicacion = (a, b) => a * b;
-        
-        //Console.WriteLine("Suma: " + reto_22.Operar(56, 33, suma));
-        //Console.WriteLine("Resta: " + reto_22.Operar(99, 7, resta));
-        //Console.WriteLine("Multiplicacion: " + reto_22.Operar(19, 5, multiplicacion));
+        Console.WriteLine("-----Operaciones con funciones de orden superior-----");
+        //Creamos funciones lambda para las operaciones
+        Func<int, int, int> suma = (a, b) => a + b;
+        Func<int, int, int> resta = (a, b) => a - b;
+        Func<int, int, int> multiplicacion = (a, b) => a * b;
 
-        ////Ejemplo de uso de LINQ
-        //var numeros = new List<int> { 1, 2, 3, 4, 5 };
-
-        //// Uso de LINQ para filtrar números pares
-        //var pares = numeros.Where(n => n % 2 == 0);
-
-        //// Imprimir los números pares
-        //foreach (var p in pares)
-        //    Console.WriteLine(p);
-
-        //// Uso de LINQ para transformar números (elevar al cuadrado)
-        //var cuadrados = numeros.Select(n => n * n);
-
-        //foreach (var c in cuadrados)
-        //    Console.WriteLine(c);
-
-        //// Combinación de Where y Select
-        //Console.WriteLine("Números mayores que 3, multiplicados por 10:");
-        //var resultado = numeros
-        //             .Where(n => n > 3) // función como parámetro
-        //             .Select(n => n * 10);
-
-        //foreach (var r in resultado)
-        //    Console.WriteLine(r);
-
-        Lambda.lambda();
+        Console.WriteLine("Suma: " + reto_22.Operar(56, 33, suma));
+        Console.WriteLine("Resta: " + reto_22.Operar(99, 7, resta));
+        Console.WriteLine("Multiplicacion: " + reto_22.Operar(19, 5, multiplicacion));
 
     }
 
