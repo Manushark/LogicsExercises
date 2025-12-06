@@ -52,6 +52,8 @@ public class Program
         Console.WriteLine("Resta: " + reto_22.Operar(99, 7, resta));
         Console.WriteLine("Multiplicacion: " + reto_22.Operar(19, 5, multiplicacion));
 
+        //Dificultad Extra
+        reto_22.Run();
     }
 
 
