@@ -33,27 +33,21 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using static LogicsExercises.Reto_08.Reto_08;
 using static LogicsExercises.Reto_12.Reto_12;
 using static LogicsExercises.Reto_19.Reto_19;
+using LogicsExercises.Reto_23;
+using static LogicsExercises.Reto_23.Reto_23;
 
 public class Program
 {
     public static void Main() 
     {
-        Reto_22 reto_22 = new Reto_22();
-        Console.WriteLine("-----Funcion de orden superior que divide un numero entre 2-----");
-        reto_22.DividirNumeros(80);
+        var ceo1 = CEOAccess.Instance;
+        var ceo2 = CEOAccess.Instance;
 
-        Console.WriteLine("-----Operaciones con funciones de orden superior-----");
-        //Creamos funciones lambda para las operaciones
-        Func<int, int, int> suma = (a, b) => a + b;
-        Func<int, int, int> resta = (a, b) => a - b;
-        Func<int, int, int> multiplicacion = (a, b) => a * b;
+        ceo1.AccessRestrictedArea();
 
-        Console.WriteLine("Suma: " + reto_22.Operar(56, 33, suma));
-        Console.WriteLine("Resta: " + reto_22.Operar(99, 7, resta));
-        Console.WriteLine("Multiplicacion: " + reto_22.Operar(19, 5, multiplicacion));
+        Console.WriteLine(ceo1 == ceo2);
+        // True → Ambos son el mismo CEO
 
-        //Dificultad Extra
-        reto_22.Run();
     }
 
 
