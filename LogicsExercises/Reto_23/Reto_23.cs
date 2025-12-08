@@ -57,6 +57,7 @@ namespace LogicsExercises.Reto_23
         public class UserSeccion
         {
             private static UserSeccion _instance;
+            private static readonly object _lock = new object();
             private int Id;
             private string Username;
             private string Name;
@@ -69,8 +70,11 @@ namespace LogicsExercises.Reto_23
             {
                 get
                 {
-                       if (_instance == null)
-                          _instance = new UserSeccion();
+                    lock (_lock)
+                    {
+                        if (_instance == null)
+                            _instance = new UserSeccion();
+                    }
                     return _instance;
                 }
             }
