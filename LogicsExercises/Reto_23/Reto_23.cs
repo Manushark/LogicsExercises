@@ -78,10 +78,27 @@ namespace LogicsExercises.Reto_23
                     return _instance;
                 }
             }
-           
+            public string getUser()
+            {
+                return $"Id: {Id}, Usuario: {Username}, Nombre: {Name},  Correo: {Correo}";
+            }
+
+            public void setUser(int id, string username, string name, string correo)
+            {
+                this.Id = id;
+                this.Username = username;
+                this.Name = name;
+                this.Correo = correo;
+            }
+
+            public void ClearUser()
+            {
+                this.Id=0;
+                this.Username = "";
+                this.Name = "";
+                this.Correo = "";
+            }
         }
-
-
     }
 
     

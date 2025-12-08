@@ -40,13 +40,21 @@ public class Program
 {
     public static void Main() 
     {
-        var ceo1 = CEOAccess.Instance;
-        var ceo2 = CEOAccess.Instance;
+        //var ceo1 = CEOAccess.Instance;
+        //var ceo2 = CEOAccess.Instance;
 
-        ceo1.AccessRestrictedArea();
+        //ceo1.AccessRestrictedArea();
 
-        Console.WriteLine(ceo1 == ceo2);
-        // True → Ambos son el mismo CEO
+        //Console.WriteLine(ceo1 == ceo2);
+        //// True → Ambos son el mismo CEO
+
+        var userSeccion = UserSeccion.Instance;
+        userSeccion.setUser(1,"Manushark","Lito","Manuel@gmail.com");
+        Console.WriteLine(userSeccion.getUser());
+
+        var userSession2 = UserSeccion.Instance;
+        userSession2.ClearUser();
+        Console.WriteLine(userSession2.getUser());
 
     }
 
