@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LogicsExercises.Reto_23
 {
@@ -49,5 +53,32 @@ namespace LogicsExercises.Reto_23
             }
         }
 
+        //Dificultad Extra
+        public class UserSeccion
+        {
+            private static UserSeccion _instance;
+            private int Id;
+            private string Username;
+            private string Name;
+            private string Correo;
+
+            private UserSeccion()
+            {
+            }
+            public static UserSeccion Instance
+            {
+                get
+                {
+                       if (_instance == null)
+                          _instance = new UserSeccion();
+                    return _instance;
+                }
+            }
+           
+        }
+
+
     }
+
+    
 }
