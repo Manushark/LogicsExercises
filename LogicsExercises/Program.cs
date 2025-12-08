@@ -40,13 +40,23 @@ public class Program
 {
     public static void Main() 
     {
-        //var ceo1 = CEOAccess.Instance;
-        //var ceo2 = CEOAccess.Instance;
+        /*
+        * No creamos un objeto de la clase, en
+        * su lugar accedemos a la instancia ya
+        * existente
+        */
+        var ceo1 = CEOAccess.Instance;
+        var ceo2 = CEOAccess.Instance;
 
-        //ceo1.AccessRestrictedArea();
+        ceo1.AccessRestrictedArea();
+        /*
+         * Ambas variable acceden a la misma instancia
+         * por lo que si las comparamos podemos ver 
+         * que son iguales
+         */
 
-        //Console.WriteLine(ceo1 == ceo2);
-        //// True → Ambos son el mismo CEO
+        Console.WriteLine(ceo1 == ceo2);
+        // True → Ambos son el mismo CEO
 
         var userSeccion = UserSeccion.Instance;
         userSeccion.setUser(1,"Manushark","Lito","Manuel@gmail.com");

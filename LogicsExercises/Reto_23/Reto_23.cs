@@ -56,21 +56,35 @@ namespace LogicsExercises.Reto_23
         //Dificultad Extra
         public class UserSeccion
         {
+            /*
+             * Creamos un atributo privado solo de 
+             * lectura que será del mismo tipo de la 
+             * clase en el cual estara el objeto que
+             * se creara una vez se compile la 
+             * solución
+             */
             private static UserSeccion _instance;
-            private static readonly object _lock = new object();
+
+            private static readonly object _lock = new object();//Objeto para el bloqueo en entornos multihilo
             private int Id;
             private string Username;
             private string Name;
             private string Correo;
 
-            private UserSeccion()
+            private UserSeccion() //El Constructor priv es muy importante que el constructor sea privado para evitar que se creen instancias adicionales desde fuera de la clase.
             {
             }
+
+            /*
+            * Para poder accedera a la instancia 
+            * creamos una propiedad que regresa el
+            * atributo privado
+            */
             public static UserSeccion Instance
             {
                 get
                 {
-                    lock (_lock)
+                    lock (_lock)//El lock asegura que solo un hilo pueda acceder a esta sección del código a la vez o sea, que no se creen múltiples instancias en entornos multihilo.
                     {
                         if (_instance == null)
                             _instance = new UserSeccion();
