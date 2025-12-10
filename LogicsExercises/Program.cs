@@ -64,16 +64,22 @@ public class Program
 
         Console.WriteLine("=========");
 
-        IDevice Laptop = new Laptop();
+        IDevice laptop = new Laptop();
         IDevice smartphone = new Smartphone();
 
-        ((Smartphone)Laptop).AssignBrand();
+        ((Laptop)laptop).AssignBrand();
+        laptop.TurnOn();
+        Thread.Sleep(1000);
+        laptop.TurnOff();
+        /*
+         * El cast permite tratar un objeto IDevice como su clase real
+         * para usar métodos que no están en la interfaz.
+         * Ej: ((Laptop)device).AssignBrand();
+         */
 
-        Laptop.TurnOn();
-        Laptop.TurnOff();
-
-        ((Smartphone)Laptop).AssignBrand();
+        ((Smartphone)smartphone).AssignBrand();
         smartphone.TurnOn();
+        Thread.Sleep(1000);
         smartphone.TurnOff();
     }
 

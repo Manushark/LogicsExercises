@@ -24,8 +24,8 @@ namespace LogicsExercises.Interfaces
 
         public void AssignBrand()
         {
-            Console.Write("Enter the phone model: ");
-            Brand = Console.ReadLine();
+            Console.Write("Enter the Laptop brand: ");
+            this.Brand = Console.ReadLine();
         }
     }
     public class Smartphone : IDevice
@@ -38,8 +38,8 @@ namespace LogicsExercises.Interfaces
 
         public void AssignBrand()
         {
-            Console.Write("Enter the phone model: ");
-            Brand = Console.ReadLine();
+            Console.Write("Enter the Smartphone brand: ");
+            this.Brand = Console.ReadLine();
         }
     }
 

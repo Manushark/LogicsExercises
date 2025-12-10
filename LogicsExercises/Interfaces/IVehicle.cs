@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 
 namespace LogicsExercises.Interfaces
 {
+    /* 
+     * Las interfaces son contratos que obligan 
+     * a las clases a implementar sus métodos.
+     */
+
     public interface IVehicle
     {
         void StartEngine();
