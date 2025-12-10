@@ -37,6 +37,7 @@ using LogicsExercises.Reto_23;
 using static LogicsExercises.Reto_23.Reto_23;
 using LogicsExercises.Reto_24;
 using LogicsExercises.Interfaces;
+using System.Numerics;
 
 public class Program
 {
@@ -60,6 +61,20 @@ public class Program
 
         Moto.StartEngine();
         Moto.StopEngine();
+
+        Console.WriteLine("=========");
+
+        IDevice Laptop = new Laptop();
+        IDevice smartphone = new Smartphone();
+
+        ((Smartphone)Laptop).AssignBrand();
+
+        Laptop.TurnOn();
+        Laptop.TurnOff();
+
+        ((Smartphone)Laptop).AssignBrand();
+        smartphone.TurnOn();
+        smartphone.TurnOff();
     }
 
 }
