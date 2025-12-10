@@ -36,20 +36,30 @@ using static LogicsExercises.Reto_19.Reto_19;
 using LogicsExercises.Reto_23;
 using static LogicsExercises.Reto_23.Reto_23;
 using LogicsExercises.Reto_24;
+using LogicsExercises.Interfaces;
 
 public class Program
 {
     public static void Main() 
     {
-        Reto_24 reto_24 = new Reto_24();
-        Console.WriteLine("== Método base ==");
-        reto_24.EnviarMensaje("Hola Manuel");
+        //Reto_24 reto_24 = new Reto_24();
+        //Console.WriteLine("== Método base ==");
+        //reto_24.EnviarMensaje("Hola Manuel");
 
-        Console.WriteLine("\n== Decorador con log ==");
-        reto_24.EnviarConLog("Hola Manuel");
+        //Console.WriteLine("\n== Decorador con log ==");
+        //reto_24.EnviarConLog("Hola Manuel");
 
-        Console.WriteLine("\n== Decorador con confirmación ==");
-        reto_24.EnviarConConfirmacion("Hola Manuel");
+        //Console.WriteLine("\n== Decorador con confirmación ==");
+        //reto_24.EnviarConConfirmacion("Hola Manuel");
+
+        IVehicle car = new Car();
+        IVehicle Moto = new Motocycle();
+
+        car.StartEngine();
+        car.StopEngine();
+
+        Moto.StartEngine();
+        Moto.StopEngine();
     }
 
 }
