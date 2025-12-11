@@ -17,7 +17,7 @@ namespace LogicsExercises.Interfaces
     public class Laptop : IDevice
     {
         public string Brand { get; set; }
-        public void TurnOn() 
+        public void TurnOn()
         { Console.WriteLine($"La Laptop {Brand} is turning on... "); }
         public void TurnOff()
         { Console.WriteLine($"La Laptop {Brand} is turning pff..."); }
@@ -43,4 +43,24 @@ namespace LogicsExercises.Interfaces
         }
     }
 
+    //Para compilar el código de ejemplo
+    //Console.WriteLine("=========");
+
+    //    IDevice laptop = new Laptop();
+    //IDevice smartphone = new Smartphone();
+
+    //((Laptop) laptop).AssignBrand();
+    //laptop.TurnOn();
+    //    Thread.Sleep(1000);
+    //    laptop.TurnOff();
+    //    /*
+    //     * El cast permite tratar un objeto IDevice como su clase real
+    //     * para usar métodos que no están en la interfaz.
+    //     * Ej: ((Laptop)device).AssignBrand();
+    //     */
+
+    //    ((Smartphone) smartphone).AssignBrand();
+    //smartphone.TurnOn();
+    //    Thread.Sleep(1000);
+    //    smartphone.TurnOff();
 }

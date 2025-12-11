@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LogicsExercises.Interfaces;
 
 namespace LogicsExercises.Reto_24
 {
@@ -40,6 +41,50 @@ namespace LogicsExercises.Reto_24
         {
             EnviarMensaje(mensaje);
             Console.WriteLine("[OK] Mensaje enviado exitosamente.");
+        }
+
+
+        //Dificultad Extra 
+        public class SimpleMessage : IMessage
+        {
+            public string Get()
+            {
+                return "Hola Manuel";
+            }
+        }
+
+        public class CountMessageCalls : IMessage
+        {
+            //Esto es un campo privado que almacena la instancia de IMessage que se está decorando
+            private readonly IMessage _message;
+            
+            /*Esto es un decorador que cuenta las veces que se llama al método Get() de IMessage*/
+            public int Counter { get; private set; } = 0;
+
+            public CountMessageCalls(IMessage message)
+            {
+                _message = message;//asigna cuando se crea la instancia a la variable privada _message la instancia de IMessage que se está decorando
+            }
+
+            public string Get()
+            {
+                Counter++; // Cada vez que se llama, se suma 1
+                return _message.Get();
+            }
+        }
+
+        public void Run()
+        {
+            IMessage mensaje = new SimpleMessage();
+
+            // Decorador que cuenta llamadas
+            var contador = new CountMessageCalls(mensaje);//Se crea una instancia de CountMessageCalls que envuelve a la instancia de SimpleMessage
+
+            Console.WriteLine(contador.Get());
+            Console.WriteLine(contador.Get());
+            Console.WriteLine(contador.Get());
+
+            Console.WriteLine($"Llamadas realizadas: {contador.Counter}");
         }
 
     }

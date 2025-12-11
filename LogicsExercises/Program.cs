@@ -43,7 +43,8 @@ public class Program
 {
     public static void Main() 
     {
-        //Reto_24 reto_24 = new Reto_24();
+        Reto_24 reto_24 = new Reto_24();
+        reto_24.Run();
         //Console.WriteLine("== Método base ==");
         //reto_24.EnviarMensaje("Hola Manuel");
 
@@ -53,34 +54,11 @@ public class Program
         //Console.WriteLine("\n== Decorador con confirmación ==");
         //reto_24.EnviarConConfirmacion("Hola Manuel");
 
-        IVehicle car = new Car();
-        IVehicle Moto = new Motocycle();
+      
 
-        car.StartEngine();
-        car.StopEngine();
+        
 
-        Moto.StartEngine();
-        Moto.StopEngine();
-
-        Console.WriteLine("=========");
-
-        IDevice laptop = new Laptop();
-        IDevice smartphone = new Smartphone();
-
-        ((Laptop)laptop).AssignBrand();
-        laptop.TurnOn();
-        Thread.Sleep(1000);
-        laptop.TurnOff();
-        /*
-         * El cast permite tratar un objeto IDevice como su clase real
-         * para usar métodos que no están en la interfaz.
-         * Ej: ((Laptop)device).AssignBrand();
-         */
-
-        ((Smartphone)smartphone).AssignBrand();
-        smartphone.TurnOn();
-        Thread.Sleep(1000);
-        smartphone.TurnOff();
+        
     }
 
 }

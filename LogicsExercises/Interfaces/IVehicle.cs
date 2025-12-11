@@ -42,6 +42,15 @@ namespace LogicsExercises.Interfaces
         }
     }
 
-    
+    //Para compilar el código de ejemplo
+      //IVehicle car = new Car();
+      //  IVehicle Moto = new Motocycle();
+
+      //  car.StartEngine();
+      //  car.StopEngine();
+
+      //  Moto.StartEngine();
+      //  Moto.StopEngine();
+
 }
 
