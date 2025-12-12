@@ -38,27 +38,14 @@ using static LogicsExercises.Reto_23.Reto_23;
 using LogicsExercises.Reto_24;
 using LogicsExercises.Interfaces;
 using System.Numerics;
+using LogicsExercises.Reto_25;
 
 public class Program
 {
     public static void Main() 
     {
-        Reto_24 reto_24 = new Reto_24();
-        reto_24.Run();
-        //Console.WriteLine("== Método base ==");
-        //reto_24.EnviarMensaje("Hola Manuel");
-
-        //Console.WriteLine("\n== Decorador con log ==");
-        //reto_24.EnviarConLog("Hola Manuel");
-
-        //Console.WriteLine("\n== Decorador con confirmación ==");
-        //reto_24.EnviarConConfirmacion("Hola Manuel");
-
-      
-
-        
-
-        
+        Reto_25 reto_25 = new Reto_25();
+        reto_25.Run();
     }
 
 }
