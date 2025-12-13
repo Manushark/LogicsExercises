@@ -45,7 +45,7 @@ public class Program
     public static void Main() 
     {
         Reto_25 reto_25 = new Reto_25();
-        reto_25.Run();
+        reto_25.TaskList();
     }
 
 }
