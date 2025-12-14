@@ -39,13 +39,20 @@ using LogicsExercises.Reto_24;
 using LogicsExercises.Interfaces;
 using System.Numerics;
 using LogicsExercises.Reto_25;
+using LogicsExercises.Reto_26;
 
 public class Program
 {
     public static void Main() 
     {
-        Reto_25 reto_25 = new Reto_25();
-        reto_25.TaskList();
+        //Reto_25 reto_25 = new Reto_25();
+        //reto_25.TaskList();
+
+        Librery librery = new Librery();
+        librery.RegisterUser("Manuel");
+        librery.RegisterBook("CleanCode");
+        librery.LoanBook("CleanCode", "Manuel");
+        librery.ReturnBook("CleanCode");
     }
 
 }
