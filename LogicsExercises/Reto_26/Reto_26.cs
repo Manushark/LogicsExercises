@@ -69,5 +69,38 @@ namespace LogicsExercises.Reto_26
             }
         }
 
+        /* 
+         * Mantenimiento: Facilita la comprensión y el mantenimiento del código.
+         * Pruebas: Facilita la creación de pruebas unitarias específicas para cada
+         * responsabilidad.
+         * Reutilización: Permite reutilizar clases en diferentes contextos sin
+         * arrastrar responsabilidades no relacionadas.
+         * Escalabilidad: Facilita la ampliación del sistema al agregar nuevas
+         * funcionalidades sin afectar las existentes.
+         */
+
+        
+        /// Clases que cumplen el Principio de Responsabilidad Única
+        public class UserManager
+        {
+            public void RegisterUser(string name, string id, string email)
+            {
+                // Lógica para registrar un usuario
+            }
+            public void UpdateUser(string id, string newName, string newEmail)
+            {
+                // Lógica para actualizar la información del usuario
+            }
+        }
+
+        // Clase responsable de la persistencia de datos
+        public class UserRepository
+        {
+            public void SaveUser(User user)
+            {
+                // Lógica para guardar la información del usuario en una base de datos
+            }
+        }
+        //Aqui vemos como cada clase tiene una única responsabilidad
     }
 }
