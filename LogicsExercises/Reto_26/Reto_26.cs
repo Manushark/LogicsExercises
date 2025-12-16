@@ -161,6 +161,8 @@ namespace LogicsExercises.Reto_26
         }
     }
 
+
+    //Clase que cumplen el Principio de Responsabilidad Única
 }
 
 

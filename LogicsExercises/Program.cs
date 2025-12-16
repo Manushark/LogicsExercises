@@ -53,6 +53,7 @@ public class Program
         librery.RegisterBook("CleanCode");
         librery.LoanBook("CleanCode", "Manuel");
         librery.ReturnBook("CleanCode");
+        Console.ReadKey();
     }
 
 }
