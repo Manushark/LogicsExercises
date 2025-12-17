@@ -68,4 +68,28 @@ namespace LogicsExercises.Reto_26
             users.Add(newUser);
         }
     }
+
+    public class BookServices
+    {
+        private List<Books> books = new List<Books>();
+
+        public void RegisterBook(string title, string author, int copies)
+        {
+            Books newbook = new Books()
+            {
+                Title = title,
+                Author = author,
+                AvailableCopies = copies
+            };
+        }
+    }
+
+    public class LoadServices
+    {
+        private Dictionary<string , string> loans = new Dictionary<string, string>();
+        public void Loadbook(string bookTitle, string userName) 
+        { 
+            loans.Add(bookTitle, userName);
+        }
+    }
 }
