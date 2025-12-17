@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static LogicsExercises.Reto_26.Reto_26;
 
 namespace LogicsExercises.Reto_26
 {
@@ -32,17 +33,15 @@ namespace LogicsExercises.Reto_26
     // Clase que cumple el Principio de Responsabilidad Única para la gestión de usuarios
     public class User
     {
-        private int Count = 0;
-        private int Id;
+        private int Id { get; }
         public string Name { get; set; }
         public string mail { get; set; }
 
         public User (string name, string mail, int id)
         {
-            Count++;
             this.Name = name;
             this.mail = mail;
-            Id = Count;
+            Id = id;
         }
     }
 
@@ -53,19 +52,37 @@ namespace LogicsExercises.Reto_26
         public int AvailableCopies { get; set; }
     }
 
-    public class Loads
+    public class Loans
     {
-        private Dictionary<string, string> loans = new Dictionary<string, string>();
+        public User User { get; }
+        public Books Book { get; }
+        public DateTime LoanDate { get; }
+        public DateTime? ReturnDate { get; private set; }
 
+        public Loans(User user, Books book)
+        {
+            User = user;
+            Book = book;
+            LoanDate = DateTime.Now;
+        }
+
+        public void ReturnBook()
+        {
+            ReturnDate = DateTime.Now;
+        }
     }
 
     public class UserServices
     {
         private List<User> users = new List<User>();
-        public void RegisterUser(string name, string mail)
+        private int nextId = 1;
+
+        public User RegisterUser(string name, string mail)
         {
-            User newUser = new User(name, mail, users.Count + 1);
+            var newUser = new User(name, mail, nextId++);
             users.Add(newUser);
+            return newUser;
+
         }
     }
 
@@ -84,12 +101,28 @@ namespace LogicsExercises.Reto_26
         }
     }
 
-    public class LoadServices
-    {
-        private Dictionary<string , string> loans = new Dictionary<string, string>();
-        public void Loadbook(string bookTitle, string userName) 
-        { 
-            loans.Add(bookTitle, userName);
+  
+        public class LoanService
+        {
+            private List<Loans> loans = new List<Loans>();
+
+            public Loans BorrowBook(User user, Books book)
+            {
+                if (book.AvailableCopies <= 0)
+                    throw new Exception("No copies available");
+
+                book.AvailableCopies--;
+                var loan = new Loans(user, book);
+                loans.Add(loan);
+                return loan;
+            }
+
+            public void ReturnBook(Loans loan)
+            {
+                loan.ReturnBook();
+                loan.Book.AvailableCopies++;
+            }
         }
-    }
+
+    
 }
