@@ -90,7 +90,7 @@ namespace LogicsExercises.Reto_26
     {
         private List<Books> books = new List<Books>();
 
-        public void RegisterBook(string title, string author, int copies)
+        public Books RegisterBook(string title, string author, int copies)
         {
             Books newbook = new Books()
             {
@@ -98,6 +98,9 @@ namespace LogicsExercises.Reto_26
                 Author = author,
                 AvailableCopies = copies
             };
+
+            books.Add(newbook);
+            return newbook;
         }
     }
 

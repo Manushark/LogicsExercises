@@ -48,12 +48,25 @@ public class Program
         //Reto_25 reto_25 = new Reto_25();
         //reto_25.TaskList();
 
-        Librery librery = new Librery();
-        librery.RegisterUser("Manuel");
-        librery.RegisterBook("CleanCode");
-        librery.LoanBook("CleanCode", "Manuel");
-        librery.ReturnBook("CleanCode");
-        Console.ReadKey();
+        //Librery librery = new Librery();
+        //librery.RegisterUser("Manuel");
+        //librery.RegisterBook("CleanCode");
+        //librery.LoanBook("CleanCode", "Manuel");
+        //librery.ReturnBook("CleanCode");
+        //Console.ReadKey();
+
+        UserServices userService = new UserServices();
+        BookServices bookService = new BookServices();
+        LoanService loanService = new LoanService();
+
+        var user = userService.RegisterUser("Manuel", "Manuuuuus@mail.com");
+        var book = bookService.RegisterBook("El Quijote", "Cervantes", 1);
+
+        var loan = loanService.BorrowBook(user, book);
+        Console.WriteLine($"Libro prestado a {loan.User.Name}");
+
+        loanService.ReturnBook(loan);
+        Console.WriteLine("Libro devuelto");
     }
 
 }
