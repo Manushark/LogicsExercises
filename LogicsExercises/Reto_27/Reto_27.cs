@@ -42,5 +42,50 @@ namespace LogicsExercises.Reto_27
             }
 
         }
+
+
+        //Ejemplo de implementación correcta del Principio OCP
+
+        public interface IDiscount
+        {
+            double Apply(double price);
+        }
+
+        // Esta clase representa SOLO el descuento para estudiantes
+        public class StudentDiscount : IDiscount 
+        { 
+            public double Apply(double price)
+            {
+                return price * 0.9;
+            }
+        }
+
+        public class VipDiscount : IDiscount
+        {
+            public double Apply(double price)
+            {
+                return price * 0.8;
+            }
+        }
+        public class EmployeeDiscount : IDiscount
+        {
+            public double Apply(double price)
+            {
+                return price * 0.7;
+            }
+        }
+
+        //Esta clase nunca se modifica para agregar nuevos tipos de descuentos
+        public class PriceCalculator
+        {
+            public double CalculatePrice(double price, IDiscount discount)
+            {
+                // No pregunta qué tipo de descuento es
+                // Solo confía en que sabe aplicarse
+                return discount.Apply(price);
+            }
+        }
+
     }
 }
+
