@@ -24,5 +24,23 @@ namespace LogicsExercises.Reto_27
      */
     public class Reto_27
     {
+        //Ejemplo de implementación incorrecta del Principio OCP
+        public class Store
+        {
+            public double Calculate(string customerType, double price)
+            {
+                if (customerType == "Student")
+                    return price * 0.9;
+
+                if (customerType == "VIP")
+                    return price * 0.8;
+
+                if (customerType == "Employee")
+                    return price * 0.7;
+
+                return price;
+            }
+
+        }
     }
 }
