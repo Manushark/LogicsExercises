@@ -153,4 +153,9 @@ namespace LogicsExercises.Reto_25
         static partial void LogTaskDeleted(ILogger logger, int time);
     }
 
+    //Codigo para compilar 
+
+    //Reto_25 reto_25 = new Reto_25();
+    //reto_25.Run();
+    //reto_25.TaskList();
 }

@@ -7,104 +7,96 @@ using static LogicsExercises.Reto_26.Reto_26;
 
 namespace LogicsExercises.Reto_26
 {
-    public class Librery2
-    {
+        /*Requisitos:
+         * 1. Registrar libros: El sistema debe permitir agregar nuevos libros con
+         * información básica como título, autor y número de copias disponibles.
+         * 2. Registrar usuarios: El sistema debe permitir agregar nuevos usuarios con
+         * información básica como nombre, número de identificación y correo electrónico.
+         * 3. Procesar préstamos de libros: El sistema debe permitir a los usuarios
+         * tomar prestados y devolver libros.
+         * Instrucciones:
+         * 1. Diseña una clase que no cumple el SRP: Crea una clase Library que maneje
+         * los tres aspectos mencionados anteriormente (registro de libros, registro de
+         * usuarios y procesamiento de préstamos).
+         * 2. Refactoriza el código: Separa las responsabilidades en diferentes clases
+         * siguiendo el Principio de Responsabilidad Única.
+         */
 
-
-
-
-
-    }
-    /*Requisitos:
- * 1. Registrar libros: El sistema debe permitir agregar nuevos libros con
- * información básica como título, autor y número de copias disponibles.
- * 2. Registrar usuarios: El sistema debe permitir agregar nuevos usuarios con
- * información básica como nombre, número de identificación y correo electrónico.
- * 3. Procesar préstamos de libros: El sistema debe permitir a los usuarios
- * tomar prestados y devolver libros.
- * Instrucciones:
- * 1. Diseña una clase que no cumple el SRP: Crea una clase Library que maneje
- * los tres aspectos mencionados anteriormente (registro de libros, registro de
- * usuarios y procesamiento de préstamos).
- * 2. Refactoriza el código: Separa las responsabilidades en diferentes clases
- * siguiendo el Principio de Responsabilidad Única.
- */
-
-    // Clase que cumple el Principio de Responsabilidad Única para la gestión de usuarios
-    public class User
-    {
-        private int Id { get; }
-        public string Name { get; set; }
-        public string mail { get; set; }
-
-        public User (string name, string mail, int id)
+        // Clase que cumple el Principio de Responsabilidad Única para la gestión de usuarios
+        public class User
         {
-            this.Name = name;
-            this.mail = mail;
-            Id = id;
-        }
-    }
+            private int Id { get; }
+            public string Name { get; set; }
+            public string mail { get; set; }
 
-    public class Books
-    {
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public int AvailableCopies { get; set; }
-    }
-
-    public class Loans
-    {
-        public User User { get; }
-        public Books Book { get; }
-        public DateTime LoanDate { get; }
-        public DateTime? ReturnDate { get; private set; }
-
-        public Loans(User user, Books book)
-        {
-            User = user;
-            Book = book;
-            LoanDate = DateTime.Now;
-        }
-
-        public void ReturnBook()
-        {
-            ReturnDate = DateTime.Now;
-        }
-    }
-
-    public class UserServices
-    {
-        private List<User> users = new List<User>();
-        private int nextId = 1;
-
-        public User RegisterUser(string name, string mail)
-        {
-            var newUser = new User(name, mail, nextId++);
-            users.Add(newUser);
-            return newUser;
-
-        }
-    }
-
-    public class BookServices
-    {
-        private List<Books> books = new List<Books>();
-
-        public Books RegisterBook(string title, string author, int copies)
-        {
-            Books newbook = new Books()
+            public User(string name, string mail, int id)
             {
-                Title = title,
-                Author = author,
-                AvailableCopies = copies
-            };
-
-            books.Add(newbook);
-            return newbook;
+                this.Name = name;
+                this.mail = mail;
+                Id = id;
+            }
         }
-    }
 
-  
+        public class Books
+        {
+            public string Title { get; set; }
+            public string Author { get; set; }
+            public int AvailableCopies { get; set; }
+        }
+
+        public class Loans
+        {
+            public User User { get; }
+            public Books Book { get; }
+            public DateTime LoanDate { get; }
+            public DateTime? ReturnDate { get; private set; }
+
+            public Loans(User user, Books book)
+            {
+                User = user;
+                Book = book;
+                LoanDate = DateTime.Now;
+            }
+
+            public void ReturnBook()
+            {
+                ReturnDate = DateTime.Now;
+            }
+        }
+
+        public class UserServices
+        {
+            private List<User> users = new List<User>();
+            private int nextId = 1;
+
+            public User RegisterUser(string name, string mail)
+            {
+                var newUser = new User(name, mail, nextId++);
+                users.Add(newUser);
+                return newUser;
+
+            }
+        }
+
+        public class BookServices
+        {
+            private List<Books> books = new List<Books>();
+
+            public Books RegisterBook(string title, string author, int copies)
+            {
+                Books newbook = new Books()
+                {
+                    Title = title,
+                    Author = author,
+                    AvailableCopies = copies
+                };
+
+                books.Add(newbook);
+                return newbook;
+            }
+        }
+
+
         public class LoanService
         {
             private List<Loans> loans = new List<Loans>();
@@ -127,5 +119,18 @@ namespace LogicsExercises.Reto_26
             }
         }
 
-    
-}
+        //Codigo para compilar
+        //UserServices userService = new UserServices();
+        //BookServices bookService = new BookServices();
+        //LoanService loanService = new LoanService();
+
+        //var user = userService.RegisterUser("Manuel", "Manuuuuus@mail.com");
+        //var book = bookService.RegisterBook("El Quijote", "Cervantes", 1);
+
+        //var loan = loanService.BorrowBook(user, book);
+        //Console.WriteLine($"Libro prestado a {loan.User.Name}");
+
+        //loanService.ReturnBook(loan);
+        //Console.WriteLine("Libro devuelto");
+    }
+

@@ -40,33 +40,33 @@ using LogicsExercises.Interfaces;
 using System.Numerics;
 using LogicsExercises.Reto_25;
 using LogicsExercises.Reto_26;
+using static LogicsExercises.Reto_27.Reto_27;
 
 public class Program
 {
     public static void Main() 
     {
-        //Reto_25 reto_25 = new Reto_25();
-        //reto_25.TaskList();
+        //Precio base
+        double price = 1000;
 
-        //Librery librery = new Librery();
-        //librery.RegisterUser("Manuel");
-        //librery.RegisterBook("CleanCode");
-        //librery.LoanBook("CleanCode", "Manuel");
-        //librery.ReturnBook("CleanCode");
-        //Console.ReadKey();
+        /* Para que funcione debemos de crear una instancia de la interfaz
+         * luego crear una instancia de la clase PriceCalculator
+         * y luego llamar al metodo CalculatePrice pasandole
+         * el precio y el tipo de descuento que queremos aplicar
+         */
+        IDiscount discount = new StudentDiscount();
+        PriceCalculator Calculator = new PriceCalculator();
+        double finalPrice = Calculator.CalculatePrice(price, discount);
+        Console.WriteLine("Precio original: " + price);
+        Console.WriteLine($"Precio final con descuento de estudiante: {finalPrice}");
 
-        UserServices userService = new UserServices();
-        BookServices bookService = new BookServices();
-        LoanService loanService = new LoanService();
+        //Vip Discount
 
-        var user = userService.RegisterUser("Manuel", "Manuuuuus@mail.com");
-        var book = bookService.RegisterBook("El Quijote", "Cervantes", 1);
-
-        var loan = loanService.BorrowBook(user, book);
-        Console.WriteLine($"Libro prestado a {loan.User.Name}");
-
-        loanService.ReturnBook(loan);
-        Console.WriteLine("Libro devuelto");
+        PriceCalculator Calculator2 = new PriceCalculator();
+        IDiscount discount2 = new VipDiscount();
+        double finalPrice2 = Calculator2.CalculatePrice(price, discount2);
+        Console.WriteLine("Precio original: " + price);
+        Console.WriteLine($"Precio final con descuento VIP: {finalPrice2}");
     }
 
 }
