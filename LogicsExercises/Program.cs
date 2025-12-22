@@ -41,34 +41,34 @@ using System.Numerics;
 using LogicsExercises.Reto_25;
 using LogicsExercises.Reto_26;
 using static LogicsExercises.Reto_27.Reto_27;
+using LogicsExercises.Reto_27;
 
 public class Program
 {
-    public static void Main() 
+    public static void Main()
     {
-        //Precio base
-        double price = 1000;
+        //Dificultad Extra Reto 27
+        Calculator calculator = new Calculator();
+        IOperation operation = new sum();
 
-        /* Para que funcione debemos de crear una instancia de la interfaz
-         * luego crear una instancia de la clase PriceCalculator
-         * y luego llamar al metodo CalculatePrice pasandole
-         * el precio y el tipo de descuento que queremos aplicar
-         */
-        IDiscount discount = new StudentDiscount();
-        PriceCalculator Calculator = new PriceCalculator();
-        double finalPrice = Calculator.CalculatePrice(price, discount);
-        Console.WriteLine("Precio original: " + price);
-        Console.WriteLine($"Precio final con descuento de estudiante: {finalPrice}");
+        double result = calculator.calculate(5, 3, operation);
+        Console.WriteLine(result);
 
-        //Vip Discount
+        Calculator calculator2 = new Calculator();
+        IOperation operation2 = new multiply();
+        double result2 = calculator2.calculate(5, 3, operation2);
+        Console.WriteLine(result2);
 
-        PriceCalculator Calculator2 = new PriceCalculator();
-        IDiscount discount2 = new VipDiscount();
-        double finalPrice2 = Calculator2.CalculatePrice(price, discount2);
-        Console.WriteLine("Precio original: " + price);
-        Console.WriteLine($"Precio final con descuento VIP: {finalPrice2}");
+        Calculator calculator3 = new Calculator();
+        IOperation operation3 = new divide();
+        double result3 = calculator3.calculate(15, 3, operation3);
+        Console.WriteLine(result3);
+
+        Calculator calculator4 = new Calculator();
+        IOperation operation4 = new subtract();
+        double result4 = calculator4.calculate(15, 3, operation4);
+        Console.WriteLine(result4);
     }
-
 }
 
 

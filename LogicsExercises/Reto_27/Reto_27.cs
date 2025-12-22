@@ -85,7 +85,76 @@ namespace LogicsExercises.Reto_27
                 return discount.Apply(price);
             }
         }
+        //Código para probar las implementaciones
+
+        //Precio base
+        //double price = 1000;
+
+        /* Para que funcione debemos de crear una instancia de la interfaz
+         * luego crear una instancia de la clase PriceCalculator
+         * y luego llamar al metodo CalculatePrice pasandole
+         * el precio y el tipo de descuento que queremos aplicar
+         */
+        //IDiscount discount = new StudentDiscount();
+        //PriceCalculator Calculator = new PriceCalculator();
+        //double finalPrice = Calculator.CalculatePrice(price, discount);
+        //Console.WriteLine("Precio original: " + price);
+        //Console.WriteLine($"Precio final con descuento de estudiante: {finalPrice}");
+
+        ////Vip Discount
+
+        //PriceCalculator Calculator2 = new PriceCalculator();
+        //IDiscount discount2 = new VipDiscount();
+        //double finalPrice2 = Calculator2.CalculatePrice(price, discount2);
+        //Console.WriteLine("Precio original: " + price);
+        //Console.WriteLine($"Precio final con descuento VIP: {finalPrice2}");
 
     }
+    //Dificultad extra
+
+    public class Calculator
+    { 
+        public double calculate(double a, double b, IOperation operation)
+        {
+            return operation.execute(a, b);
+        }
+    }
+    public interface IOperation 
+    {
+        public double execute(double a, double b);
+    }
+
+    public class sum : IOperation 
+    { 
+        public double execute(double a, double b)
+        {
+            return a + b;
+        }
+    }
+
+    public class subtract : IOperation
+    {
+        public double execute(double a, double b)
+        {
+            return a - b;
+        }
+    }
+
+    public class multiply : IOperation
+    {
+        public double execute(double a, double b)
+        {
+            return a * b;
+        }
+    }
+
+    public class divide : IOperation
+    {
+        public double execute(double a, double b)
+        {
+            return a / b;
+        }
+    }
+
 }
 
