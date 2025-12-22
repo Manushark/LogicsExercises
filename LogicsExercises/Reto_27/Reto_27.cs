@@ -156,5 +156,13 @@ namespace LogicsExercises.Reto_27
         }
     }
 
+    public class power : IOperation
+    { 
+        public double execute(double a, double b)
+        {
+            return Math.Pow(a, b);
+        }
+    }
+
 }
 
