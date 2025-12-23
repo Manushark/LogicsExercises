@@ -43,6 +43,7 @@ using LogicsExercises.Reto_26;
 using static LogicsExercises.Reto_27.Reto_27;
 using LogicsExercises.Reto_27;
 using LogicsExercises.Reto_28;
+using static LogicsExercises.Reto_28.Game;
 
 public class Program
 {
@@ -61,6 +62,14 @@ public class Program
         {
             Console.WriteLine("Error: " + ex.Message);
         }
+
+
+        //Ejemplo del uso correcto del LSP
+        Game.Character c1 = new Warrior();
+        Game.Character c2 = new Wizard();
+
+        c1.Attack();
+        c2.Attack();
 
     }
 }
