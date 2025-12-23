@@ -42,46 +42,26 @@ using LogicsExercises.Reto_25;
 using LogicsExercises.Reto_26;
 using static LogicsExercises.Reto_27.Reto_27;
 using LogicsExercises.Reto_27;
+using LogicsExercises.Reto_28;
 
 public class Program
 {
     public static void Main()
     {
-        //Dificultad Extra Reto 27
-        // Implementa las operaciones de suma, resta, multiplicación y división.
-        Console.WriteLine("Calculadora con Principio OCP - Suma:");
-        Calculator calculator = new Calculator();
-        IOperation operation = new sum();
-        double result = calculator.calculate(5, 3, operation);
-        Console.WriteLine(result);
+        //Ejemplo del uso incorrecto del LSP
+        Reto_28.Character W1 = new Reto_28.Warrior();
+        W1.Attack();
 
-        Console.WriteLine("________________________");
-        Console.WriteLine("Calculadora con Principio OCP - Multiplicacion:");
-        Calculator calculator2 = new Calculator();
-        IOperation operation2 = new multiply();
-        double result2 = calculator2.calculate(5, 3, operation2);
-        Console.WriteLine(result2);
+        Reto_28.Character personaje2 = new Reto_28.Wizard();
+        try
+        {
+            personaje2.Attack();
+        }
+        catch (NotImplementedException ex)
+        {
+            Console.WriteLine("Error: " + ex.Message);
+        }
 
-        Console.WriteLine("________________________");
-        Console.WriteLine("Calculadora con Principio OCP - Division:");
-        Calculator calculator3 = new Calculator();
-        IOperation operation3 = new divide();
-        double result3 = calculator3.calculate(15, 3, operation3);
-        Console.WriteLine(result3);
-
-        Console.WriteLine("________________________");
-        Console.WriteLine("Calculadora con Principio OCP - Resta:");
-        Calculator calculator4 = new Calculator();
-        IOperation operation4 = new subtract();
-        double result4 = calculator4.calculate(15, 3, operation4);
-        Console.WriteLine(result4);
-
-        Console.WriteLine("________________________");
-        Console.WriteLine("Calculadora con Principio OCP - Potencia:");
-        Calculator calculator5 = new Calculator();
-        IOperation operation5 = new power();
-        double result5 = calculator5.calculate(5, 4, operation5);
-        Console.WriteLine(result5);
     }
 }
 

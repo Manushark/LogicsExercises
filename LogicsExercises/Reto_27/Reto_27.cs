@@ -164,5 +164,40 @@ namespace LogicsExercises.Reto_27
         }
     }
 
+     //Dificultad Extra Reto 27
+     // Implementa las operaciones de suma, resta, multiplicación y división.
+        //Console.WriteLine("Calculadora con Principio OCP - Suma:");
+        //Calculator calculator = new Calculator();
+        //IOperation operation = new sum();
+        //double result = calculator.calculate(5, 3, operation);
+        //Console.WriteLine(result);
+
+        //Console.WriteLine("________________________");
+        //Console.WriteLine("Calculadora con Principio OCP - Multiplicacion:");
+        //Calculator calculator2 = new Calculator();
+        //IOperation operation2 = new multiply();
+        //double result2 = calculator2.calculate(5, 3, operation2);
+        //Console.WriteLine(result2);
+
+        //Console.WriteLine("________________________");
+        //Console.WriteLine("Calculadora con Principio OCP - Division:");
+        //Calculator calculator3 = new Calculator();
+        //IOperation operation3 = new divide();
+        //double result3 = calculator3.calculate(15, 3, operation3);
+        //Console.WriteLine(result3);
+
+        //Console.WriteLine("________________________");
+        //Console.WriteLine("Calculadora con Principio OCP - Resta:");
+        //Calculator calculator4 = new Calculator();
+        //IOperation operation4 = new subtract();
+        //double result4 = calculator4.calculate(15, 3, operation4);
+        //Console.WriteLine(result4);
+
+        //Console.WriteLine("________________________");
+        //Console.WriteLine("Calculadora con Principio OCP - Potencia:");
+        //Calculator calculator5 = new Calculator();
+        //IOperation operation5 = new power();
+        //double result5 = calculator5.calculate(5, 4, operation5);
+        //Console.WriteLine(result5);
 }
 
