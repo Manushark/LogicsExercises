@@ -43,33 +43,48 @@ using LogicsExercises.Reto_26;
 using static LogicsExercises.Reto_27.Reto_27;
 using LogicsExercises.Reto_27;
 using LogicsExercises.Reto_28;
+using static LogicsExercises.Reto_28.Vehicle;
 using static LogicsExercises.Reto_28.Game;
+
 
 public class Program
 {
     public static void Main()
     {
-        //Ejemplo del uso incorrecto del LSP
-        Reto_28.Character W1 = new Reto_28.Warrior();
-        W1.Attack();
-
-        Reto_28.Character personaje2 = new Reto_28.Wizard();
-        try
+        //Reto 28 - Principio de Sustitución de Liskov (LSP)
+        static void TestVehicle(Vehicle vehicle)
         {
-            personaje2.Attack();
+            vehicle.Accelerate(10);
+            vehicle.Brake(5);
+            Console.WriteLine($"Velocidad final: {vehicle.Speed}");
         }
-        catch (NotImplementedException ex)
-        {
-            Console.WriteLine("Error: " + ex.Message);
-        }
+        
+        Console.WriteLine("Pruebas de Vehículos:");
+        Console.WriteLine("Carros");
+        Console.WriteLine("----------------------");
+        Vehicle car = new Car();
+        car.Accelerate(50);
+        car.Brake(15);
+
+        TestVehicle(car);
 
 
-        //Ejemplo del uso correcto del LSP
-        Game.Character c1 = new Warrior();
-        Game.Character c2 = new Wizard();
+        Console.WriteLine("----------------------");
+        Console.WriteLine("Motocicletas");
+        Vehicle moto = new Motocycle();
+        moto.Accelerate(30);
+        moto.Brake(20); 
 
-        c1.Attack();
-        c2.Attack();
+        TestVehicle(moto);//Esto comprueba el LSP porque estamos usando la clase base Vehicle para probar las subclases Car y Motocycle sin importar su implementación interna
+
+        Console.WriteLine("----------------------");
+        Console.WriteLine("Bicicletas");
+        Vehicle bike = new Bicycle();
+        bike.Accelerate(15);
+        bike.Accelerate(10);
+        bike.Brake(26);
+
+        TestVehicle(bike);
 
     }
 }

@@ -91,4 +91,33 @@ namespace LogicsExercises.Reto_28
             }
         }
     }
+    //===== Código de prueba =====
+
+    //Ejemplo del uso incorrecto del LSP
+
+    //Reto_28.Character W1 = new Reto_28.Warrior();
+    //W1.Attack();
+
+    //Reto_28.Character personaje2 = new Reto_28.Wizard();
+    //try
+    //{
+    //    personaje2.Attack();
+    //}
+    //catch (NotImplementedException ex)
+    //{
+    //    Console.WriteLine("Error: " + ex.Message);
+    //}
+
+
+    //Ejemplo del uso correcto del LSP
+    
+    //Game.Character c1 = new Warrior();
+    //Game.Character c2 = new Wizard();
+
+    //c1.Attack();
+    //c2.Attack();
+   
+    
+    
+    // ---------> El ejercicio extra se encuentra en Vehicle.cs <-----------
 }

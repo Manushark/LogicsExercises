@@ -18,29 +18,29 @@ namespace LogicsExercises.Interfaces
     }
 
 
-    public class Car : IVehicle
-    {
-        public void StartEngine()
-        {
-            Console.WriteLine("The car is shaking");
-        }
+    //public class Car : IVehicle
+    //{
+    //    public void StartEngine()
+    //    {
+    //        Console.WriteLine("The car is shaking");
+    //    }
 
-        public void StopEngine() 
-        { 
-            Console.WriteLine("The car is moveless"); 
-        }
-    }
+    //    public void StopEngine() 
+    //    { 
+    //        Console.WriteLine("The car is moveless"); 
+    //    }
+    //}
 
-    public class Motocycle : IVehicle
-    {
-        public void StartEngine() {
-            Console.WriteLine("The moto is shaking");
-        }
+    //public class Motocycle : IVehicle
+    //{
+    //    public void StartEngine() {
+    //        Console.WriteLine("The moto is shaking");
+    //    }
 
-        public void StopEngine() { 
-            Console.WriteLine("The moto is static"); 
-        }
-    }
+    //    public void StopEngine() { 
+    //        Console.WriteLine("The moto is static"); 
+    //    }
+    //}
 
     //Para compilar el código de ejemplo
       //IVehicle car = new Car();

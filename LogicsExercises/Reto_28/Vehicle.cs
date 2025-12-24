@@ -30,6 +30,8 @@ namespace LogicsExercises.Reto_28
         public virtual void Accelerate(int increment)
         {
             speed += increment;
+            Console.WriteLine($"Velocidad actual: {speed} km/h");
+
         }
 
         public virtual void Brake(int decrement)
@@ -37,6 +39,7 @@ namespace LogicsExercises.Reto_28
             speed -= decrement;
             if (speed < 0)
                 speed = 0;
+            Console.WriteLine($"Velocidad actual: {speed} km/h");
         }
     }
 
