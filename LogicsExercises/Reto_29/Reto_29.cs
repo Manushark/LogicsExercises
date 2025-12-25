@@ -118,6 +118,11 @@ namespace LogicsExercises.Reto_29
                     Console.WriteLine("The professor is attending to the class");
                 }
             }
+
+            /* El ISP nos ayuda a crear interfaces más específicas y
+             * a evitar que las clases implementen métodos que no utilizan,
+             * adeamas, facilita el mantenimiento y la escalabilidad del código.
+             */
         }
     }
 }

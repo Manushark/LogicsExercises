@@ -45,62 +45,49 @@ using LogicsExercises.Reto_27;
 using LogicsExercises.Reto_28;
 using static LogicsExercises.Reto_28.Vehicle;
 using static LogicsExercises.Reto_28.Game;
+using static LogicsExercises.Reto_29.Reto_29;
+using static LogicsExercises.Reto_29.Reto_29.Teachers;
 
 
 public class Program
 {
     public static void Main()
     {
-        //Reto 28 - Principio de Sustitución de Liskov (LSP)
-        static void TestVehicle(Vehicle vehicle)
-        {
-            vehicle.Accelerate(10);
-            vehicle.Brake(5);
-            Console.WriteLine($"Velocidad final: {vehicle.Speed}");
-        }
-        
-        Console.WriteLine("Pruebas de Vehículos:");
-        Console.WriteLine("Carros");
-        Console.WriteLine("----------------------");
-        Vehicle car = new Car();
-        car.Accelerate(50);
-        car.Brake(15);
 
-        TestVehicle(car);
+        //Forma incorrecta de ISP
+        ISchoolPerson Alumno = new Students();
+        Console.WriteLine("--Bad---Students-----");
+        Alumno.AttendClasses(); // Aqui tenemos un metodo que no le corresponde al alumno
+        Alumno.DoHomework();
+        Alumno.TakeExams();
+        Alumno.TeachClasses(); // Aqui tenemos un metodo que no le corresponde al alumno
+
+        Console.WriteLine();
+        Console.WriteLine("--Bad---Teachers-----");
+        ISchoolPerson Maestro = new Teachers();
+        Maestro.TeachClasses();
+        Maestro.DoHomework(); // Aqui tenemos un metodo que no le corresponde al maestro
 
 
-        Console.WriteLine("----------------------");
-        Console.WriteLine("Motocicletas");
-        Vehicle moto = new Motocycle();
-        moto.Accelerate(30);
-        moto.Brake(20); 
+        //Forma correcta de ISP
 
-        TestVehicle(moto);//Esto comprueba el LSP porque estamos usando la clase base Vehicle para probar las subclases Car y Motocycle sin importar su implementación interna
+        IStudent student = new Student();
+        Console.WriteLine();
+        Console.WriteLine("--Nice---Students-----");
+        student.AttendClasses(); // Aqui solo tenemos los metodos que le corresponden al estudiante
+        student.DoHomework();
+        student.TakeExams();
 
-        Console.WriteLine("----------------------");
-        Console.WriteLine("Bicicletas");
-        Vehicle bike = new Bicycle();
-        bike.Accelerate(15);
-        bike.Accelerate(10);
-        bike.Brake(26);
+        Console.WriteLine();
+        Console.WriteLine("--Nice---Teachers-----");
+        ITeacher teacher = new Teacher();
+        teacher.TeachClasses(); // Aqui solo tenemos los metodos que le corresponden al profesor
+        teacher.AttendClasses();
 
-        TestVehicle(bike);
-
+        /* De esta manera, hemos separado las interfaces
+         * para que cada clase implemente solo los métodos
+         * que le corresponden, cumpliendo así con el 
+         * Principio de Segregación de Interfaces (ISP).
+         */
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

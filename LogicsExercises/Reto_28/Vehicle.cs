@@ -85,5 +85,39 @@ namespace LogicsExercises.Reto_28
             base.Brake(2);
         }
     }
+    // Para compilar el código de ejemplo
+       //Reto 28 - Principio de Sustitución de Liskov (LSP)
+        //static void TestVehicle(Vehicle vehicle)
+        //{
+        //    vehicle.Accelerate(10);
+        //    vehicle.Brake(5);
+        //    Console.WriteLine($"Velocidad final: {vehicle.Speed}");
+        //}
+        
+        //Console.WriteLine("Pruebas de Vehículos:");
+        //Console.WriteLine("Carros");
+        //Console.WriteLine("----------------------");
+        //Vehicle car = new Car();
+        //car.Accelerate(50);
+        //car.Brake(15);
 
+        //TestVehicle(car);
+
+
+        //Console.WriteLine("----------------------");
+        //Console.WriteLine("Motocicletas");
+        //Vehicle moto = new Motocycle();
+        //moto.Accelerate(30);
+        //moto.Brake(20); 
+
+        //TestVehicle(moto);//Esto comprueba el LSP porque estamos usando la clase base Vehicle para probar las subclases Car y Motocycle sin importar su implementación interna
+
+        //Console.WriteLine("----------------------");
+        //Console.WriteLine("Bicicletas");
+        //Vehicle bike = new Bicycle();
+        //bike.Accelerate(15);
+        //bike.Accelerate(10);
+        //bike.Brake(26);
+
+        //TestVehicle(bike);
 }
