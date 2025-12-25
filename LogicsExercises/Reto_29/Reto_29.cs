@@ -56,7 +56,7 @@ namespace LogicsExercises.Reto_29
             }
         }
 
-        public class Teacher : ISchoolPerson 
+        public class Teachers : ISchoolPerson
         {
 
             public void TeachClasses()
@@ -76,6 +76,48 @@ namespace LogicsExercises.Reto_29
                 Console.WriteLine("The teacher makes exams"); // Aqui tenemos un metodo que no le corresponde al profesor
             }
 
+            //Funcionamiento del ISP de forma correcta.
+            public interface IStudent
+            {
+                public void AttendClasses();
+                public void DoHomework();
+                public void TakeExams();
+            }
+            public interface ITeacher
+            {
+                public void TeachClasses();
+                public void AttendClasses();
+            }
+
+            //Now the classes only implement the methods that correspond to them
+            public class Student : IStudent
+            {
+                public void AttendClasses()
+                {
+                    Console.WriteLine("The student is attending to class");
+                }
+                public void DoHomework()
+                {
+                    Console.WriteLine("The student is doing homework");
+                }
+                public void TakeExams()
+                {
+                    Console.WriteLine("The student is taking a exam");
+                }
+            }
+
+            // And the teacher class
+            public class Teacher : ITeacher
+            {
+                public void TeachClasses()
+                {
+                    Console.WriteLine("The professor is imparting the class");
+                }
+                public void AttendClasses()
+                {
+                    Console.WriteLine("The professor is attending to the class");
+                }
+            }
         }
     }
 }
