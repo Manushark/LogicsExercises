@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static LogicsExercises.Reto_29.Printer;
 
 namespace LogicsExercises.Reto_29
 {
@@ -42,7 +43,7 @@ namespace LogicsExercises.Reto_29
 
         //=======Clases=======
 
-        public class printer : IPrinter
+        public class BlackAndWhitePrinter : IPrinter
         {
             public void Print(string text)
             {
@@ -84,6 +85,37 @@ namespace LogicsExercises.Reto_29
                 Console.WriteLine($"Fax Printer: {text}");
             }
 
+        }
+
+        //=======Metodo de prueba=======
+        public void TestPrinter()
+        {
+            Console.WriteLine("----Printer Test----");
+            Console.WriteLine();
+            Console.WriteLine("===================");
+            Console.WriteLine("Black and White Printer:");
+            IPrinter printer = new BlackAndWhitePrinter();
+            printer.Print("Filesss.pdf");
+
+            Console.WriteLine();
+            Console.WriteLine("===================");
+            Console.WriteLine("Color Printer:");
+            IPrinter printers = new ColorPrinter();
+            printers.Print("Photos.pdf");
+            IColorPrinter colorPrinter = new ColorPrinter();
+            colorPrinter.ColorPrint("File_with_color.pdf");
+            Console.WriteLine();
+
+            Console.WriteLine("===================");
+            Console.WriteLine("Multifunction Printer:");
+            IPrinter printerW_b = new MultifunctionPrinter();
+            printerW_b.Print("Susano.dox");
+
+            IScannerPrinter scannerPrinter = new MultifunctionPrinter();
+            scannerPrinter.ScannerPrint("File_Mecanic.pdf");
+
+            IFaxPrinter faxPrinter = new MultifunctionPrinter();
+            faxPrinter.FaxPrint("File.pdf");
         }
     }
 }
