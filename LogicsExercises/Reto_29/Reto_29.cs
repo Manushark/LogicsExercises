@@ -123,6 +123,8 @@ namespace LogicsExercises.Reto_29
              * a evitar que las clases implementen métodos que no utilizan,
              * adeamas, facilita el mantenimiento y la escalabilidad del código.
              */
+
+            //------> El codigo de Dificultad Extra se encuentra en Reto_29\Printer <------
         }
     }
 }

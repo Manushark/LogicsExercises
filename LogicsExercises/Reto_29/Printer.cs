@@ -39,5 +39,51 @@ namespace LogicsExercises.Reto_29
         { 
             void FaxPrint(string text);
         }
+
+        //=======Clases=======
+
+        public class printer : IPrinter
+        {
+            public void Print(string text)
+            {
+                Console.WriteLine($"Black and White Printer: {text}");
+            }
+        }
+
+        public class ColorPrinter : IPrinter, IColorPrinter
+        {
+            public void Print(string text)
+            {
+                Console.WriteLine($"Black and White Printer: {text}");
+            }
+            public void ColorPrint(string text)
+            {
+                Console.WriteLine($"Color Printer: {text}");
+            }
+        }
+
+        public class MultifunctionPrinter : IPrinter, IColorPrinter, IScannerPrinter, IFaxPrinter
+        {
+            public void Print(string text)
+            {
+                Console.WriteLine($"Black and White Printer: {text}");
+            }
+
+            public void ColorPrint(string text)
+            {
+                Console.WriteLine($"Color Printer: {text}");
+            }
+
+            public void ScannerPrint(string text)
+            {
+                Console.WriteLine($"Scanner Printer: {text}");
+            }
+
+            public void FaxPrint(string text)
+            {
+                Console.WriteLine($"Fax Printer: {text}");
+            }
+
+        }
     }
 }
