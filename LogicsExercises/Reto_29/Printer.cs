@@ -27,7 +27,8 @@ namespace LogicsExercises.Reto_29
             void Print(string text);
         }
 
-        public interface IColorPrinter { 
+        public interface IColorPrinter
+        {
             void ColorPrint(string text);
         }
 
@@ -36,8 +37,8 @@ namespace LogicsExercises.Reto_29
             void ScannerPrint(string text);
         }
 
-        public interface IFaxPrinter 
-        { 
+        public interface IFaxPrinter
+        {
             void FaxPrint(string text);
         }
 
@@ -51,7 +52,7 @@ namespace LogicsExercises.Reto_29
             }
         }
 
-        public class ColorPrinter : IPrinter, IColorPrinter
+        public class ColorPrinter : IPrinter, IColorPrinter 
         {
             public void Print(string text)
             {
@@ -92,22 +93,32 @@ namespace LogicsExercises.Reto_29
         {
             Console.WriteLine("----Printer Test----");
             Console.WriteLine();
+            Console.WriteLine("Black and White Printer");
             Console.WriteLine("===================");
-            Console.WriteLine("Black and White Printer:");
             IPrinter printer = new BlackAndWhitePrinter();
             printer.Print("Filesss.pdf");
 
             Console.WriteLine();
+            Console.WriteLine("Color Printer");
             Console.WriteLine("===================");
-            Console.WriteLine("Color Printer:");
             IPrinter printers = new ColorPrinter();
             printers.Print("Photos.pdf");
             IColorPrinter colorPrinter = new ColorPrinter();
             colorPrinter.ColorPrint("File_with_color.pdf");
             Console.WriteLine();
 
+            Console.WriteLine("Multifunction Printer");
             Console.WriteLine("===================");
-            Console.WriteLine("Multifunction Printer:");
+            /*
+             * Se podria impletementar de dos formas diferentes:
+             * creando una instancia de  la clase MultifunctionPrinter, pero no es muy recomendable ya que
+             * creariamos un objeto con mas funcionalidades de las que necesitamos en ese momento.
+             * 
+             * La otra forma es Referencia de tipo interfaz apuntando a una implementación concreta
+             * osea crear una instancia de la clase MultifunctionPrinter pero referenciada por una interfaz
+             * y hacemos eso para cada funcionalidad que necesitemos en ese momento.
+             * de esta manera aplicamos el principio de segregacion de interfaces (ISP) de manera correcta. (Como esta debajo)
+             */
             IPrinter printerW_b = new MultifunctionPrinter();
             printerW_b.Print("Susano.dox");
 
@@ -117,5 +128,22 @@ namespace LogicsExercises.Reto_29
             IFaxPrinter faxPrinter = new MultifunctionPrinter();
             faxPrinter.FaxPrint("File.pdf");
         }
+
+        //Otra forma en que se podria implementar el MultifunctionPrinter es la siguiente:
+        //Aqui creamos una instancia de la clase MultifunctionPrinter y la referenciamos con todas las interfaces
+
+
+        //MultifunctionPrinter multi = new MultifunctionPrinter();
+
+        //IPrinter p = multi;
+        //IColorPrinter c = multi;
+        //IScannerPrinter s = multi;
+        //IFaxPrinter f = multi;
+
+        //// Se crea una única instancia de MultifunctionPrinter.
+        //// El mismo objeto se referencia mediante diferentes interfaces.
+        //// Cada interfaz expone únicamente el comportamiento que define,
+        //// aplicando polimorfismo y el principio de segregación de interfaces (ISP).
+
     }
 }

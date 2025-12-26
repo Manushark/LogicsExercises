@@ -125,6 +125,43 @@ namespace LogicsExercises.Reto_29
              */
 
             //------> El codigo de Dificultad Extra se encuentra en Reto_29\Printer <------
+
+            ////Codigo para compilar los ejemplos
+            ////Forma incorrecta de ISP
+            //ISchoolPerson Alumno = new Students();
+            //Console.WriteLine("--Bad---Students-----");
+            //Alumno.AttendClasses(); // Aqui tenemos un metodo que no le corresponde al alumno
+            //Alumno.DoHomework();
+            //Alumno.TakeExams();
+            //Alumno.TeachClasses(); // Aqui tenemos un metodo que no le corresponde al alumno
+
+            //Console.WriteLine();
+            //Console.WriteLine("--Bad---Teachers-----");
+            //ISchoolPerson Maestro = new Teachers();
+            //Maestro.TeachClasses();
+            //Maestro.DoHomework(); // Aqui tenemos un metodo que no le corresponde al maestro
+
+
+            ////Forma correcta de ISP
+
+            //IStudent student = new Student();
+            //Console.WriteLine();
+            //Console.WriteLine("--Nice---Students-----");
+            //student.AttendClasses(); // Aqui solo tenemos los metodos que le corresponden al estudiante
+            //student.DoHomework();
+            //student.TakeExams();
+
+            //Console.WriteLine();
+            //Console.WriteLine("--Nice---Teachers-----");
+            //ITeacher teacher = new Teacher();
+            //teacher.TeachClasses(); // Aqui solo tenemos los metodos que le corresponden al profesor
+            //teacher.AttendClasses();
+
+            /* De esta manera, hemos separado las interfaces
+             * para que cada clase implemente solo los métodos
+             * que le corresponden, cumpliendo así con el 
+             * Principio de Segregación de Interfaces (ISP).
+             */
         }
     }
 }

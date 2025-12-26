@@ -47,47 +47,14 @@ using static LogicsExercises.Reto_28.Vehicle;
 using static LogicsExercises.Reto_28.Game;
 using static LogicsExercises.Reto_29.Reto_29;
 using static LogicsExercises.Reto_29.Reto_29.Teachers;
+using LogicsExercises.Reto_29;
 
 
 public class Program
 {
     public static void Main()
     {
-
-        //Forma incorrecta de ISP
-        ISchoolPerson Alumno = new Students();
-        Console.WriteLine("--Bad---Students-----");
-        Alumno.AttendClasses(); // Aqui tenemos un metodo que no le corresponde al alumno
-        Alumno.DoHomework();
-        Alumno.TakeExams();
-        Alumno.TeachClasses(); // Aqui tenemos un metodo que no le corresponde al alumno
-
-        Console.WriteLine();
-        Console.WriteLine("--Bad---Teachers-----");
-        ISchoolPerson Maestro = new Teachers();
-        Maestro.TeachClasses();
-        Maestro.DoHomework(); // Aqui tenemos un metodo que no le corresponde al maestro
-
-
-        //Forma correcta de ISP
-
-        IStudent student = new Student();
-        Console.WriteLine();
-        Console.WriteLine("--Nice---Students-----");
-        student.AttendClasses(); // Aqui solo tenemos los metodos que le corresponden al estudiante
-        student.DoHomework();
-        student.TakeExams();
-
-        Console.WriteLine();
-        Console.WriteLine("--Nice---Teachers-----");
-        ITeacher teacher = new Teacher();
-        teacher.TeachClasses(); // Aqui solo tenemos los metodos que le corresponden al profesor
-        teacher.AttendClasses();
-
-        /* De esta manera, hemos separado las interfaces
-         * para que cada clase implemente solo los métodos
-         * que le corresponden, cumpliendo así con el 
-         * Principio de Segregación de Interfaces (ISP).
-         */
+        Printer printer = new Printer();
+        printer.TestPrinter();
     }
 }
