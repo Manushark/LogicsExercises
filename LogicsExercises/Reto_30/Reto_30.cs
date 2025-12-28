@@ -60,5 +60,36 @@ namespace LogicsExercises.Reto_30
             }
         }
 
+        //Implementacion correcta del DIP
+
+        // Interfaz de abstracción
+        public interface IDatabase
+        {
+            void save(string data);
+        }
+
+        // Clase de bajo nivel que implementa la interfaz
+        public class MySqlDataBase : IDatabase
+        {
+            public void save(string data)
+            {
+                Console.WriteLine("Saving data in MySQL database");
+            }
+        }
+
+        // Podria agregar otras implementaciones de bases de datos, sin afectar al UserService
+        public class SqlServerDatabase : IDatabase
+        {
+            public void save(string data)
+            {
+                Console.WriteLine("Saving data in SQL Server database");
+            }
+        }
+
+       
+
+
+
+
     }
 }
