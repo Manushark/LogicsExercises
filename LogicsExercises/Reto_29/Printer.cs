@@ -128,6 +128,10 @@ namespace LogicsExercises.Reto_29
             IFaxPrinter faxPrinter = new MultifunctionPrinter();
             faxPrinter.FaxPrint("File.pdf");
         }
+        //=======Codigo para compilar el ejemplo=======
+        //  Printer printer = new Printer();
+        //printer.TestPrinter();
+
 
         //Otra forma en que se podria implementar el MultifunctionPrinter es la siguiente:
         //Aqui creamos una instancia de la clase MultifunctionPrinter y la referenciamos con todas las interfaces

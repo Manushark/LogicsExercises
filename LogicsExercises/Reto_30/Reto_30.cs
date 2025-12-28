@@ -45,11 +45,11 @@ namespace LogicsExercises.Reto_30
         }
 
         // Clase de alto nivel (depende directamente de MySqlDatabase)
-        public class UserService
+        public class UserServices
         {
             private MySqlDatabase database;
 
-            public UserService()
+            public UserServices()
             {
                 database = new MySqlDatabase(); // Aqui esta la dependencia directa
             }
@@ -86,10 +86,25 @@ namespace LogicsExercises.Reto_30
             }
         }
 
-       
+        // Clase de alto nivel que depende de la abstracción (IDatabase)
+        public class UserServicess
+        {
+            private readonly IDatabase database;// Inyección de dependencia a través del constructor
 
+            public UserServicess(IDatabase database)
+            {
+                this.database = database;
+            }
 
+            public void CreateUser(string user)
+            {
+                database.save(user);
+            }
+        }
 
-
+        /* La inyeccion de dependencias es un patrón de diseño que permite a un 
+         * objeto recibir sus dependencias desde el exterior, en lugar de crearlas internamente.
+         * y esto nos permite cumplir con el principio DIP, ya que las clases de alto nivel no dependen directamente de las clases de bajo nivel,
+         */
     }
 }

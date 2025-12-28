@@ -48,13 +48,16 @@ using static LogicsExercises.Reto_28.Game;
 using static LogicsExercises.Reto_29.Reto_29;
 using static LogicsExercises.Reto_29.Reto_29.Teachers;
 using LogicsExercises.Reto_29;
+using static LogicsExercises.Reto_30.Reto_30;
 
 
 public class Program
 {
     public static void Main()
     {
-        Printer printer = new Printer();
-        printer.TestPrinter();
+        IDatabase database = new MySqlDataBase(); // aquí decides cuál usar
+        UserServicess userService = new UserServicess(database);
+
+        userService.CreateUser("Manuel");
     }
 }
