@@ -102,6 +102,14 @@ namespace LogicsExercises.Reto_30
             }
         }
 
+        //   --------------------> La dificultad extra se encuentra en la clase Notifier.cs y sus implementaciones.
+
+        //Codigo para comprobar que se cumple el principio DIP
+        //IDatabase database = new MySqlDataBase(); // aquí decides cuál usar
+        //UserServicess userService = new UserServicess(database);
+
+        //userService.CreateUser("Manuel");
+
         /* La inyeccion de dependencias es un patrón de diseño que permite a un 
          * objeto recibir sus dependencias desde el exterior, en lugar de crearlas internamente.
          * y esto nos permite cumplir con el principio DIP, ya que las clases de alto nivel no dependen directamente de las clases de bajo nivel,
