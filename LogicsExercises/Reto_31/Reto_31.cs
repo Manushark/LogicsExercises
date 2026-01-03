@@ -30,6 +30,38 @@ namespace LogicsExercises.Reto_31
          * 5. Salir del programa.
          */
 
+        public void Olympics()
+        {
+            Console.WriteLine("¡Bienvenido a la simulación de los JJOO de París 2024!");
 
+            Console.WriteLine("1. Registro de eventos."); 
+            Console.WriteLine("2. Registro de participantes."); 
+            Console.WriteLine("3. Simulación de eventos.");
+            Console.WriteLine("4. Creación de informes.");
+            Console.WriteLine("5. Salir del programa.");
+
+            int Option = Convert.ToInt32(Console.ReadLine()); 
+            switch (Option)
+            {
+                case 1:
+                    Console.WriteLine("Registro de eventos seleccionado.");
+                    break;
+                case 2:
+                    Console.WriteLine("Registro de participantes seleccionado.");
+                    break;
+                case 3:
+                    Console.WriteLine("Simulación de eventos seleccionado.");
+                    break;
+                case 4:
+                    Console.WriteLine("Creación de informes seleccionado.");
+                    break;
+                case 5:
+                    Console.WriteLine("Saliendo del programa. ¡Hasta luego!");
+                    break;
+                default:
+                    Console.WriteLine("Opción no válida. Por favor, selecciona una opción del 1 al 5.");
+                    break;
+            }
+        }
     }
 }

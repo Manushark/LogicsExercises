@@ -57,4 +57,21 @@ namespace LogicsExercises.Reto_30
             _notifier.Send(message);
         }
     }
+
+    //Code to test the implementation
+    //// Implementación del patrón Strategy para notificaciones
+    //    Notifier notifier = new EmailNotifier();
+    //    NotificationService notificationService = new NotificationService(notifier);
+    //    notificationService.Notify("Hello, this is a test notification!");
+
+    //    // Cambiamos la estrategia a SMS
+    //    notifier = new SMSNotifier();
+    //    notificationService = new NotificationService(notifier);
+    //    notificationService.Notify("Hello, this is a test notification via SMS!");
+
+    //    // Cambiamos la estrategia a PUSH
+    //    notifier = new PushNotifier();
+    //    notificationService = new NotificationService(notifier);
+    //    notificationService.Notify("Hello, this is a test PUSH notification!");
+
 }

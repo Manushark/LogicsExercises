@@ -50,26 +50,15 @@ using static LogicsExercises.Reto_29.Reto_29.Teachers;
 using LogicsExercises.Reto_29;
 using static LogicsExercises.Reto_30.Reto_30;
 using LogicsExercises.Reto_30;
+using LogicsExercises.Reto_31;
 
 
 public class Program
 {
     public static void Main()
     {
-        // Implementación del patrón Strategy para notificaciones
-        Notifier notifier = new EmailNotifier();
-        NotificationService notificationService = new NotificationService(notifier);
-        notificationService.Notify("Hello, this is a test notification!");
-
-        // Cambiamos la estrategia a SMS
-        notifier = new SMSNotifier();
-        notificationService = new NotificationService(notifier);
-        notificationService.Notify("Hello, this is a test notification via SMS!");
-
-        // Cambiamos la estrategia a PUSH
-        notifier = new PushNotifier();
-        notificationService = new NotificationService(notifier);
-        notificationService.Notify("Hello, this is a test PUSH notification!");
-
+        Reto_31 reto_31 = new Reto_31();    
+        reto_31.Olympics();
+        
     }
 }
