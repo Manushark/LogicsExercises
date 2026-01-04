@@ -35,7 +35,8 @@ namespace LogicsExercises.Reto_31
         public void Olympics()
         {
             bool s = true;
-            Event newEvent = new Event();
+            OlympicManager olympics = new OlympicManager();
+            List<Participant> participant = new List<Participant>();
 
             while (s)
             {
@@ -63,13 +64,11 @@ namespace LogicsExercises.Reto_31
                 {
                     case 1:
                         Console.WriteLine("Registro de eventos seleccionado.");
-                        newEvent.AddEvent();
-
+                        olympics.RegisterEvent();
                         break;
                     case 2:
                         Console.WriteLine("Registro de participantes seleccionado.");
-                        newEvent.ListEvents();
-
+                        olympics.RegisterParticipant();
                         break;
                     case 3:
                         Console.WriteLine("Simulación de eventos seleccionado.");
@@ -88,32 +87,95 @@ namespace LogicsExercises.Reto_31
             }
         }
 
-        public class Event
+        public class OlympicManager
         {
-            public readonly List<string> events = new List<string>();
+            private readonly List<string> events = new();
+            private readonly Dictionary<string, List<Participant>> participants = new();
 
-            public void AddEvent()
+            //Registro de eventos
+            public void RegisterEvent()
             {
-                Console.WriteLine("Ingrese el nombre del evento deportivo:");
-                string Name = Console.ReadLine();
-                events.Add(Name);
-                Console.WriteLine("Evento registrado: " + Name);
-            }
+                Console.Write("Introduce el nombre del evento deportivo: ");
+                string eventName = Console.ReadLine()?.Trim();
 
-            public void ListEvents()
-            {
-                if (events.Count == 0)
+                if (string.IsNullOrEmpty(eventName))
                 {
-                    Console.WriteLine("No hay eventos registrados.");
+                    Console.WriteLine("Nombre de evento inválido.");
                     return;
                 }
 
-                Console.WriteLine($"Eventos registrados ({events.Count}):");
-                foreach (var ev in events)
+                if (events.Contains(eventName))
                 {
-                    Console.WriteLine($"- {ev}");
+                    Console.WriteLine($"El evento {eventName} ya está registrado.");
+                    return;
                 }
 
+                events.Add(eventName);
+                Console.WriteLine($"Evento {eventName} registrado correctamente.");
+            }
+
+            //Registro de participantes
+            public void RegisterParticipant()
+            {
+                if (events.Count == 0)
+                {
+                    Console.WriteLine("No hay eventos registrados. Por favor, registra uno primero.");
+                    return;
+                }
+
+                Console.Write("Introduce el nombre del participante: ");
+                string name = Console.ReadLine()?.Trim();
+
+                Console.Write("Introduce el país del participante: ");
+                string country = Console.ReadLine()?.Trim();
+
+                Participant participant = new Participant(name, country);
+
+                Console.WriteLine("Eventos deportivos disponibles:");
+                for (int i = 0; i < events.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1}. {events[i]}");
+                }
+
+                Console.Write("Selecciona el número del evento para asignar al participante: ");
+                if (!int.TryParse(Console.ReadLine(), out int eventChoice) ||
+                    eventChoice < 1 || eventChoice > events.Count)
+                {
+                    Console.WriteLine("Selección de evento deportivo inválida.");
+                    return;
+                }
+
+                string selectedEvent = events[eventChoice - 1];
+
+                if (!participants.ContainsKey(selectedEvent))
+                {
+                    participants[selectedEvent] = new List<Participant>();
+                }
+
+                if (participants[selectedEvent]
+                    .Any(p => p.Name == participant.Name && p.Country == participant.Country))
+                {
+                    Console.WriteLine(
+                        $"El participante {name} de {country} ya está registrado en el evento deportivo {selectedEvent}.");
+                    return;
+                }
+
+                participants[selectedEvent].Add(participant);
+                Console.WriteLine(
+                    $"El participante {name} de {country} se ha registrado en el evento deportivo {selectedEvent}.");
+            }
+        }
+
+
+        public class Participant
+        {
+            public string Name { get; set; }
+            public string Country { get; set; }
+
+            public Participant(string name, string country)
+            {
+                Name = name;
+                Country = country;
             }
         }
     }
