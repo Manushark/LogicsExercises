@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace LogicsExercises.Reto_31
@@ -72,6 +73,7 @@ namespace LogicsExercises.Reto_31
                         break;
                     case 3:
                         Console.WriteLine("Simulación de eventos seleccionado.");
+                        olympics.SimulateEvents();
                         break;
                     case 4:
                         Console.WriteLine("Creación de informes seleccionado.");
@@ -91,6 +93,9 @@ namespace LogicsExercises.Reto_31
         {
             private readonly List<string> events = new();
             private readonly Dictionary<string, List<Participant>> participants = new();
+            private readonly Dictionary<string, List<Participant>> eventResults = new();
+            private readonly Dictionary<string, Dictionary<string, int>> countryResults = new();
+
 
             //Registro de eventos
             public void RegisterEvent()
@@ -164,6 +169,53 @@ namespace LogicsExercises.Reto_31
                 Console.WriteLine(
                     $"El participante {name} de {country} se ha registrado en el evento deportivo {selectedEvent}.");
             }
+
+            // Simulación de eventos
+            public void SimulateEvents()
+            {
+                Random random = new Random();
+
+                foreach (var ev in events)
+                {
+                    if (!participants.ContainsKey(ev) || participants[ev].Count < 3)
+                    {
+                        Console.WriteLine($"No hay suficientes participantes para el evento {ev}.");
+                        continue;
+                    }
+
+                    var winners = participants[ev]
+                        .OrderBy(x => random.Next())
+                        .Take(3)
+                        .ToList();
+
+                    eventResults[ev] = winners;
+
+                    AssignMedal(winners[0].Country, "gold");
+                    AssignMedal(winners[1].Country, "silver");
+                    AssignMedal(winners[2].Country, "bronze");
+
+                    Console.WriteLine($"\nResultados del evento {ev}:");
+                    Console.WriteLine($"🥇 {winners[0].Name} ({winners[0].Country})");
+                    Console.WriteLine($"🥈 {winners[1].Name} ({winners[1].Country})");
+                    Console.WriteLine($"🥉 {winners[2].Name} ({winners[2].Country})");
+                }
+
+            }
+            // Asignar medallas
+            private void AssignMedal(string country, string medal)
+            {
+                if (!countryResults.ContainsKey(country))
+                {
+                    countryResults[country] = new Dictionary<string, int>
+                    {
+                    { "gold", 0 },
+                    { "silver", 0 },
+                    { "bronze", 0 }
+                    };
+                }
+
+                countryResults[country][medal]++;
+            }
         }
 
 
@@ -178,5 +230,8 @@ namespace LogicsExercises.Reto_31
                 Country = country;
             }
         }
+        
+
     }
+
 }
