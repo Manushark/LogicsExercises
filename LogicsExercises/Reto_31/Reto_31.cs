@@ -77,6 +77,7 @@ namespace LogicsExercises.Reto_31
                         break;
                     case 4:
                         Console.WriteLine("Creación de informes seleccionado.");
+                        olympics.ShowReport();
                         break;
                     case 5:
                         Console.WriteLine("Saliendo del programa. ¡Hasta luego!");
@@ -195,9 +196,9 @@ namespace LogicsExercises.Reto_31
                     AssignMedal(winners[2].Country, "bronze");
 
                     Console.WriteLine($"\nResultados del evento {ev}:");
-                    Console.WriteLine($"🥇 {winners[0].Name} ({winners[0].Country})");
-                    Console.WriteLine($"🥈 {winners[1].Name} ({winners[1].Country})");
-                    Console.WriteLine($"🥉 {winners[2].Name} ({winners[2].Country})");
+                    Console.WriteLine($"1- {winners[0].Name} ({winners[0].Country})");
+                    Console.WriteLine($"2- {winners[1].Name} ({winners[1].Country})");
+                    Console.WriteLine($"3- {winners[2].Name} ({winners[2].Country})");
                 }
 
             }
@@ -215,6 +216,40 @@ namespace LogicsExercises.Reto_31
                 }
 
                 countryResults[country][medal]++;
+            }
+
+            // Creación de informes
+            public void ShowReport()
+            {
+                Console.WriteLine("\n===== INFORME POR EVENTO =====");
+
+                // Si aún no se ha simulado ningún evento
+                if (eventResults.Count == 0)
+                {
+                    Console.WriteLine("No hay resultados registrados. Primero simula los eventos.");
+                    return;
+                }
+
+                // Mostrar ganadores por evento
+                foreach (var ev in eventResults)
+                {
+                    Console.WriteLine($"\nEvento: {ev.Key}");
+                    Console.WriteLine($"1- {ev.Value[0].Name} ({ev.Value[0].Country})");
+                    Console.WriteLine($"2- {ev.Value[1].Name} ({ev.Value[1].Country})");
+                    Console.WriteLine($"3- {ev.Value[2].Name} ({ev.Value[2].Country})");
+                }
+
+                Console.WriteLine("\n===== RANKING DE PAÍSES =====");
+
+                // Ordenamos los países por cantidad de medallas
+                foreach (var country in countryResults
+                    .OrderByDescending(c => c.Value["gold"])
+                    .ThenByDescending(c => c.Value["silver"])
+                    .ThenByDescending(c => c.Value["bronze"]))
+                {
+                    Console.WriteLine(
+                        $"{country.Key} → 1{country.Value["gold"]} 2-{country.Value["silver"]} 3{country.Value["bronze"]}");
+                }
             }
         }
 
