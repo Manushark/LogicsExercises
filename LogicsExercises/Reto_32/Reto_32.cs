@@ -53,6 +53,8 @@ namespace LogicsExercises.Reto_32
                 {
                     int danoDeadpool = rnd.Next(10, 101);
                     int danoWolverine = rnd.Next(10, 121);
+                    Thread.Sleep(3000);
+                    Console.WriteLine( );
                     Console.WriteLine($"Turno {turno}:");
 
                     // Deadpool ataca a Wolverine
@@ -86,7 +88,8 @@ namespace LogicsExercises.Reto_32
                         break;
                     }
 
-                    Thread.Sleep(1000);
+                    Console.WriteLine();
+                    Thread.Sleep(3000);
 
                     // Wolverine ataca a Deadpool
                     if (WolverinePierdeTurno)

@@ -51,14 +51,18 @@ using LogicsExercises.Reto_29;
 using static LogicsExercises.Reto_30.Reto_30;
 using LogicsExercises.Reto_30;
 using LogicsExercises.Reto_31;
+using LogicsExercises.Reto_32;
+
 
 
 public class Program
 {
     public static void Main()
     {
-        Reto_31 reto_31 = new Reto_31();    
-        reto_31.Olympics();
-        
+        //Reto_31 reto_31 = new Reto_31();    
+        //reto_31.Olympics();
+        Reto_32 reto_32 = new Reto_32();
+        reto_32.Run();
+
     }
 }
