@@ -22,6 +22,12 @@ namespace LogicsExercises.Reto_27
      * 3. Agrega una quinta operación para calcular potencias.
      * 4. Comprueba que se cumple el OCP.
      */
+
+    /*
+     * el principio OCP establece que las entidades de software (clases, módulos, funciones, etc.)
+     * deben estar abiertas para su extensión, pero cerradas para su modificación. 
+     * Esto significa que deberíamos poder agregar nuevas funcionalidades a una entidad sin tener que modificar su código fuente existente.
+     */
     public class Reto_27
     {
         //Ejemplo de implementación incorrecta del Principio OCP
