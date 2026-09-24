@@ -59,6 +59,10 @@ namespace LogicsExercises.Reto_06
                 return (fibonacci(n - 1) + fibonacci(n - 2));
             }
         }
+        /* La sucesión de Fibonacci es una secuencia de números en la que cada número es la suma de los dos anteriores.
+         * La secuencia comienza con 0 y 1, y a partir de ahí, cada número siguiente se calcula sumando los dos números anteriores. 
+         * La sucesión de Fibonacci se puede expresar matemáticamente de la siguiente manera:
+         */
 
         //Fibonacci con valor por defecto en la posición 12
         public static int fibonacci2(int n = 12)
