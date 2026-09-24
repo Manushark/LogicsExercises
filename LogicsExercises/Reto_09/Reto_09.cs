@@ -221,5 +221,17 @@ namespace LogicsExercises.Reto_09
 
         }
     }
-   
+    /*
+     * Polimorfismo: Es un principio de la programación orientada a objetos que permite que objetos de diferentes clases
+     * puedan ser tratados como objetos de una clase común. En otras palabras, 
+     * el polimorfismo permite que una misma operación o método pueda comportarse de manera diferente según el objeto que lo invoque.
+     * 
+     * Abstracción: Es un principio de la programación orientada a objetos que permite 
+     * representar conceptos complejos mediante modelos simplificados. por ejemplo, una clase abstracta puede definir un conjunto de métodos y propiedades que deben ser implementados por sus subclases,
+     * 
+     * herencia: Es un principio de la programación orientada a objetos que permite crear nuevas clases a partir de clases existentes.
+     * 
+     * encapsulamiento: Es un principio de la programación orientada a objetos que consiste en ocultar los detalles internos de una clase y exponer solo la interfaz necesaria para interactuar con ella.
+     * 
+     */
 }
